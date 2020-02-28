@@ -47,8 +47,8 @@
   },
   "lint-staged": {
     "*.ts?(x)": [
-      "lint:precommit",
-      "test:precommit"
+      "npm run lint:precommit",
+      "npm run test:precommit"
     ]
   }
 }
