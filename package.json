@@ -10,19 +10,23 @@
     "@types/node": "^12.12.28",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.8",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
     "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint ./src/*"
+    "lint": "eslint . --ext .ts,.tsx",
+    "test:precommit": "CI=true react-scripts test --passWithNoTests --findRelatedTests",
+    "lint:precommit": "eslint"
   },
   "browserslist": {
     "production": [
@@ -36,15 +40,15 @@
       "last 1 safari version"
     ]
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run test"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint"
+    "*.ts?(x)": [
+      "lint:precommit",
+      "test:precommit"
+    ]
   }
 }
