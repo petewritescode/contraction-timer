@@ -55,4 +55,10 @@ export const CssReset = createGlobalStyle`
     *:after {
         box-sizing: border-box;
     }
+
+    html,
+    body,
+    #root {
+        height: 100%;
+    }
 `;

@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import { Container } from './layout.styled';
+
+import { Container, Content, Header } from './layout.styled';
 
 const Layout: FunctionComponent = () => (
     <Container>
-        Layout here
+        <Header>Header</Header>
+        <Content>Content</Content>
     </Container>
 );
 
