@@ -16,6 +16,12 @@
     "typescript": "^3.7.5"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "eslint-config-airbnb-typescript": "^7.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8"
   },
@@ -24,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test:precommit": "CI=true react-scripts test --passWithNoTests --findRelatedTests",
     "lint:precommit": "eslint"
   },
@@ -46,7 +52,7 @@
     }
   },
   "lint-staged": {
-    "*.ts?(x)": [
+    "*.{js,jsx,ts,tsx}": [
       "npm run lint:precommit",
       "npm run test:precommit"
     ]
