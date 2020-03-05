@@ -6,6 +6,7 @@ module.exports = {
     rules: {
         'no-multiple-empty-lines': ['error', { max: 1 }],
         'react/jsx-indent': ['error', 4],
+        'spaced-comment': ['error', 'always', { markers: ['/'] }],
         '@typescript-eslint/indent': ['error', 4],
         '@typescript-eslint/space-before-function-paren': ['error', 'never'],
     },
