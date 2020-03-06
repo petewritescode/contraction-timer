@@ -20,12 +20,13 @@ module.exports = {
                     'sibling',
                     'index',
                 ],
-                'newlines-between': 'always',
+                'newlines-between': 'never',
             }
         ],
         'import/prefer-default-export': 'off',
         'no-multiple-empty-lines': ['error', { max: 1 }],
         'react/jsx-indent': ['error', 4],
+        'react/prop-types': 'off',
         'spaced-comment': ['error', 'always', { markers: ['/'] }],
     },
 };
