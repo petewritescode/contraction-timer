@@ -1,7 +1,14 @@
 import React, { FunctionComponent } from 'react';
+import { Heading } from '../heading/heading.component';
+import { MenuButton } from '../menu-button/menu-button.component';
+import { Wrapper, HeadingWrapper } from './header.styled';
 
-interface Props {
-    heading: string;
-}
+export const Header: FunctionComponent = () => (
+    <Wrapper>
+        <HeadingWrapper>
+            <Heading />
+        </HeadingWrapper>
 
-export const Header: FunctionComponent<Props> = ({ heading }) => <div>{heading}</div>;
+        <MenuButton />
+    </Wrapper>
+);

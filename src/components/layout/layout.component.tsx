@@ -4,10 +4,7 @@ import { Content, Wrapper } from './layout.styled';
 
 export const Layout: FunctionComponent = () => (
     <Wrapper>
-        <header>
-            <Header heading="test" />
-        </header>
-
+        <Header />
         <Content>Content</Content>
     </Wrapper>
 );
