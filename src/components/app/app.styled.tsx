@@ -61,4 +61,8 @@ export const GlobalStyles = createGlobalStyle`
     #root {
         height: 100%;
     }
+
+    body {
+        font-family: sans-serif;
+    }
 `;
