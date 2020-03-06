@@ -1,12 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { CssReset } from './app.styled';
-import Layout from '../layout/layout.component';
 
-const App: FunctionComponent = () => (
+import { Layout } from '../layout/layout.component';
+
+import { GlobalStyles } from './app.styled';
+
+export const App: FunctionComponent = () => (
     <>
-        <CssReset />
+        <GlobalStyles />
         <Layout />
     </>
 );
-
-export default App;

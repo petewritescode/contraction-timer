@@ -1,12 +1,10 @@
 import React, { FunctionComponent } from 'react';
 
-import { Container, Content, Header } from './layout.styled';
+import { Content, Header, Wrapper } from './layout.styled';
 
-const Layout: FunctionComponent = () => (
-    <Container>
+export const Layout: FunctionComponent = () => (
+    <Wrapper>
         <Header>Header</Header>
         <Content>Content</Content>
-    </Container>
+    </Wrapper>
 );
-
-export default Layout;
