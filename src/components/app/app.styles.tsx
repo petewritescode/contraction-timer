@@ -49,6 +49,12 @@ export const CssReset = createGlobalStyle`
         border-spacing: 0;
         border-collapse: collapse;
     }
+
+    button {
+        padding: 0;
+        color: inherit;
+        font: inherit;
+    }
 `;
 
 export const GlobalStyles = createGlobalStyle`
