@@ -74,5 +74,6 @@ export const GlobalStyles = createGlobalStyle`
         background-color: #2e395b;
         color: #ffffff;
         font-family: 'Lato', sans-serif;
+        font-weight: 300;
     }
 `;
