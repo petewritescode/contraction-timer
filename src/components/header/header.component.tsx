@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import { Heading } from '../heading/heading.component';
 import { MenuButton } from '../menu-button/menu-button.component';
-import { Wrapper, HeadingWrapper } from './header.styled';
+import { StyledHeader, StyledHeading } from './header.styles';
 
 export const Header: FunctionComponent = () => (
-    <Wrapper>
-        <HeadingWrapper>
+    <StyledHeader>
+        <StyledHeading>
             <Heading />
-        </HeadingWrapper>
+        </StyledHeading>
 
         <MenuButton />
-    </Wrapper>
+    </StyledHeader>
 );

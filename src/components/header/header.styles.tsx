@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.header`
+export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     height: 50px;
@@ -8,6 +8,6 @@ export const Wrapper = styled.header`
     padding-left: 20px;
 `;
 
-export const HeadingWrapper = styled.div`
+export const StyledHeading = styled.div`
     flex-grow: 1;
 `;

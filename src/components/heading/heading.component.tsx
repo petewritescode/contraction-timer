@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { HeadingElement } from './heading.styled';
+import { StyledHeading } from './heading.styles';
 
 export const Heading: FunctionComponent = () => (
-    <HeadingElement>Timer</HeadingElement>
+    <StyledHeading>Timer</StyledHeading>
 );

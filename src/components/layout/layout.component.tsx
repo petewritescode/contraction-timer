@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { Header } from '../header/header.component';
-import { Content, Wrapper } from './layout.styled';
+import { StyledContent, StyledLayout } from './layout.styles';
 
 export const Layout: FunctionComponent = () => (
-    <Wrapper>
+    <StyledLayout>
         <Header />
-        <Content>Content</Content>
-    </Wrapper>
+        <StyledContent>Content</StyledContent>
+    </StyledLayout>
 );
