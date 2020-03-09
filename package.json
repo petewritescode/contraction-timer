@@ -25,16 +25,23 @@
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "husky": "^4.2.3",
-    "lint-staged": "^10.0.8"
+    "lint-staged": "^10.0.8",
+    "stylelint": "^13.2.0",
+    "stylelint-config-property-sort-order-smacss": "^6.0.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
-    "test:precommit": "CI=true react-scripts test --passWithNoTests --findRelatedTests",
-    "lint:precommit": "eslint"
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "lint:css": "stylelint './src/**/*.{js,jsx,ts,tsx}'",
+    "lint:precommit": "eslint",
+    "lint:css:precommit": "stylelint",
+    "test:precommit": "CI=true react-scripts test --passWithNoTests --findRelatedTests"
   },
   "browserslist": {
     "production": [
@@ -54,7 +61,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "./src/**/*.{js,jsx,ts,tsx}": [
+      "npm run lint:css:precommit",
       "npm run lint:precommit",
       "npm run test:precommit"
     ]

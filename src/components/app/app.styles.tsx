@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyles = createGlobalStyle`
+export const CssReset = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -17,8 +17,8 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: 100%;
         font: inherit;
+        font-size: 100%;
         vertical-align: baseline;
     }
 
@@ -46,10 +46,12 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     table {
-        border-collapse: collapse;
         border-spacing: 0;
+        border-collapse: collapse;
     }
+`;
 
+export const GlobalStyles = createGlobalStyle`
     *,
     *:before,
     *:after {
@@ -63,6 +65,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
+        background-color: #2e395b;
+        color: #ffffff;
         font-family: sans-serif;
     }
 `;
