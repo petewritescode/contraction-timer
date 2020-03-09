@@ -67,6 +67,6 @@ export const GlobalStyles = createGlobalStyle`
     body {
         background-color: #2e395b;
         color: #ffffff;
-        font-family: sans-serif;
+        font-family: 'Lato', sans-serif;
     }
 `;
