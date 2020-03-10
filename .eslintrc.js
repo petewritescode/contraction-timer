@@ -25,7 +25,7 @@ module.exports = {
         ],
         'import/prefer-default-export': 'off',
         'no-multiple-empty-lines': ['error', { max: 1 }],
-        'object-curly-newline': ERROR,
+        'object-curly-newline': 'error',
         'react/jsx-indent': ['error', 4],
         'react/prop-types': 'off',
         'spaced-comment': ['error', 'always', { markers: ['/'] }],
