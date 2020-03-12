@@ -24,9 +24,12 @@ module.exports = {
             }
         ],
         'import/prefer-default-export': 'off',
+        'max-len': ['error', { code: 140 }],
+        'no-confusing-arrow': 'off',
         'no-multiple-empty-lines': ['error', { max: 1 }],
-        'object-curly-newline': ['error', { multiline: true }],
+        'object-curly-newline': ['error', { consistent: true }],
         'react/jsx-indent': ['error', 4],
+        'react/jsx-indent-props': ['error', 4],
         'react/prop-types': 'off',
         'spaced-comment': ['error', 'always', { markers: ['/'] }],
     },
