@@ -187,7 +187,7 @@ export const NormalizeCss = createGlobalStyle`
     /* stylelint-enable */
 `;
 
-export const BaseStyles = createGlobalStyle`
+export const BaseCss = createGlobalStyle`
     *,
     *::before,
     *::after {
