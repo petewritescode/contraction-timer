@@ -8,6 +8,8 @@ export const StyledControls = styled.ul`
 
 export const StyledPrimary = styled.li`
     order: 2;
+    margin-right: 20px;
+    margin-left: 20px;
 `;
 
 export const StyledSecondary = styled.li`
