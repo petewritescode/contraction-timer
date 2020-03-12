@@ -6,10 +6,9 @@ export const StyledTimer = styled.div`
 
 export const StyledTime = styled.div`
     margin-bottom: 10px;
-    font-size: 3rem;
+    font-size: 5rem;
 `;
 
 export const StyledLabel = styled.div`
-    font-size: 0.75rem;
     text-transform: uppercase;
 `;
