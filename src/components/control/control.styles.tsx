@@ -22,6 +22,5 @@ export const StyledControl = styled.button<Props>`
     ${({ color }) => color && css`
         border: 0;
         background-color: ${color};
-        color: #2e395b;
     `}
 `;

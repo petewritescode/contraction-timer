@@ -3,4 +3,5 @@ export enum IconName {
     List = 'List',
     Pause = 'Pause',
     Start = 'Start',
+    Stop = 'Stop',
 }
