@@ -52,6 +52,8 @@ export const CssReset = createGlobalStyle`
 
     button {
         padding: 0;
+        border: 0;
+        background: transparent;
         color: inherit;
         font: inherit;
     }
