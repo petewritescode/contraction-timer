@@ -8,6 +8,7 @@
         "stylelint-config-property-sort-order-smacss"
     ],
     "rules": {
-        "indentation": 4
+        "indentation": 4,
+        "selector-pseudo-element-colon-notation": "double"
     }
 }
