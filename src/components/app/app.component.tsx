@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { Layout } from '../layout/layout.component';
-import { CssReset, GlobalStyles } from './app.styles';
+import { BaseStyles, NormalizeCss } from './app.styles';
 
 export const App: FunctionComponent = () => (
     <>
-        <CssReset />
-        <GlobalStyles />
+        <NormalizeCss />
+        <BaseStyles />
+
         <Layout />
     </>
 );
