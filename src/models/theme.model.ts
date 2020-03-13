@@ -7,7 +7,7 @@ export interface Theme {
         control: {
             border: string;
             icon: string;
-            type: Partial<Record<ControlType, string>>;
+            background: Partial<Record<ControlType, string>>;
         };
     };
 }

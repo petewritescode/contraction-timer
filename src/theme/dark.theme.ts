@@ -15,7 +15,7 @@ export const darkTheme: Theme = {
         control: {
             border: color.white,
             icon: color.white,
-            type: {
+            background: {
                 [ControlType.Start]: color.green,
                 [ControlType.Stop]: color.pink,
             },

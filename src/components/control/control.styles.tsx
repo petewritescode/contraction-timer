@@ -20,8 +20,8 @@ export const StyledControl = styled.button<Props>`
         height: 100px;
     `}
 
-    ${({ controlType, theme }) => controlType && theme.color.control.type[controlType] && css`
+    ${({ controlType, theme }) => controlType && theme.color.control.background[controlType] && css`
         border: 0;
-        background-color: ${theme.color.control.type[controlType]};
+        background-color: ${theme.color.control.background[controlType]};
     `}
 `;
