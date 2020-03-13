@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
+import { ControlType } from '../../models/control-type.model';
 
 interface Props {
-    color?: string;
+    controlType: ControlType;
     primary?: boolean;
 }
 
@@ -19,8 +20,8 @@ export const StyledControl = styled.button<Props>`
         height: 100px;
     `}
 
-    ${({ color }) => color && css`
+    ${({ controlType, theme }) => controlType && theme.color.control.type[controlType] && css`
         border: 0;
-        background-color: ${color};
+        background-color: ${theme.color.control.type[controlType]};
     `}
 `;

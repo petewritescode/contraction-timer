@@ -1,3 +1,4 @@
+import { ControlType } from '../models/control-type.model';
 import { Theme } from '../models/theme.model';
 
 const color = {
@@ -14,8 +15,10 @@ export const darkTheme: Theme = {
         control: {
             border: color.white,
             icon: color.white,
-            start: color.green,
-            stop: color.pink,
+            type: {
+                [ControlType.Start]: color.green,
+                [ControlType.Stop]: color.pink,
+            },
         },
     },
 };

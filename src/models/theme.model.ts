@@ -1,3 +1,5 @@
+import { ControlType } from './control-type.model';
+
 export interface Theme {
     color: {
         background: string;
@@ -5,8 +7,7 @@ export interface Theme {
         control: {
             border: string;
             icon: string;
-            start: string;
-            stop: string;
+            type: Partial<Record<ControlType, string>>;
         };
     };
 }
