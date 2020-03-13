@@ -10,9 +10,9 @@ export const StyledControl = styled.button<Props>`
     justify-content: center;
     width: 50px;
     height: 50px;
-    border: 1px solid #ffffff;
+    border: 1px solid ${({ theme }) => theme.color.control.border};
     border-radius: 50%;
-    color: #ffffff;
+    color: ${({ theme }) => theme.color.control.icon};
 
     ${({ primary }) => primary && css`
         width: 100px;

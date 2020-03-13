@@ -235,8 +235,8 @@ export const BaseCss = createGlobalStyle`
     }
 
     body {
-        background-color: #2e395b;
-        color: #ffffff;
+        background-color: ${({ theme }) => theme.color.background};
+        color: ${({ theme }) => theme.color.text};
         font-family: 'Lato', sans-serif;
         font-weight: 300;
     }
