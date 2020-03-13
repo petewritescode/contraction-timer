@@ -13,12 +13,12 @@ export const darkTheme: Theme = {
         background: color.navy,
         text: color.white,
         control: {
-            border: color.white,
-            icon: color.white,
             background: {
                 [ControlType.Start]: color.green,
                 [ControlType.Stop]: color.pink,
             },
+            border: color.white,
+            icon: color.white,
         },
     },
 };
