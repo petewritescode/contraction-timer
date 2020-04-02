@@ -200,6 +200,12 @@ export const BaseCss = createGlobalStyle`
         height: 100%;
     }
 
+    #root {
+        max-width: 600px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
     a {
         color: inherit;
     }
