@@ -16,8 +16,13 @@ export const StyledControl = styled.button<Props>`
     color: ${({ theme }) => theme.color.control.icon};
 
     ${({ primary }) => primary && css`
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
+
+        @media screen and (min-width: 400px) {
+            width: 100px;
+            height: 100px;
+        }
     `}
 
     ${({ controlType, theme }) => controlType && theme.color.control.background[controlType] && css`
