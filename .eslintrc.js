@@ -13,23 +13,7 @@ module.exports = {
             exports: 'always-multiline',
             functions: 'never',
         }],
-        'import/order': [
-            'error',
-            {
-                alphabetize: {
-                    order: 'asc',
-                    caseInsensitive: true,
-                },
-                groups: [
-                    'builtin',
-                    'external',
-                    'parent',
-                    'sibling',
-                    'index',
-                ],
-                'newlines-between': 'never',
-            }
-        ],
+        'import/order': 'off',
         'import/prefer-default-export': 'off',
         'max-len': ['error', { code: 140 }],
         'no-confusing-arrow': 'off',
@@ -39,6 +23,12 @@ module.exports = {
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
         'react/prop-types': 'off',
+        'sort-imports': ['error', {
+            ignoreCase: true,
+            ignoreDeclarationSort: false,
+            ignoreMemberSort: false,
+            memberSyntaxSortOrder: ['none', 'multiple', 'single', 'all']
+        }],
         'spaced-comment': ['error', 'always', { markers: ['/'] }],
     },
 };

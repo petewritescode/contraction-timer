@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { SIZE_TO_PIXELS_MAP } from '../../constants/icon.constants';
 import { IconSize } from '../../models/icon-size.model';
+import { SIZE_TO_PIXELS_MAP } from '../../constants/icon.constants';
+import styled from 'styled-components';
 
 interface Props {
     size: IconSize;

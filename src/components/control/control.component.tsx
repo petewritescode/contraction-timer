@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { TYPE_TO_ICON_NAME_MAP } from '../../constants/control.constants';
 import { ControlType } from '../../models/control-type.model';
+import { Icon } from '../icon/icon.component';
 import { IconName } from '../../models/icon-name.model';
 import { IconSize } from '../../models/icon-size.model';
-import { Icon } from '../icon/icon.component';
 import { StyledControl } from './control.styles';
+import { TYPE_TO_ICON_NAME_MAP } from '../../constants/control.constants';
 
 interface Props {
     type: ControlType;

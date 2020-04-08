@@ -1,5 +1,5 @@
-import { View } from '../../models/view.model';
 import { viewActions, viewReducer, ViewState } from './view.slice';
+import { View } from '../../models/view.model';
 
 describe('View reducer', () => {
     describe('setView action', () => {

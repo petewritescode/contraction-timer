@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { NAME_TO_CODE_MAP } from '../../constants/icon.constants';
 import { IconName } from '../../models/icon-name.model';
 import { IconSize } from '../../models/icon-size.model';
+import { NAME_TO_CODE_MAP } from '../../constants/icon.constants';
 import { StyledIcon } from './icon.styles';
 
 interface Props {

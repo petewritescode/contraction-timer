@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { StyledLabel, StyledTimer, StyledTime } from './timer.styles';
+import { StyledLabel, StyledTime, StyledTimer } from './timer.styles';
 
 export const Timer: FunctionComponent = () => (
     <StyledTimer>
