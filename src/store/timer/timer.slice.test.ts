@@ -85,6 +85,7 @@ describe('Timer reducer', () => {
 
             const action = timerActions.reset();
             const result = timerReducer(state, action);
+
             expect(result).toEqual(state);
         });
 
@@ -103,6 +104,7 @@ describe('Timer reducer', () => {
 
             const action = timerActions.reset();
             const result = timerReducer(state, action);
+
             expect(result).toEqual(newState);
         });
     });
@@ -118,6 +120,7 @@ describe('Timer reducer', () => {
 
             const action = timerActions.stop();
             const result = timerReducer(state, action);
+
             expect(result).toEqual(state);
         });
 
@@ -138,6 +141,7 @@ describe('Timer reducer', () => {
 
             const action = timerActions.stop();
             const result = timerReducer(state, action);
+
             expect(result).toEqual(newState);
         });
 
