@@ -62,6 +62,9 @@
       "pre-commit": "lint-staged"
     }
   },
+  "jest": {
+    "restoreMocks": true
+  },
   "lint-staged": {
     "./src/**/*.{js,jsx,ts,tsx}": [
       "npm run lint:css:precommit",
