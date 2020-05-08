@@ -15,11 +15,7 @@ export const ViewToggle: FunctionComponent = () => {
     const view = useSelector(viewSelectors.getView);
     const iconName = getIconName(view);
 
-    const handleClick = () => {
-        const newView = view === View.Chart ? View.List : View.Chart;
-
-        dispatch(viewActions.setView(newView));
-    };
+    const handleClick = () => dispatch(viewActions.toggle());
 
     return (
         <StyledViewToggle onClick={handleClick}>
