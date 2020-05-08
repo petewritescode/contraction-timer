@@ -4,4 +4,5 @@ export enum IconName {
     Pause = 'Pause',
     Start = 'Start',
     Stop = 'Stop',
+    Timer = 'Timer',
 }

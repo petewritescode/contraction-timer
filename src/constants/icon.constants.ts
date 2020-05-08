@@ -7,6 +7,7 @@ export const NAME_TO_CODE_MAP: Record<IconName, string> = {
     [IconName.Pause]: 'e034',
     [IconName.Start]: 'e037',
     [IconName.Stop]: 'e047',
+    [IconName.Timer]: 'e425',
 };
 
 export const SIZE_TO_PIXELS_MAP: Record<IconSize, number> = {
