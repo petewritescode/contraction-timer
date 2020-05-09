@@ -9,12 +9,14 @@ interface Props {
     size: IconSize;
 }
 
-const getIconCode = (name: IconName): string => `&#x${NAME_TO_CODE_MAP[name]};`;
+export const Icon: FunctionComponent<Props> = ({ name, size }) => {
+    const iconCode = `&#x${NAME_TO_CODE_MAP[name]};`;
 
-export const Icon: FunctionComponent<Props> = ({ name, size }) => (
-    <StyledIcon
-        className="material-icons-round"
-        size={size}
-        dangerouslySetInnerHTML={{ __html: getIconCode(name) }}
-    />
-);
+    return (
+        <StyledIcon
+            className="material-icons-round"
+            size={size}
+            dangerouslySetInnerHTML={{ __html: iconCode }}
+        />
+    );
+};
