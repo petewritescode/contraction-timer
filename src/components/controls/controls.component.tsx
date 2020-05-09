@@ -10,7 +10,7 @@ export const Controls: FunctionComponent = () => (
         </StyledPrimary>
 
         <StyledSecondary>
-            <Control type={ControlType.Pause} />
+            <Control type={ControlType.Reset} />
         </StyledSecondary>
 
         <StyledTertiary>
