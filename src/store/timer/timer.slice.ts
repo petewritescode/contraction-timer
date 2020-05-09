@@ -15,6 +15,11 @@ const timerSlice = createSlice({
     name: 'timer',
     initialState,
     reducers: {
+        clear: (state) => {
+            if (!state.running) {
+                state.contractions = [];
+            }
+        },
         mark: {
             prepare: () => ({
                 payload: Date.now(),
@@ -35,11 +40,6 @@ const timerSlice = createSlice({
                     });
                 }
             },
-        },
-        clear: (state) => {
-            if (!state.running) {
-                state.contractions = [];
-            }
         },
         stop: {
             prepare: () => ({
