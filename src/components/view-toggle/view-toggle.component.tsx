@@ -8,12 +8,10 @@ import { View } from '../../models/view.model';
 import { viewActions } from '../../store/view/view.slice';
 import * as viewSelectors from '../../store/view/view.selectors';
 
-const getIconName = (view: View): IconName => view === View.Chart ? IconName.List : IconName.Timer;
-
 export const ViewToggle: FunctionComponent = () => {
     const dispatch = useDispatch();
     const view = useSelector(viewSelectors.getView);
-    const iconName = getIconName(view);
+    const iconName = view === View.Chart ? IconName.List : IconName.Timer;
 
     const handleClick = () => dispatch(viewActions.toggle());
 
