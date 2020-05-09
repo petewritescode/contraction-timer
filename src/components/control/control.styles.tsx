@@ -19,7 +19,7 @@ export const StyledControl = styled.button<Props>`
         width: 70px;
         height: 70px;
 
-        @media screen and (min-width: 400px) {
+        @media screen and (min-width: 375px) {
             width: 100px;
             height: 100px;
         }
