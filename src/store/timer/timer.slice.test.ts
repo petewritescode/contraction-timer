@@ -4,7 +4,7 @@ const createDateSpy = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnV
 
 describe('Timer reducer', () => {
     describe('mark action', () => {
-        it('starts the timer and resets the contractions array to a single running contraction if the timer is stopped', () => {
+        it('starts the timer and resets the contractions array to a single active contraction if the timer is stopped', () => {
             const state: TimerState = {
                 running: false,
                 contractions: [
@@ -28,7 +28,7 @@ describe('Timer reducer', () => {
             expect(result).toEqual(newState);
         });
 
-        it('completes any running contraction if the timer is running', () => {
+        it('completes any active contraction if the timer is running', () => {
             const state: TimerState = {
                 running: true,
                 contractions: [
@@ -50,7 +50,7 @@ describe('Timer reducer', () => {
             expect(result).toEqual(newState);
         });
 
-        it('adds a new contraction if the timer is running and there are no running contractions', () => {
+        it('adds a new contraction if the timer is running and there are no active contractions', () => {
             const state: TimerState = {
                 running: true,
                 contractions: [
@@ -145,7 +145,7 @@ describe('Timer reducer', () => {
             expect(result).toEqual(newState);
         });
 
-        it('completes the last contraction if it is running', () => {
+        it('completes the last contraction if it is active', () => {
             const state: TimerState = {
                 running: true,
                 contractions: [
