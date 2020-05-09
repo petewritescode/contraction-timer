@@ -36,7 +36,7 @@ const timerSlice = createSlice({
                 }
             },
         },
-        reset: (state) => {
+        clear: (state) => {
             if (!state.running) {
                 state.contractions = [];
             }

@@ -74,7 +74,7 @@ describe('Timer reducer', () => {
         });
     });
 
-    describe('reset action', () => {
+    describe('clear action', () => {
         it('does nothing if the timer is running', () => {
             const state: TimerState = {
                 running: true,
@@ -83,7 +83,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            const action = timerActions.reset();
+            const action = timerActions.clear();
             const result = timerReducer(state, action);
 
             expect(result).toEqual(state);
@@ -102,7 +102,7 @@ describe('Timer reducer', () => {
                 contractions: [],
             };
 
-            const action = timerActions.reset();
+            const action = timerActions.clear();
             const result = timerReducer(state, action);
 
             expect(result).toEqual(newState);

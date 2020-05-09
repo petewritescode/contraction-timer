@@ -1,7 +1,7 @@
 export enum IconName {
+    Clear = 'Clear',
     Finish = 'Finish',
     List = 'List',
-    Reset = 'Reset',
     Start = 'Start',
     Stop = 'Stop',
     Timer = 'Timer',
