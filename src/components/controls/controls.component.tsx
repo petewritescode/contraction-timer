@@ -14,8 +14,13 @@ export const Controls: FunctionComponent = () => {
     const showSecondary = status !== Status.Ready;
     const secondaryType = status === Status.Finished ? ControlType.Clear : ControlType.Finish;
 
-    const handlePrimaryClick = () => dispatch(timerActions.mark());
-    const handleSecondaryClick = () => dispatch(status === Status.Finished ? timerActions.clear() : timerActions.stop());
+    const handlePrimaryClick = (): void => {
+        dispatch(timerActions.mark());
+    };
+
+    const handleSecondaryClick = (): void => {
+        dispatch(status === Status.Finished ? timerActions.clear() : timerActions.stop());
+    };
 
     return (
         <StyledControls>

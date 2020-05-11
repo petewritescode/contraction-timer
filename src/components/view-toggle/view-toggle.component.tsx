@@ -13,7 +13,9 @@ export const ViewToggle: FunctionComponent = () => {
     const view = useSelector(viewSelectors.getView);
     const iconName = view === View.Chart ? IconName.List : IconName.Timer;
 
-    const handleClick = () => dispatch(viewActions.toggle());
+    const handleClick = (): void => {
+        dispatch(viewActions.toggle());
+    };
 
     return (
         <StyledViewToggle onClick={handleClick}>
