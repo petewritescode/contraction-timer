@@ -18,3 +18,8 @@ export const getStatus = createSelector(
         return lastContraction ? Status.Finished : Status.Ready;
     }
 );
+
+export const getPhaseStartTime = createSelector(
+    getLastContraction,
+    (lastContraction) => lastContraction && (lastContraction.start + (lastContraction.duration || 0))
+);

@@ -46,7 +46,7 @@ describe('Timer selectors', () => {
 
             const result = timerSelectors.getLastContraction.resultFunc(contractions);
 
-            expect(result).toEqual(undefined);
+            expect(result).toBe(undefined);
         });
 
         it('returns the last contraction if one exists', () => {
@@ -70,7 +70,7 @@ describe('Timer selectors', () => {
         });
 
         it('returns Finished if the timer is not running and there are contractions', () => {
-            const lastContraction = { start: 1000000000000 };
+            const lastContraction: Contraction = { start: 1000000000000 };
 
             const result = timerSelectors.getStatus.resultFunc(false, lastContraction);
 
@@ -78,7 +78,7 @@ describe('Timer selectors', () => {
         });
 
         it('returns Contraction if the timer is running and the last contraction is active', () => {
-            const lastContraction = { start: 1000000000000 };
+            const lastContraction: Contraction = { start: 1000000000000 };
 
             const result = timerSelectors.getStatus.resultFunc(true, lastContraction);
 
@@ -86,11 +86,37 @@ describe('Timer selectors', () => {
         });
 
         it('returns Rest if the timer is running and the last contraction is not active', () => {
-            const lastContraction = { start: 1000000000000, duration: 1000 };
+            const lastContraction: Contraction = { start: 1000000000000, duration: 10000 };
 
             const result = timerSelectors.getStatus.resultFunc(true, lastContraction);
 
             expect(result).toEqual(Status.Rest);
+        });
+    });
+
+    describe('getPhaseStartTime', () => {
+        it('returns undefined if there are no contractions', () => {
+            const lastContraction: Contraction = undefined;
+
+            const result = timerSelectors.getPhaseStartTime.resultFunc(lastContraction);
+
+            expect(result).toBe(undefined);
+        });
+
+        it('returns the last contraction start time if in the contraction phase', () => {
+            const lastContraction: Contraction = { start: 1000000000000 };
+
+            const result = timerSelectors.getPhaseStartTime.resultFunc(lastContraction);
+
+            expect(result).toEqual(1000000000000);
+        });
+
+        it('returns the last rest start time if in the rest phase', () => {
+            const lastContraction: Contraction = { start: 1000000000000, duration: 10000 };
+
+            const result = timerSelectors.getPhaseStartTime.resultFunc(lastContraction);
+
+            expect(result).toEqual(1000000010000);
         });
     });
 });
