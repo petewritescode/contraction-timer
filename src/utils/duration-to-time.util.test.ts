@@ -1,7 +1,7 @@
 import { durationToTime } from './duration-to-time.util';
 
 describe('durationToTime', () => {
-    it('parses a millisecond time duration into hours, minutes and seconds', () => {
+    it('converts a millisecond duration into hours, minutes and seconds', () => {
         const result = durationToTime(45296000);
 
         expect(result).toEqual({
@@ -11,7 +11,7 @@ describe('durationToTime', () => {
         });
     });
 
-    it('handles times that span multiple days', () => {
+    it('handles durations that span multiple days', () => {
         const result = durationToTime(362096000);
 
         expect(result).toEqual({
