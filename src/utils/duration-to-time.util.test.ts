@@ -1,8 +1,8 @@
-import { parseDuration } from './parse-duration.util';
+import { durationToTime } from './duration-to-time.util';
 
-describe('parseDuration', () => {
+describe('durationToTime', () => {
     it('parses a millisecond time duration into hours, minutes and seconds', () => {
-        const result = parseDuration(45296000);
+        const result = durationToTime(45296000);
 
         expect(result).toEqual({
             hours: 12,
@@ -12,7 +12,7 @@ describe('parseDuration', () => {
     });
 
     it('handles times that span multiple days', () => {
-        const result = parseDuration(362096000);
+        const result = durationToTime(362096000);
 
         expect(result).toEqual({
             hours: 100,
@@ -22,7 +22,7 @@ describe('parseDuration', () => {
     });
 
     it('returns zero for all parts without a value', () => {
-        const result = parseDuration(0);
+        const result = durationToTime(0);
 
         expect(result).toEqual({
             hours: 0,
@@ -32,7 +32,7 @@ describe('parseDuration', () => {
     });
 
     it('does not return more than 60 seconds', () => {
-        const result = parseDuration(60000);
+        const result = durationToTime(60000);
 
         expect(result).toEqual({
             hours: 0,
@@ -42,7 +42,7 @@ describe('parseDuration', () => {
     });
 
     it('does not return more than 60 minutes', () => {
-        const result = parseDuration(3600000);
+        const result = durationToTime(3600000);
 
         expect(result).toEqual({
             hours: 1,
@@ -52,7 +52,7 @@ describe('parseDuration', () => {
     });
 
     it('discards any milliseconds less than a complete second', () => {
-        const result = parseDuration(999);
+        const result = durationToTime(999);
 
         expect(result).toEqual({
             hours: 0,

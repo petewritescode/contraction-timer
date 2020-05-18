@@ -1,7 +1,7 @@
 import { MS_IN_A_MINUTE, MS_IN_A_SECOND, MS_IN_AN_HOUR } from '../constants/time.constants';
 import { Time } from '../models/time.models';
 
-export const parseDuration = (durationInMs: number): Time => {
+export const durationToTime = (durationInMs: number): Time => {
     let msRemaining = durationInMs;
 
     const hours = Math.floor(msRemaining / MS_IN_AN_HOUR);
