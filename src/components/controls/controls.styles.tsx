@@ -12,6 +12,6 @@ export const StyledList = styled.ul`
 export const StyledSecondary = styled.li`
     position: absolute;
     top: 50%;
-    left: 100%;
-    transform: translate(20px, -50%);
+    right: 100%;
+    transform: translate(-20px, -50%);
 `;

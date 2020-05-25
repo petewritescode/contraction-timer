@@ -11,11 +11,11 @@ export const getStatus = createSelector(
     getRunning,
     getLastContraction,
     (running, lastContraction) => {
-        if (running) {
-            return lastContraction.duration ? Status.Rest : Status.Contraction;
+        if (!running) {
+            return Status.Stopped;
         }
 
-        return lastContraction ? Status.Finished : Status.Ready;
+        return lastContraction.duration === undefined ? Status.Contraction : Status.Rest;
     }
 );
 

@@ -11,15 +11,14 @@ export const Controls: FunctionComponent = () => {
     const dispatch = useDispatch();
     const status = useSelector(timerSelectors.getStatus);
     const primaryType = status === Status.Contraction ? ControlType.Stop : ControlType.Start;
-    const showSecondary = status !== Status.Ready;
-    const secondaryType = status === Status.Finished ? ControlType.Clear : ControlType.Finish;
+    const showSecondary = status !== Status.Stopped;
 
     const handlePrimaryClick = (): void => {
-        dispatch(timerActions.mark());
+        dispatch(timerActions.toggleContraction());
     };
 
     const handleSecondaryClick = (): void => {
-        dispatch(status === Status.Finished ? timerActions.clear() : timerActions.stop());
+        dispatch(timerActions.stop());
     };
 
     return (
@@ -31,7 +30,7 @@ export const Controls: FunctionComponent = () => {
 
                 {showSecondary && (
                     <StyledSecondary>
-                        <Control type={secondaryType} onClick={handleSecondaryClick} />
+                        <Control type={ControlType.Pause} onClick={handleSecondaryClick} />
                     </StyledSecondary>
                 )}
             </StyledList>

@@ -63,18 +63,10 @@ describe('Timer selectors', () => {
     });
 
     describe('getStatus', () => {
-        it('returns Ready if the timer is not running and there are no contractions', () => {
+        it('returns Stopped if the timer is not running', () => {
             const result = timerSelectors.getStatus.resultFunc(false, undefined);
 
-            expect(result).toEqual(Status.Ready);
-        });
-
-        it('returns Finished if the timer is not running and there are contractions', () => {
-            const lastContraction: Contraction = { start: 1000000000000 };
-
-            const result = timerSelectors.getStatus.resultFunc(false, lastContraction);
-
-            expect(result).toEqual(Status.Finished);
+            expect(result).toEqual(Status.Stopped);
         });
 
         it('returns Contraction if the timer is running and the last contraction is active', () => {

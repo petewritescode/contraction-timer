@@ -15,43 +15,46 @@ const timerSlice = createSlice({
     name: 'timer',
     initialState,
     reducers: {
-        clear: (state) => {
-            if (!state.running) {
-                state.contractions = [];
-            }
-        },
-        mark: {
-            prepare: () => ({
-                payload: Date.now(),
-            }),
-            reducer: (state, action: PayloadAction<number>) => {
-                if (!state.running) {
-                    state.running = true;
-                    state.contractions = [];
-                }
-
-                const lastContraction = state.contractions[state.contractions.length - 1];
-
-                if (lastContraction && !lastContraction.duration) {
-                    lastContraction.duration = action.payload - lastContraction.start;
-                } else {
-                    state.contractions.push({
-                        start: action.payload,
-                    });
-                }
-            },
+        clearComplete: (state) => {
+            state.contractions = state.contractions.filter((contraction) => contraction.duration === undefined);
         },
         stop: {
             prepare: () => ({
                 payload: Date.now(),
             }),
             reducer: (state, action: PayloadAction<number>) => {
+                if (!state.running) {
+                    return;
+                }
+
                 state.running = false;
 
                 const lastContraction = state.contractions[state.contractions.length - 1];
 
-                if (lastContraction && !lastContraction.duration) {
+                if (lastContraction) {
+                    lastContraction.lastInGroup = true;
+
+                    if (lastContraction.duration === undefined) {
+                        lastContraction.duration = action.payload - lastContraction.start;
+                    }
+                }
+            },
+        },
+        toggleContraction: {
+            prepare: () => ({
+                payload: Date.now(),
+            }),
+            reducer: (state, action: PayloadAction<number>) => {
+                state.running = true;
+
+                const lastContraction = state.contractions[state.contractions.length - 1];
+
+                if (lastContraction && lastContraction.duration === undefined) {
                     lastContraction.duration = action.payload - lastContraction.start;
+                } else {
+                    state.contractions.push({
+                        start: action.payload,
+                    });
                 }
             },
         },

@@ -3,43 +3,8 @@ import { timerActions, timerReducer, TimerState } from './timer.slice';
 const createDateSpy = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnValue(timestamp);
 
 describe('Timer reducer', () => {
-    describe('clear action', () => {
-        it('does nothing if the timer is running', () => {
-            const state: TimerState = {
-                running: true,
-                contractions: [
-                    { start: 1000000000000 },
-                ],
-            };
-
-            const action = timerActions.clear();
-            const result = timerReducer(state, action);
-
-            expect(result).toEqual(state);
-        });
-
-        it('empties the contractions array if the timer is stopped', () => {
-            const state: TimerState = {
-                running: false,
-                contractions: [
-                    { start: 1000000000000 },
-                ],
-            };
-
-            const newState: TimerState = {
-                running: false,
-                contractions: [],
-            };
-
-            const action = timerActions.clear();
-            const result = timerReducer(state, action);
-
-            expect(result).toEqual(newState);
-        });
-    });
-
-    describe('mark action', () => {
-        it('starts the timer and resets the contractions array to a single active contraction if the timer is stopped', () => {
+    describe('clearComplete action', () => {
+        it('clears all completed contractions', () => {
             const state: TimerState = {
                 running: false,
                 contractions: [
@@ -50,22 +15,163 @@ describe('Timer reducer', () => {
             };
 
             const newState: TimerState = {
-                running: true,
-                contractions: [
-                    { start: 1000000060000 },
-                ],
+                running: false,
+                contractions: [],
             };
 
-            createDateSpy(1000000060000);
-            const action = timerActions.mark();
+            const action = timerActions.clearComplete();
             const result = timerReducer(state, action);
 
             expect(result).toEqual(newState);
         });
 
-        it('completes any active contraction if the timer is running', () => {
+        it('correctly removes completed contractions with a zero duration', () => {
+            const state: TimerState = {
+                running: false,
+                contractions: [
+                    { start: 1000000000000, duration: 0 },
+                ],
+            };
+
+            const newState: TimerState = {
+                running: false,
+                contractions: [],
+            };
+
+            const action = timerActions.clearComplete();
+            const result = timerReducer(state, action);
+
+            expect(result).toEqual(newState);
+        });
+
+        it('retains the active contraction, if present', () => {
+            const state: TimerState = {
+                running: false,
+                contractions: [
+                    { start: 1000000000000, duration: 10000 },
+                    { start: 1000000020000 },
+                ],
+            };
+
+            const newState: TimerState = {
+                running: false,
+                contractions: [
+                    { start: 1000000020000 },
+                ],
+            };
+
+            const action = timerActions.clearComplete();
+            const result = timerReducer(state, action);
+
+            expect(result).toEqual(newState);
+        });
+    });
+
+    describe('stop action', () => {
+        it('does nothing if the timer is stopped', () => {
+            const state: TimerState = {
+                running: false,
+                contractions: [
+                    { start: 1000000000000, duration: 10000 },
+                    { start: 1000000020000, duration: 10000 },
+                    { start: 1000000040000, duration: 10000 },
+                ],
+            };
+
+            createDateSpy(1000000060000);
+            const action = timerActions.stop();
+            const result = timerReducer(state, action);
+
+            expect(result).toEqual(state);
+        });
+
+        it('stops the timer if it is running', () => {
             const state: TimerState = {
                 running: true,
+                contractions: [],
+            };
+
+            const newState: TimerState = {
+                running: false,
+                contractions: [],
+            };
+
+            createDateSpy(1000000000000);
+            const action = timerActions.stop();
+            const result = timerReducer(state, action);
+
+            expect(result).toEqual(newState);
+        });
+
+        it('completes the final contraction and marks it as last in its group if it is active', () => {
+            const state: TimerState = {
+                running: true,
+                contractions: [
+                    { start: 1000000000000 },
+                ],
+            };
+
+            const newState: TimerState = {
+                running: false,
+                contractions: [
+                    { start: 1000000000000, duration: 10000, lastInGroup: true },
+                ],
+            };
+
+            createDateSpy(1000000010000);
+            const action = timerActions.stop();
+            const result = timerReducer(state, action);
+
+            expect(result).toEqual(newState);
+        });
+
+        it('marks the final contraction as last in its group if it is not active', () => {
+            const state: TimerState = {
+                running: true,
+                contractions: [
+                    { start: 1000000000000, duration: 10000 },
+                ],
+            };
+
+            const newState: TimerState = {
+                running: false,
+                contractions: [
+                    { start: 1000000000000, duration: 10000, lastInGroup: true },
+                ],
+            };
+
+            createDateSpy(1000000020000);
+            const action = timerActions.stop();
+            const result = timerReducer(state, action);
+
+            expect(result).toEqual(newState);
+        });
+    });
+
+    describe('toggleContraction action', () => {
+        it('starts the timer and creates a new active contraction if the timer is stopped', () => {
+            const state: TimerState = {
+                running: false,
+                contractions: [],
+            };
+
+            const newState: TimerState = {
+                running: true,
+                contractions: [
+                    { start: 1000000000000 },
+                ],
+            };
+
+            createDateSpy(1000000000000);
+            const action = timerActions.toggleContraction();
+            const result = timerReducer(state, action);
+
+            expect(result).toEqual(newState);
+        });
+
+        it('completes the last contraction if it is active', () => {
+            const state: TimerState = {
+                running: false,
                 contractions: [
                     { start: 1000000000000 },
                 ],
@@ -79,15 +185,15 @@ describe('Timer reducer', () => {
             };
 
             createDateSpy(1000000010000);
-            const action = timerActions.mark();
+            const action = timerActions.toggleContraction();
             const result = timerReducer(state, action);
 
             expect(result).toEqual(newState);
         });
 
-        it('adds a new contraction if the timer is running and there are no active contractions', () => {
+        it('starts a new active contraction if the last contraction is inactive', () => {
             const state: TimerState = {
-                running: true,
+                running: false,
                 contractions: [
                     { start: 1000000000000, duration: 10000 },
                 ],
@@ -102,66 +208,7 @@ describe('Timer reducer', () => {
             };
 
             createDateSpy(1000000020000);
-            const action = timerActions.mark();
-            const result = timerReducer(state, action);
-
-            expect(result).toEqual(newState);
-        });
-    });
-
-    describe('stop action', () => {
-        it('does nothing if the timer is stopped', () => {
-            const state: TimerState = {
-                running: false,
-                contractions: [
-                    { start: 1000000000000, duration: 10000 },
-                ],
-            };
-
-            const action = timerActions.stop();
-            const result = timerReducer(state, action);
-
-            expect(result).toEqual(state);
-        });
-
-        it('stops the timer if it is running', () => {
-            const state: TimerState = {
-                running: true,
-                contractions: [
-                    { start: 1000000000000, duration: 10000 },
-                ],
-            };
-
-            const newState = {
-                running: false,
-                contractions: [
-                    { start: 1000000000000, duration: 10000 },
-                ],
-            };
-
-            const action = timerActions.stop();
-            const result = timerReducer(state, action);
-
-            expect(result).toEqual(newState);
-        });
-
-        it('completes the last contraction if it is active', () => {
-            const state: TimerState = {
-                running: true,
-                contractions: [
-                    { start: 1000000000000 },
-                ],
-            };
-
-            const newState = {
-                running: false,
-                contractions: [
-                    { start: 1000000000000, duration: 10000 },
-                ],
-            };
-
-            createDateSpy(1000000010000);
-            const action = timerActions.stop();
+            const action = timerActions.toggleContraction();
             const result = timerReducer(state, action);
 
             expect(result).toEqual(newState);

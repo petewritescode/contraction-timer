@@ -1,6 +1,5 @@
 export enum ControlType {
-    Clear = 'Clear',
-    Finish = 'Finish',
+    Pause = 'Pause',
     Start = 'Start',
     Stop = 'Stop',
 }

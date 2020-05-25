@@ -11,7 +11,7 @@ import * as viewSelectors from '../../store/view/view.selectors';
 export const ViewToggle: FunctionComponent = () => {
     const dispatch = useDispatch();
     const view = useSelector(viewSelectors.getView);
-    const iconName = view === View.Chart ? IconName.List : IconName.Timer;
+    const iconName = view === View.Chart ? IconName.History : IconName.Timer;
 
     const handleClick = (): void => {
         dispatch(viewActions.toggle());
