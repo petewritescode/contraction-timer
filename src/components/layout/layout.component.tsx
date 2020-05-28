@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { StyledContent, StyledControls, StyledLayout } from './layout.styles';
+import { StyledBackground, StyledContent, StyledControls, StyledLayout } from './layout.styles';
+import { Background } from '../background/background.component';
 import { Controls } from '../controls/controls.component';
 import { HistoryView } from '../history-view/history-view.component';
 import { TimerView } from '../timer-view/timer-view.component';
@@ -12,14 +13,20 @@ export const Layout: FunctionComponent = () => {
     const content = view === View.Timer ? <TimerView /> : <HistoryView />;
 
     return (
-        <StyledLayout>
-            <StyledContent>
-                {content}
-            </StyledContent>
+        <>
+            <StyledBackground>
+                <Background />
+            </StyledBackground>
 
-            <StyledControls>
-                <Controls />
-            </StyledControls>
-        </StyledLayout>
+            <StyledLayout>
+                <StyledContent>
+                    {content}
+                </StyledContent>
+
+                <StyledControls>
+                    <Controls />
+                </StyledControls>
+            </StyledLayout>
+        </>
     );
 };

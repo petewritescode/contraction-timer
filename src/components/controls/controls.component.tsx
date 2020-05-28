@@ -19,6 +19,7 @@ export const Controls: FunctionComponent = () => {
     const primaryType = status === Status.Contraction ? ControlType.Stop : ControlType.Start;
     const secondaryType = view === View.Timer ? ControlType.History : ControlType.Timer;
     const secondaryDisabled = !hasCompletedContractions;
+    const tertiaryType = view === View.Timer ? ControlType.Pause : ControlType.Clear;
     const tertiaryDisabled = status === Status.Stopped;
 
     const handlePrimaryClick = (): void => {
@@ -30,7 +31,8 @@ export const Controls: FunctionComponent = () => {
     };
 
     const handleTertiaryClick = (): void => {
-        dispatch(timerActions.stop());
+        const action = view === View.Timer ? timerActions.stop() : timerActions.clearComplete();
+        dispatch(action);
     };
 
     return (
@@ -44,7 +46,7 @@ export const Controls: FunctionComponent = () => {
             </StyledSecondary>
 
             <StyledTertiary>
-                <Control type={ControlType.Pause} disabled={tertiaryDisabled} onClick={handleTertiaryClick} />
+                <Control type={tertiaryType} disabled={tertiaryDisabled} onClick={handleTertiaryClick} />
             </StyledTertiary>
         </StyledControls>
     );
