@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { durationToDigits } from '../../utils/duration-to-digits.util';
+import { now } from '../../utils/now.util';
 import { StyledTime } from './time.styles';
 import { UPDATE_INTERVAL_MS } from '../../constants/time.constants';
 import { useIntervalRender } from '../../hooks/interval-render.hook';
@@ -12,7 +13,7 @@ export const Time: FunctionComponent = () => {
 
     useIntervalRender(running ? UPDATE_INTERVAL_MS : undefined);
 
-    const duration = phaseStartTime ? Date.now() - phaseStartTime : 0;
+    const duration = phaseStartTime ? now() - phaseStartTime : 0;
     const digits = durationToDigits(duration);
 
     // eslint-disable-next-line react/no-array-index-key

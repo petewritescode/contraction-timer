@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Contraction } from '../../models/contraction.model';
+import { now } from '../../utils/now.util';
 
 export interface TimerState {
     running: boolean;
@@ -20,7 +21,7 @@ const timerSlice = createSlice({
         },
         stop: {
             prepare: () => ({
-                payload: Date.now(),
+                payload: now(),
             }),
             reducer: (state, action: PayloadAction<number>) => {
                 if (!state.running) {
@@ -42,7 +43,7 @@ const timerSlice = createSlice({
         },
         toggleContraction: {
             prepare: () => ({
-                payload: Date.now(),
+                payload: now(),
             }),
             reducer: (state, action: PayloadAction<number>) => {
                 state.running = true;
