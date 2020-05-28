@@ -200,12 +200,6 @@ export const BaseCss = createGlobalStyle`
         height: 100%;
     }
 
-    #root {
-        max-width: 600px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
     a {
         color: inherit;
     }
@@ -241,7 +235,6 @@ export const BaseCss = createGlobalStyle`
     }
 
     body {
-        background-color: ${({ theme }) => theme.color.background};
         color: ${({ theme }) => theme.color.text};
         font-family: 'Lato', sans-serif;
         font-weight: 300;
