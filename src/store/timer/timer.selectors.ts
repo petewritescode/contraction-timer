@@ -7,6 +7,16 @@ export const getRunning = createSelector(getSlice, (slice) => slice.running);
 export const getContractions = createSelector(getSlice, (slice) => slice.contractions);
 export const getLastContraction = createSelector(getContractions, (contractions) => contractions[contractions.length - 1]);
 
+export const getCompletedContractions = createSelector(
+    getContractions,
+    (contractions) => contractions.filter((contraction) => contraction.duration !== undefined)
+);
+
+export const hasCompletedContractions = createSelector(
+    getCompletedContractions,
+    (completedContractions) => Boolean(completedContractions.length)
+);
+
 export const getStatus = createSelector(
     getRunning,
     getLastContraction,
