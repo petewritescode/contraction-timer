@@ -3,13 +3,13 @@ import { View } from '../../models/view.model';
 
 describe('View reducer', () => {
     describe('toggle action', () => {
-        it('sets the view to List if it is currently Chart', () => {
+        it('sets the view to History if it is currently Timer', () => {
             const state: ViewState = {
-                view: View.Chart,
+                view: View.Timer,
             };
 
             const newState: ViewState = {
-                view: View.List,
+                view: View.History,
             };
 
             const action = viewActions.toggle();
@@ -18,13 +18,13 @@ describe('View reducer', () => {
             expect(result).toEqual(newState);
         });
 
-        it('sets the view to Chart if it is currently List', () => {
+        it('sets the view to Timer if it is currently History', () => {
             const state: ViewState = {
-                view: View.List,
+                view: View.History,
             };
 
             const newState: ViewState = {
-                view: View.Chart,
+                view: View.Timer,
             };
 
             const action = viewActions.toggle();

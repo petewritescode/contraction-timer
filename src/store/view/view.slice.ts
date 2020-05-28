@@ -6,7 +6,7 @@ export interface ViewState {
 }
 
 const initialState: ViewState = {
-    view: View.Chart,
+    view: View.Timer,
 };
 
 const viewSlice = createSlice({
@@ -14,7 +14,7 @@ const viewSlice = createSlice({
     initialState,
     reducers: {
         toggle: (state) => {
-            state.view = state.view === View.Chart ? View.List : View.Chart;
+            state.view = state.view === View.Timer ? View.History : View.Timer;
         },
     },
 });

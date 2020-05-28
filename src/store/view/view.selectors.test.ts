@@ -18,7 +18,7 @@ describe('View selectors', () => {
     describe('getView', () => {
         it('returns the view', () => {
             const slice = {
-                view: View.Chart,
+                view: View.Timer,
             };
 
             const result = viewSelectors.getView.resultFunc(slice);
