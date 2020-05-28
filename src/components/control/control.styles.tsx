@@ -12,8 +12,8 @@ export const StyledControl = styled.button<Props>`
     justify-content: center;
     width: 50px;
     height: 50px;
-    border: 1px solid ${({ theme }) => theme.color.control.border};
     border-radius: 50%;
+    background-color: ${({ theme }) => theme.color.control.background};
     color: ${({ theme }) => theme.color.control.icon};
 
     ${({ primary }) => primary && css`
@@ -28,10 +28,5 @@ export const StyledControl = styled.button<Props>`
 
     ${({ disabled }) => disabled && css`
         opacity: 0.5;
-    `}
-
-    ${({ controlType, theme }) => controlType && theme.color.control.background[controlType] && css`
-        border: 0;
-        background-color: ${theme.color.control.background[controlType]};
     `}
 `;
