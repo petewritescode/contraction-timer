@@ -25,7 +25,7 @@ export const getStatus = createSelector(
             return Status.Stopped;
         }
 
-        return lastContraction.duration === undefined ? Status.Contraction : Status.Rest;
+        return lastContraction && lastContraction.duration === undefined ? Status.Contraction : Status.Rest;
     }
 );
 

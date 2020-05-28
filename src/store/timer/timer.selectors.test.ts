@@ -117,12 +117,10 @@ describe('Timer selectors', () => {
             expect(result).toEqual(Status.Stopped);
         });
 
-        it('returns Contraction if the timer is running and the last contraction is active', () => {
-            const lastContraction: Contraction = { start: 1000000000000 };
+        it('returns Rest if the timer is running and there is no last contraction', () => {
+            const result = timerSelectors.getStatus.resultFunc(true, undefined);
 
-            const result = timerSelectors.getStatus.resultFunc(true, lastContraction);
-
-            expect(result).toEqual(Status.Contraction);
+            expect(result).toEqual(Status.Rest);
         });
 
         it('returns Rest if the timer is running and the last contraction is not active', () => {
@@ -131,6 +129,14 @@ describe('Timer selectors', () => {
             const result = timerSelectors.getStatus.resultFunc(true, lastContraction);
 
             expect(result).toEqual(Status.Rest);
+        });
+
+        it('returns Contraction if the timer is running and the last contraction is active', () => {
+            const lastContraction: Contraction = { start: 1000000000000 };
+
+            const result = timerSelectors.getStatus.resultFunc(true, lastContraction);
+
+            expect(result).toEqual(Status.Contraction);
         });
     });
 
