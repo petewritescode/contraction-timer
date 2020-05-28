@@ -1,39 +1,49 @@
 import React, { FunctionComponent } from 'react';
-import { StyledControls, StyledList, StyledSecondary } from './controls.styles';
+import { StyledControls, StyledPrimary, StyledSecondary, StyledTertiary } from './controls.styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { Control } from '../control/control.component';
 import { ControlType } from '../../models/control-type.model';
 import { Status } from '../../models/status.model';
 import { timerActions } from '../../store/timer/timer.slice';
+import { View } from '../../models/view.model';
+import { viewActions } from '../../store/view/view.slice';
 import * as timerSelectors from '../../store/timer/timer.selectors';
+import * as viewSelectors from '../../store/view/view.selectors';
 
 export const Controls: FunctionComponent = () => {
     const dispatch = useDispatch();
     const status = useSelector(timerSelectors.getStatus);
+    const view = useSelector(viewSelectors.getView);
+
     const primaryType = status === Status.Contraction ? ControlType.Stop : ControlType.Start;
-    const showSecondary = status !== Status.Stopped;
+    const secondaryType = view === View.Timer ? ControlType.History : ControlType.Timer;
+    const tertiaryDisabled = status === Status.Stopped;
 
     const handlePrimaryClick = (): void => {
         dispatch(timerActions.toggleContraction());
     };
 
     const handleSecondaryClick = (): void => {
+        dispatch(viewActions.toggle());
+    };
+
+    const handleTertiaryClick = (): void => {
         dispatch(timerActions.stop());
     };
 
     return (
         <StyledControls>
-            <StyledList>
-                <li>
-                    <Control type={primaryType} onClick={handlePrimaryClick} primary />
-                </li>
+            <StyledPrimary>
+                <Control type={primaryType} onClick={handlePrimaryClick} primary />
+            </StyledPrimary>
 
-                {showSecondary && (
-                    <StyledSecondary>
-                        <Control type={ControlType.Pause} onClick={handleSecondaryClick} />
-                    </StyledSecondary>
-                )}
-            </StyledList>
+            <StyledSecondary>
+                <Control type={secondaryType} onClick={handleSecondaryClick} />
+            </StyledSecondary>
+
+            <StyledTertiary>
+                <Control type={ControlType.Pause} onClick={handleTertiaryClick} disabled={tertiaryDisabled} />
+            </StyledTertiary>
         </StyledControls>
     );
 };

@@ -3,6 +3,7 @@ import { ControlType } from '../../models/control-type.model';
 
 interface Props {
     controlType: ControlType;
+    disabled?: boolean;
     primary?: boolean;
 }
 
@@ -23,6 +24,10 @@ export const StyledControl = styled.button<Props>`
             width: 100px;
             height: 100px;
         }
+    `}
+
+    ${({ disabled }) => disabled && css`
+        opacity: 0.5;
     `}
 
     ${({ controlType, theme }) => controlType && theme.color.control.background[controlType] && css`

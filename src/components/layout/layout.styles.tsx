@@ -9,3 +9,7 @@ export const StyledLayout = styled.section`
 export const StyledContent = styled.main`
     flex-grow: 1;
 `;
+
+export const StyledControls = styled.div`
+    padding-bottom: 50px;
+`;
