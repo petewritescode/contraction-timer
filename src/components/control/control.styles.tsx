@@ -11,6 +11,7 @@ interface Props {
 
 export const StyledControl = styled.button<Props>`
     display: flex;
+    align-items: center;
     justify-content: center;
     width: 50px;
     height: 50px;
