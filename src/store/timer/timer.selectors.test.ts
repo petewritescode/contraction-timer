@@ -89,27 +89,6 @@ describe('Timer selectors', () => {
         });
     });
 
-    describe('hasCompletedContractions', () => {
-        it('returns false if there are no completed contractions', () => {
-            const completedContractions: Contraction[] = [];
-
-            const result = timerSelectors.hasCompletedContractions.resultFunc(completedContractions);
-
-            expect(result).toEqual(false);
-        });
-
-        it('returns true if there are completed contractions', () => {
-            const completedContractions: Contraction[] = [
-                { start: 1000000000000, duration: 10000 },
-                { start: 1000000020000, duration: 10000 },
-            ];
-
-            const result = timerSelectors.hasCompletedContractions.resultFunc(completedContractions);
-
-            expect(result).toEqual(true);
-        });
-    });
-
     describe('getStatus', () => {
         it('returns Stopped if the timer is not running', () => {
             const result = timerSelectors.getStatus.resultFunc(false, undefined);

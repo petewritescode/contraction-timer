@@ -12,13 +12,11 @@ import * as viewSelectors from '../../store/view/view.selectors';
 
 export const Controls: FunctionComponent = () => {
     const dispatch = useDispatch();
-    const hasCompletedContractions = useSelector(timerSelectors.hasCompletedContractions);
     const status = useSelector(timerSelectors.getStatus);
     const view = useSelector(viewSelectors.getView);
 
     const primaryType = status === Status.Contraction ? ControlType.Stop : ControlType.Start;
     const secondaryType = view === View.Timer ? ControlType.History : ControlType.Timer;
-    const secondaryDisabled = !hasCompletedContractions;
     const tertiaryType = view === View.Timer ? ControlType.Pause : ControlType.Clear;
     const tertiaryDisabled = status === Status.Stopped;
 
@@ -42,7 +40,7 @@ export const Controls: FunctionComponent = () => {
             </StyledPrimary>
 
             <StyledSecondary>
-                <Control type={secondaryType} disabled={secondaryDisabled} onClick={handleSecondaryClick} />
+                <Control type={secondaryType} onClick={handleSecondaryClick} />
             </StyledSecondary>
 
             <StyledTertiary>
