@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { StyledLabel, StyledTime, StyledTimer } from './timer.styles';
+import { StyledLabel, StyledTimer } from './timer.styles';
 import { STATUS_TO_LABEL_MAP } from '../../constants/status.constants';
 import { Time } from '../time/time.component';
 import { useSelector } from 'react-redux';
@@ -11,10 +11,7 @@ export const Timer: FunctionComponent = () => {
 
     return (
         <StyledTimer>
-            <StyledTime>
-                <Time />
-            </StyledTime>
-
+            <Time />
             <StyledLabel>{label}</StyledLabel>
         </StyledTimer>
     );
