@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const StyledTimer = styled.div`
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -9,8 +10,15 @@ export const StyledTimer = styled.div`
     height: 220px;
     margin-right: auto;
     margin-left: auto;
-    border: 4px solid #ffffff;
-    border-radius: 50%;
+`;
+
+export const StyledStatusIndicator = styled.div`
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 `;
 
 export const StyledLabel = styled.div`
