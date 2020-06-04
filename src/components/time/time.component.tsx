@@ -7,17 +7,17 @@ import { useIntervalRender } from '../../hooks/interval-render.hook';
 import { useSelector } from 'react-redux';
 import * as timerSelectors from '../../store/timer/timer.selectors';
 
+// eslint-disable-next-line react/no-array-index-key
+const renderSegment = (segment: string[]) => segment.map((digit, index) => <div key={index}>{digit}</div>);
+
 export const Time: FunctionComponent = () => {
     const running = useSelector(timerSelectors.getRunning);
     const phaseStartTime = useSelector(timerSelectors.getPhaseStartTime);
 
     useIntervalRender(running ? UPDATE_INTERVAL_MS : undefined);
 
-    const duration = phaseStartTime ? now() - phaseStartTime : 0;
+    const duration = running && phaseStartTime ? now() - phaseStartTime : 0;
     const digits = durationToDigits(duration);
-
-    // eslint-disable-next-line react/no-array-index-key
-    const renderSegment = (segment: string[]) => segment.map((digit, index) => <div key={index}>{digit}</div>);
 
     return (
         <StyledTime>
