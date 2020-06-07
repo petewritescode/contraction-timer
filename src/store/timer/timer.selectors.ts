@@ -12,6 +12,11 @@ export const getCompletedContractions = createSelector(
     (contractions) => contractions.filter((contraction) => contraction.duration !== undefined)
 );
 
+export const hasCompletedContractions = createSelector(
+    getCompletedContractions,
+    (completedContractions) => Boolean(completedContractions.length)
+);
+
 export const getStatus = createSelector(
     getRunning,
     getLastContraction,
