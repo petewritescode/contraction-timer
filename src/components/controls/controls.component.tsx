@@ -12,13 +12,14 @@ import * as viewSelectors from '../../store/view/view.selectors';
 
 export const Controls: FunctionComponent = () => {
     const dispatch = useDispatch();
+    const hasCompletedContractions = useSelector(timerSelectors.hasCompletedContractions);
     const status = useSelector(timerSelectors.getStatus);
     const view = useSelector(viewSelectors.getView);
 
     const primaryType = status === Status.Contraction ? ControlType.Stop : ControlType.Start;
     const secondaryType = view === View.Timer ? ControlType.History : ControlType.Timer;
     const tertiaryType = view === View.Timer ? ControlType.Pause : ControlType.Clear;
-    const tertiaryDisabled = status === Status.Stopped;
+    const tertiaryDisabled = view === View.Timer ? status === Status.Stopped : !hasCompletedContractions;
 
     const handlePrimaryClick = (): void => {
         dispatch(timerActions.toggleContraction());
