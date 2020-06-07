@@ -18,6 +18,10 @@ const timerSlice = createSlice({
     reducers: {
         clearComplete: (state) => {
             state.contractions = state.contractions.filter((contraction) => contraction.duration === undefined);
+
+            if (!state.contractions.length) {
+                state.running = false;
+            }
         },
         stop: {
             prepare: () => ({

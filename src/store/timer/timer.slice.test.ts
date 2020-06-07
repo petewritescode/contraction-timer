@@ -65,6 +65,25 @@ describe('Timer reducer', () => {
 
             expect(result).toEqual(newState);
         });
+
+        it('stops the timer if there is no active contraction', () => {
+            const state: TimerState = {
+                running: true,
+                contractions: [
+                    { start: 1000000000000, duration: 10000 },
+                ],
+            };
+
+            const newState: TimerState = {
+                running: false,
+                contractions: [],
+            };
+
+            const action = timerActions.clearComplete();
+            const result = timerReducer(state, action);
+
+            expect(result).toEqual(newState);
+        });
     });
 
     describe('stop action', () => {
