@@ -17,13 +17,15 @@ describe('View selectors', () => {
 
     describe('getView', () => {
         it('returns the view', () => {
-            const slice = {
-                view: View.Timer,
+            const state = {
+                view: {
+                    view: View.Timer,
+                },
             };
 
-            const result = viewSelectors.getView.resultFunc(slice);
+            const result = viewSelectors.getView(state);
 
-            expect(result).toEqual(slice.view);
+            expect(result).toEqual(state.view.view);
         });
     });
 });
