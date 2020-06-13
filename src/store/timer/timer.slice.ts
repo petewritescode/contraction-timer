@@ -36,8 +36,12 @@ const timerSlice = createSlice({
 
                 const lastContraction = state.contractions[state.contractions.length - 1];
 
-                if (lastContraction && lastContraction.duration === undefined) {
-                    lastContraction.duration = action.payload - lastContraction.start;
+                if (lastContraction) {
+                    lastContraction.lastInGroup = true;
+
+                    if (lastContraction.duration === undefined) {
+                        lastContraction.duration = action.payload - lastContraction.start;
+                    }
                 }
             },
         },
@@ -46,6 +50,8 @@ const timerSlice = createSlice({
                 payload: now(),
             }),
             reducer: (state, action: PayloadAction<number>) => {
+                state.running = true;
+
                 const lastContraction = state.contractions[state.contractions.length - 1];
 
                 if (lastContraction && lastContraction.duration === undefined) {
@@ -53,11 +59,8 @@ const timerSlice = createSlice({
                 } else {
                     state.contractions.push({
                         start: action.payload,
-                        ...(state.running ? {} : { firstInGroup: true }),
                     });
                 }
-
-                state.running = true;
             },
         },
     },

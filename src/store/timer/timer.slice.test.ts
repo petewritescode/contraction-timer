@@ -122,7 +122,7 @@ describe('Timer reducer', () => {
             expect(result).toEqual(newState);
         });
 
-        it('completes the final contraction if it is active', () => {
+        it('completes the final contraction and marks it as last in its group if it is active', () => {
             const state: TimerState = {
                 running: true,
                 contractions: [
@@ -133,11 +133,33 @@ describe('Timer reducer', () => {
             const newState: TimerState = {
                 running: false,
                 contractions: [
-                    { start: 1000000000000, duration: 10000 },
+                    { start: 1000000000000, duration: 10000, lastInGroup: true },
                 ],
             };
 
             createDateSpy(1000000010000);
+            const action = timerActions.stop();
+            const result = timerReducer(state, action);
+
+            expect(result).toEqual(newState);
+        });
+
+        it('marks the final contraction as last in its group if it is not active', () => {
+            const state: TimerState = {
+                running: true,
+                contractions: [
+                    { start: 1000000000000, duration: 10000 },
+                ],
+            };
+
+            const newState: TimerState = {
+                running: false,
+                contractions: [
+                    { start: 1000000000000, duration: 10000, lastInGroup: true },
+                ],
+            };
+
+            createDateSpy(1000000020000);
             const action = timerActions.stop();
             const result = timerReducer(state, action);
 
@@ -155,7 +177,7 @@ describe('Timer reducer', () => {
             const newState: TimerState = {
                 running: true,
                 contractions: [
-                    { start: 1000000000000, firstInGroup: true },
+                    { start: 1000000000000 },
                 ],
             };
 
@@ -190,7 +212,7 @@ describe('Timer reducer', () => {
 
         it('starts a new active contraction if the last contraction is inactive', () => {
             const state: TimerState = {
-                running: true,
+                running: false,
                 contractions: [
                     { start: 1000000000000, duration: 10000 },
                 ],
