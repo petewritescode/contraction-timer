@@ -165,8 +165,8 @@ describe('Timer selectors', () => {
         });
     });
 
-    describe('getAverageContractionDurationSince', () => {
-        it('returns the average of all contractions completed after the specified timestamp', () => {
+    describe('getAverageDurationSince', () => {
+        it('returns the average duration of all contractions completed after the specified timestamp', () => {
             const state = {
                 timer: {
                     contractions: [
@@ -178,8 +178,8 @@ describe('Timer selectors', () => {
                 } as TimerState,
             };
 
-            const result1 = timerSelectors.getAverageContractionDurationSince(1000000018999)(state);
-            const result2 = timerSelectors.getAverageContractionDurationSince(1000000019000)(state);
+            const result1 = timerSelectors.getAverageDurationSince(1000000018999)(state);
+            const result2 = timerSelectors.getAverageDurationSince(1000000019000)(state);
 
             expect(result1).toEqual(21000);
             expect(result2).toEqual(22000);
@@ -196,7 +196,7 @@ describe('Timer selectors', () => {
                 } as TimerState,
             };
 
-            const result = timerSelectors.getAverageContractionDurationSince(1000000300000)(state);
+            const result = timerSelectors.getAverageDurationSince(1000000300000)(state);
 
             expect(result).toBe(undefined);
         });
