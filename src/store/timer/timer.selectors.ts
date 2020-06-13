@@ -22,9 +22,11 @@ export const getAverageDurationSince = (timestamp: number) => createSelector(
     (completedContractions) => {
         const completedSince = completedContractions.filter((contraction) => (contraction.start + contraction.duration) > timestamp);
 
-        return completedSince.length
-            ? completedSince.reduce((totalDuration, contraction) => totalDuration + contraction.duration, 0) / completedSince.length
-            : undefined;
+        if (!completedSince.length) {
+            return undefined;
+        }
+
+        return completedSince.reduce((totalDuration, contraction) => totalDuration + contraction.duration, 0) / completedSince.length;
     }
 );
 

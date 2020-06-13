@@ -185,7 +185,7 @@ describe('Timer selectors', () => {
             expect(result2).toEqual(22000);
         });
 
-        it('returns undefined if there are no completed contractions since the specified timestamp', () => {
+        it('returns undefined if there are no completed contractions after the specified timestamp', () => {
             const state = {
                 timer: {
                     contractions: [
