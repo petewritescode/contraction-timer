@@ -165,6 +165,43 @@ describe('Timer selectors', () => {
         });
     });
 
+    describe('getAverageContractionDurationSince', () => {
+        it('returns the average of all contractions completed after the specified timestamp', () => {
+            const state = {
+                timer: {
+                    contractions: [
+                        { start: 1000000000000, duration: 19000 },
+                        { start: 1000000100000, duration: 24000 },
+                        { start: 1000000200000, duration: 20000 },
+                        { start: 1000000300000 },
+                    ],
+                } as TimerState,
+            };
+
+            const result1 = timerSelectors.getAverageContractionDurationSince(1000000018999)(state);
+            const result2 = timerSelectors.getAverageContractionDurationSince(1000000019000)(state);
+
+            expect(result1).toEqual(21000);
+            expect(result2).toEqual(22000);
+        });
+
+        it('returns undefined if there are no completed contractions since the specified timestamp', () => {
+            const state = {
+                timer: {
+                    contractions: [
+                        { start: 1000000000000, duration: 19000 },
+                        { start: 1000000100000, duration: 24000 },
+                        { start: 1000000200000, duration: 20000 },
+                    ],
+                } as TimerState,
+            };
+
+            const result = timerSelectors.getAverageContractionDurationSince(1000000300000)(state);
+
+            expect(result).toBe(undefined);
+        });
+    });
+
     describe('getStatus', () => {
         it('returns Stopped if the timer is not running', () => {
             const state = {

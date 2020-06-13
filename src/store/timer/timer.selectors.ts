@@ -17,6 +17,17 @@ export const hasCompletedContractions = createSelector(
     (completedContractions) => Boolean(completedContractions.length)
 );
 
+export const getAverageContractionDurationSince = (timestamp: number) => createSelector(
+    getCompletedContractions,
+    (completedContractions) => {
+        const completedSince = completedContractions.filter((contraction) => (contraction.start + contraction.duration) > timestamp);
+
+        return completedSince.length
+            ? completedSince.reduce((totalDuration, contraction) => totalDuration + contraction.duration, 0) / completedSince.length
+            : undefined;
+    }
+);
+
 export const getStatus = createSelector(
     getRunning,
     getLastContraction,
