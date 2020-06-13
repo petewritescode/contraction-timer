@@ -7,6 +7,22 @@ export const getRunning = createSelector(getSlice, (slice) => slice.running);
 export const getContractions = createSelector(getSlice, (slice) => slice.contractions);
 export const getLastContraction = createSelector(getContractions, (contractions) => contractions[contractions.length - 1]);
 
+export const getContractionsWithIntervals = createSelector(
+    getContractions,
+    (contractions) => contractions.map((contraction, index) => {
+        const previousContraction = contractions[index - 1];
+
+        const interval = previousContraction && !previousContraction.lastInGroup
+            ? contraction.start - previousContraction.start
+            : undefined;
+
+        return {
+            ...contraction,
+            interval,
+        };
+    })
+);
+
 export const getCompletedContractions = createSelector(
     getContractions,
     (contractions) => contractions.filter((contraction) => contraction.duration !== undefined)
@@ -27,6 +43,16 @@ export const getAverageDurationSince = (timestamp: number) => createSelector(
         }
 
         return completedSince.reduce((totalDuration, contraction) => totalDuration + contraction.duration, 0) / completedSince.length;
+    }
+);
+
+export const getAverageIntervalSince = (timestamp: number) => createSelector(
+    getContractionsWithIntervals,
+    (contractionsWithIntervals) => {
+        const startedSince = contractionsWithIntervals
+            .filter((contraction) => contraction.interval !== undefined && contraction.start >= timestamp);
+
+        return startedSince.reduce((totalInterval, contraction) => totalInterval + contraction.interval, 0) / startedSince.length;
     }
 );
 
