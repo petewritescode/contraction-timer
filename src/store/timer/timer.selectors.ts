@@ -1,3 +1,4 @@
+import { ContractionWithInterval } from '../../models/contraction-with-interval.model';
 import { createSelector } from '@reduxjs/toolkit';
 import { Status } from '../../models/status.model';
 import { TimerState } from './timer.slice';
@@ -9,7 +10,7 @@ export const getLastContraction = createSelector(getContractions, (contractions)
 
 export const getContractionsWithIntervals = createSelector(
     getContractions,
-    (contractions) => contractions.map((contraction, index) => {
+    (contractions) => contractions.map<ContractionWithInterval>((contraction, index) => {
         const previousContraction = contractions[index - 1];
 
         const interval = previousContraction && !previousContraction.lastInGroup
