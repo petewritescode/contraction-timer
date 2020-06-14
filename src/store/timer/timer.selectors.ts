@@ -50,10 +50,14 @@ export const getAverageDurationSince = (timestamp: number) => createSelector(
 export const getAverageIntervalSince = (timestamp: number) => createSelector(
     getContractionsWithIntervals,
     (contractionsWithIntervals) => {
-        const startedSince = contractionsWithIntervals
+        const validStartedSince = contractionsWithIntervals
             .filter((contraction) => contraction.interval !== undefined && contraction.start >= timestamp);
 
-        return startedSince.reduce((totalInterval, contraction) => totalInterval + contraction.interval, 0) / startedSince.length;
+        if (!validStartedSince.length) {
+            return undefined;
+        }
+
+        return validStartedSince.reduce((totalInterval, contraction) => totalInterval + contraction.interval, 0) / validStartedSince.length;
     }
 );
 

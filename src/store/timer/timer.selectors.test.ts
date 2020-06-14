@@ -289,6 +289,20 @@ describe('Timer selectors', () => {
 
             expect(result).toEqual(90000);
         });
+
+        it('returns undefined if there are no valid intervals after the specified timestamp', () => {
+            const state = {
+                timer: {
+                    contractions: [
+                        { start: 1000000000000, duration: 1 },
+                    ],
+                } as TimerState,
+            };
+
+            const result = timerSelectors.getAverageIntervalSince(1000000000000)(state);
+
+            expect(result).toBe(undefined);
+        });
     });
 
     describe('getStatus', () => {
