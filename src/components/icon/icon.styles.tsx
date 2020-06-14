@@ -6,8 +6,6 @@ interface Props {
     size: IconSize;
 }
 
-const getPixelSize = (size: IconSize): number => ICON_SIZE_TO_PIXELS_MAP[size];
-
 export const StyledIcon = styled.i<Props>`
-    font-size: ${({ size }) => `${getPixelSize(size)}px`};
+    font-size: ${({ size }) => `${ICON_SIZE_TO_PIXELS_MAP[size]}px`};
 `;
