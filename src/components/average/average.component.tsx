@@ -1,9 +1,22 @@
 import React, { FunctionComponent } from 'react';
 import { StyledAverage, StyledLabel, StyledTime } from './average.styles';
+import { AVERAGE_TYPE_TO_LABEL_MAP } from '../../constants/average.constants';
+import { AverageType } from '../../models/average-type.model';
+import { formatDuration } from '../../utils/format-duration.util';
 
-export const Average: FunctionComponent = () => (
-    <StyledAverage>
-        <StyledTime>01:23</StyledTime>
-        <StyledLabel>Duration</StyledLabel>
-    </StyledAverage>
-);
+interface Props {
+    type: AverageType,
+    duration?: number;
+}
+
+export const Average: FunctionComponent<Props> = ({ type, duration }) => {
+    const formattedDuration = formatDuration(duration || 0);
+    const label = AVERAGE_TYPE_TO_LABEL_MAP[type];
+
+    return (
+        <StyledAverage>
+            <StyledTime>{formattedDuration}</StyledTime>
+            <StyledLabel>{label}</StyledLabel>
+        </StyledAverage>
+    );
+};

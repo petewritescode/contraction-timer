@@ -11,7 +11,7 @@ export const TimerView: FunctionComponent = () => (
         </section>
 
         <section>
-            <SectionHeading>Past hour</SectionHeading>
+            <SectionHeading>One hour averages</SectionHeading>
             <Averages />
         </section>
     </StyledTimerView>
