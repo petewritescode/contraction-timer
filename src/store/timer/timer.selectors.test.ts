@@ -75,54 +75,6 @@ describe('Timer selectors', () => {
         });
     });
 
-    describe('getContractionsWithIntervals', () => {
-        it('returns the array of contractions with interval values added in', () => {
-            const state = {
-                timer: {
-                    contractions: [
-                        { start: 1000000000000, duration: 1 },
-                        { start: 1000000010000, duration: 1 },
-                        { start: 1000000040000, duration: 1 },
-                    ],
-                } as TimerState,
-            };
-
-            const expected: ContractionWithInterval[] = [
-                { start: 1000000000000, duration: 1 },
-                { start: 1000000010000, duration: 1, interval: 10000 },
-                { start: 1000000040000, duration: 1, interval: 30000 },
-            ];
-
-            const result = timerSelectors.getContractionsWithIntervals(state);
-
-            expect(result).toEqual(expected);
-        });
-
-        it('assigns an undefined interval to the first contraction in each group', () => {
-            const state = {
-                timer: {
-                    contractions: [
-                        { start: 1000000000000, duration: 1 },
-                        { start: 1000000010000, duration: 1, lastInGroup: true },
-                        { start: 1000000040000, duration: 1 },
-                        { start: 1000000060000, duration: 1 },
-                    ],
-                } as TimerState,
-            };
-
-            const expected: ContractionWithInterval[] = [
-                { start: 1000000000000, duration: 1 },
-                { start: 1000000010000, duration: 1, interval: 10000, lastInGroup: true },
-                { start: 1000000040000, duration: 1 },
-                { start: 1000000060000, duration: 1, interval: 20000 },
-            ];
-
-            const result = timerSelectors.getContractionsWithIntervals(state);
-
-            expect(result).toEqual(expected);
-        });
-    });
-
     describe('getCompletedContractions', () => {
         it('returns all completed contractions', () => {
             const state = {
@@ -211,6 +163,77 @@ describe('Timer selectors', () => {
             const result = timerSelectors.hasCompletedContractions(state);
 
             expect(result).toEqual(false);
+        });
+    });
+
+    describe('getContractionsWithIntervals', () => {
+        it('returns an array of contractions with interval values', () => {
+            const state = {
+                timer: {
+                    contractions: [
+                        { start: 1000000000000, duration: 1 },
+                        { start: 1000000010000, duration: 1 },
+                        { start: 1000000040000, duration: 1 },
+                    ],
+                } as TimerState,
+            };
+
+            const expected: ContractionWithInterval[] = [
+                { start: 1000000000000, duration: 1 },
+                { start: 1000000010000, duration: 1, interval: 10000 },
+                { start: 1000000040000, duration: 1, interval: 30000 },
+            ];
+
+            const result = timerSelectors.getContractionsWithIntervals(state);
+
+            expect(result).toEqual(expected);
+        });
+
+        it('sets interval to undefined if the contraction is first in its group', () => {
+            const state = {
+                timer: {
+                    contractions: [
+                        { start: 1000000000000, duration: 1 },
+                        { start: 1000000010000, duration: 1, lastInGroup: true },
+                        { start: 1000000040000, duration: 1 },
+                        { start: 1000000060000, duration: 1 },
+                    ],
+                } as TimerState,
+            };
+
+            const expected: ContractionWithInterval[] = [
+                { start: 1000000000000, duration: 1 },
+                { start: 1000000010000, duration: 1, interval: 10000, lastInGroup: true },
+                { start: 1000000040000, duration: 1 },
+                { start: 1000000060000, duration: 1, interval: 20000 },
+            ];
+
+            const result = timerSelectors.getContractionsWithIntervals(state);
+
+            expect(result).toEqual(expected);
+        });
+    });
+
+    describe('getCompletedContractionsWithIntervals', () => {
+        it('returns an array of completed contractions with interval values', () => {
+            const state = {
+                timer: {
+                    contractions: [
+                        { start: 1000000000000, duration: 1 },
+                        { start: 1000000010000, duration: 1 },
+                        { start: 1000000040000 },
+                    ],
+                } as TimerState,
+            };
+
+            const expected: ContractionWithInterval[] = [
+                { start: 1000000000000, duration: 1 },
+                { start: 1000000010000, duration: 1, interval: 10000 },
+            ];
+
+            const result = timerSelectors.getCompletedContractionsWithIntervals(state);
+
+            expect(result).toEqual(expected);
         });
     });
 
