@@ -2,10 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { formatDuration } from '../../utils/format-duration.util';
 import { now } from '../../utils/now.util';
 import { StyledTime } from './time.styles';
-import { UPDATE_INTERVAL_MS } from '../../constants/time.constants';
 import { useIntervalRender } from '../../hooks/interval-render.hook';
 import { useSelector } from 'react-redux';
 import * as timerSelectors from '../../store/timer/timer.selectors';
+
+const UPDATE_INTERVAL_MS = 100;
 
 export const Time: FunctionComponent = () => {
     const running = useSelector(timerSelectors.getRunning);
