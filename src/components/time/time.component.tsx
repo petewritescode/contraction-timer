@@ -6,13 +6,13 @@ import { useIntervalRender } from '../../hooks/interval-render.hook';
 import { useSelector } from 'react-redux';
 import * as timerSelectors from '../../store/timer/timer.selectors';
 
-const UPDATE_INTERVAL_MS = 100;
+const RENDER_INTERVAL = 100;
 
 export const Time: FunctionComponent = () => {
     const running = useSelector(timerSelectors.getRunning);
     const phaseStartTime = useSelector(timerSelectors.getPhaseStartTime);
 
-    useIntervalRender(running ? UPDATE_INTERVAL_MS : undefined);
+    useIntervalRender(running ? RENDER_INTERVAL : undefined);
 
     const duration = running && phaseStartTime ? now() - phaseStartTime : 0;
     const formattedDuration = formatDuration(duration);
