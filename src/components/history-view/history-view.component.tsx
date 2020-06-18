@@ -5,6 +5,7 @@ import * as timerSelectors from '../../store/timer/timer.selectors';
 
 export const HistoryView: FunctionComponent = () => {
     const contractions = useSelector(timerSelectors.getCompletedContractionsWithIntervals);
+    const displayContractions = [...contractions].reverse();
 
     const renderContraction = (contraction: ContractionWithInterval) => (
         <tr key={contraction.start}>
@@ -25,7 +26,7 @@ export const HistoryView: FunctionComponent = () => {
             </thead>
 
             <tbody>
-                {contractions.reverse().map(renderContraction)}
+                {displayContractions.map(renderContraction)}
             </tbody>
         </table>
     );
