@@ -1,5 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { ContractionWithInterval } from '../../models/contraction-with-interval.model';
+import { formatDuration } from '../../utils/format-duration.util';
+import { formatTime } from '../../utils/format-time.util';
 import { useSelector } from 'react-redux';
 import * as timerSelectors from '../../store/timer/timer.selectors';
 
@@ -9,9 +11,9 @@ export const HistoryView: FunctionComponent = () => {
 
     const renderContraction = (contraction: ContractionWithInterval) => (
         <tr key={contraction.start}>
-            <td>{contraction.start}</td>
-            <td>{contraction.duration}</td>
-            <td>{contraction.interval}</td>
+            <td>{formatTime(contraction.start)}</td>
+            <td>{formatDuration(contraction.duration)}</td>
+            <td>{contraction.interval !== undefined && formatDuration(contraction.interval)}</td>
         </tr>
     );
 
