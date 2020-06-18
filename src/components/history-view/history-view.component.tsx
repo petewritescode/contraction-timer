@@ -1,15 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import { Contraction } from '../../models/contraction.model';
+import { ContractionWithInterval } from '../../models/contraction-with-interval.model';
 import { useSelector } from 'react-redux';
 import * as timerSelectors from '../../store/timer/timer.selectors';
 
 export const HistoryView: FunctionComponent = () => {
-    const completedContrations = useSelector(timerSelectors.getCompletedContractions);
+    const contractions = useSelector(timerSelectors.getCompletedContractionsWithIntervals);
 
-    const renderContraction = (contraction: Contraction) => (
+    const renderContraction = (contraction: ContractionWithInterval) => (
         <tr key={contraction.start}>
             <td>{contraction.start}</td>
             <td>{contraction.duration}</td>
+            <td>{contraction.interval}</td>
         </tr>
     );
 
@@ -19,11 +20,12 @@ export const HistoryView: FunctionComponent = () => {
                 <tr>
                     <th>Start</th>
                     <th>Duration</th>
+                    <th>Interval</th>
                 </tr>
             </thead>
 
             <tbody>
-                {completedContrations.map(renderContraction)}
+                {contractions.reverse().map(renderContraction)}
             </tbody>
         </table>
     );
