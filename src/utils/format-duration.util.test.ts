@@ -19,4 +19,8 @@ describe('formatDuration', () => {
     it('includes only completed seconds, discarding any remaining milliseconds', () => {
         expect(formatDuration(999)).toEqual('0:00');
     });
+
+    it('treats an undefined value as zero', () => {
+        expect(formatDuration()).toEqual('0:00');
+    });
 });

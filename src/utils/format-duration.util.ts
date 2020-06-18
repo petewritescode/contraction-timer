@@ -1,6 +1,6 @@
 import { durationToTime } from './duration-to-time.util';
 
-export const formatDuration = (durationInMs: number): string => {
+export const formatDuration = (durationInMs = 0): string => {
     const time = durationToTime(durationInMs);
 
     const minutes = time.hours ? 59 : time.minutes;

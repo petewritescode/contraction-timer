@@ -14,7 +14,7 @@ export const Time: FunctionComponent = () => {
 
     useIntervalRender(running ? RENDER_INTERVAL : undefined);
 
-    const duration = running && phaseStartTime ? now() - phaseStartTime : 0;
+    const duration = running && phaseStartTime ? now() - phaseStartTime : undefined;
     const formattedDuration = formatDuration(duration);
 
     return <StyledTime>{formattedDuration}</StyledTime>;

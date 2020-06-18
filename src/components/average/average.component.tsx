@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const Average: FunctionComponent<Props> = ({ type, duration }) => {
-    const formattedDuration = formatDuration(duration || 0);
+    const formattedDuration = formatDuration(duration);
     const label = AVERAGE_TYPE_TO_LABEL_MAP[type];
 
     return (
