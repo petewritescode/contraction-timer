@@ -239,5 +239,13 @@ export const BaseCss = createGlobalStyle`
         font-family: 'Lato', sans-serif;
         font-weight: 300;
     }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    th {
+        text-align: left;
+    }
 `;
 /* stylelint-enable no-descending-specificity */
