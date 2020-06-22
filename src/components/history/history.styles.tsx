@@ -4,6 +4,10 @@ interface TrProps {
     showDivider?: boolean;
 }
 
+interface TdProps {
+    highlight?: boolean;
+}
+
 export const StyledTable = styled.table`
     display: flex;
     flex-direction: column;
@@ -28,7 +32,7 @@ export const StyledTr = styled.tr<TrProps>`
         border-top: 1px solid rgba(255, 255, 255, 0.25);
 
         ${({ showDivider }) => showDivider && css`
-            border-top: 1px solid white;
+            border-top-color: white;
         `}
     }
 `;
@@ -37,6 +41,10 @@ export const StyledTh = styled.th`
     flex: 1;
 `;
 
-export const StyledTd = styled.td`
+export const StyledTd = styled.td<TdProps>`
     flex: 1;
+
+    ${({ highlight }) => highlight && css`
+        font-weight: bold;
+    `}
 `;

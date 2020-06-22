@@ -12,8 +12,8 @@ export const History: FunctionComponent = () => {
 
     const renderContraction = (contraction: ContractionWithInterval) => (
         <StyledTr key={contraction.start} showDivider={contraction.lastInGroup}>
-            <StyledTd>{formatDuration(contraction.duration)}</StyledTd>
-            <StyledTd>{contraction.interval !== undefined && formatDuration(contraction.interval)}</StyledTd>
+            <StyledTd highlight>{formatDuration(contraction.duration)}</StyledTd>
+            <StyledTd highlight>{contraction.interval !== undefined && formatDuration(contraction.interval)}</StyledTd>
             <StyledTd>{formatTime(contraction.start)}</StyledTd>
         </StyledTr>
     );
