@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { StyledBackground, StyledContent, StyledControls, StyledLayout } from './layout.styles';
+import { StyledBackground, StyledContainer, StyledContent, StyledLayout, StyledNav } from './layout.styles';
 import { Background } from '../background/background.component';
-import { Controls } from '../controls/controls.component';
 import { HistoryView } from '../history-view/history-view.component';
+import { Nav } from '../nav/nav.component';
 import { TimerView } from '../timer-view/timer-view.component';
 import { useSelector } from 'react-redux';
 import { View } from '../../models/view.model';
@@ -20,12 +20,16 @@ export const Layout: FunctionComponent = () => {
 
             <StyledLayout>
                 <StyledContent>
-                    {content}
+                    <StyledContainer>
+                        {content}
+                    </StyledContainer>
                 </StyledContent>
 
-                <StyledControls>
-                    <Controls />
-                </StyledControls>
+                <StyledNav>
+                    <StyledContainer>
+                        <Nav />
+                    </StyledContainer>
+                </StyledNav>
             </StyledLayout>
         </>
     );

@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { View } from '../../models/view.model';
 
 export interface ViewState {
@@ -13,8 +13,13 @@ const viewSlice = createSlice({
     name: 'view',
     initialState,
     reducers: {
-        toggle: (state) => {
-            state.view = state.view === View.Timer ? View.History : View.Timer;
+        setView: {
+            prepare: (view: View) => ({
+                payload: view,
+            }),
+            reducer: (state, action: PayloadAction<View>) => {
+                state.view = action.payload;
+            },
         },
     },
 });

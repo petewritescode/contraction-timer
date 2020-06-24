@@ -12,10 +12,7 @@ export const StyledBackground = styled.div`
 export const StyledLayout = styled.section`
     display: flex;
     flex-direction: column;
-    max-width: 600px;
     height: 100%;
-    margin-right: auto;
-    margin-left: auto;
 `;
 
 export const StyledContent = styled.main`
@@ -23,6 +20,13 @@ export const StyledContent = styled.main`
     overflow: hidden;
 `;
 
-export const StyledControls = styled.div`
-    padding-bottom: 50px;
+export const StyledNav = styled.section`
+    background-color: rgba(0, 0, 0, 0.25);
+`;
+
+export const StyledContainer = styled.div`
+    max-width: 600px;
+    height: 100%;
+    margin-right: auto;
+    margin-left: auto;
 `;
