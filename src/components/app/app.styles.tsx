@@ -209,6 +209,7 @@ export const BaseCss = createGlobalStyle`
         border-width: 0;
         background-color: transparent;
         color: inherit;
+        font: inherit;
     }
 
     ul,
