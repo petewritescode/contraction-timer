@@ -8,4 +8,5 @@ interface Props {
 
 export const StyledIcon = styled.i<Props>`
     font-size: ${({ size }) => `${ICON_SIZE_TO_PIXELS_MAP[size]}px`};
+    vertical-align: top;
 `;
