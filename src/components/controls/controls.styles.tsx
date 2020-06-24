@@ -12,10 +12,6 @@ export const StyledPrimary = styled.li`
     margin-left: 20px;
 `;
 
-export const StyledSecondary = styled.li`
-    order: 3;
-`;
-
 export const StyledTertiary = styled.li`
     order: 1;
 `;
