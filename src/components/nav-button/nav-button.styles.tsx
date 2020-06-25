@@ -12,8 +12,8 @@ export const StyledNavButton = styled.button<ButtonProps>`
     height: 45px;
     font-weight: bold;
 
-    ${({ selected, theme }) => selected && css`
-    background: ${theme.color.background.stopped};
+    ${({ selected }) => !selected && css`
+        opacity: 0.5;
     `}
 `;
 
