@@ -1,4 +1,4 @@
-import { NAV_BUTTON_TYPE_TO_ICON_NAME_MAP, NAV_BUTTON_TYPE_TO_LABEL_MAP } from '../../constants/nav.constants';
+import { NAV_BUTTON_TYPE_TO_ICON_NAME_MAP, NAV_BUTTON_TYPE_TO_LABEL_MAP } from '../../constants/button.constants';
 import React, { FunctionComponent } from 'react';
 import { StyledIcon, StyledNavButton } from './nav-button.styles';
 import { Icon } from '../icon/icon.component';
@@ -13,13 +13,13 @@ interface Props {
 }
 
 export const NavButton: FunctionComponent<Props> = ({ type, selected, onClick = noop }) => {
-    const name = NAV_BUTTON_TYPE_TO_ICON_NAME_MAP[type];
+    const iconName = NAV_BUTTON_TYPE_TO_ICON_NAME_MAP[type];
     const label = NAV_BUTTON_TYPE_TO_LABEL_MAP[type];
 
     return (
         <StyledNavButton selected={selected} type="button" onClick={onClick}>
             <StyledIcon>
-                <Icon name={name} size={IconSize.Medium} />
+                <Icon name={iconName} size={IconSize.Medium} />
             </StyledIcon>
 
             {label}

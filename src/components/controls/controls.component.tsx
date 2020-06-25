@@ -1,42 +1,30 @@
 import React, { FunctionComponent } from 'react';
-import { StyledControls, StyledPrimary, StyledTertiary } from './controls.styles';
+import { StyledControls, StyledPrimary } from './controls.styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { Control } from '../control/control.component';
-import { ControlType } from '../../models/control-type.model';
+import { PrimaryButton } from '../primary-button/primary-button.component';
+import { PrimaryButtonType } from '../../models/primary-button-type.model';
 import { Status } from '../../models/status.model';
 import { timerActions } from '../../store/timer/timer.slice';
-import { View } from '../../models/view.model';
 import * as timerSelectors from '../../store/timer/timer.selectors';
-import * as viewSelectors from '../../store/view/view.selectors';
 
 export const Controls: FunctionComponent = () => {
     const dispatch = useDispatch();
-    const hasCompletedContractions = useSelector(timerSelectors.hasCompletedContractions);
     const status = useSelector(timerSelectors.getStatus);
-    const view = useSelector(viewSelectors.getView);
-
-    const primaryType = status === Status.Contraction ? ControlType.Stop : ControlType.Start;
-    const tertiaryType = view === View.Timer ? ControlType.Pause : ControlType.Clear;
-    const tertiaryDisabled = view === View.Timer ? status === Status.Stopped : !hasCompletedContractions;
+    const primaryType = status === Status.Contraction ? PrimaryButtonType.Stop : PrimaryButtonType.Start;
 
     const handlePrimaryClick = (): void => {
         dispatch(timerActions.toggleContraction());
     };
 
-    const handleTertiaryClick = (): void => {
-        const action = view === View.Timer ? timerActions.stop() : timerActions.clearComplete();
-        dispatch(action);
-    };
-
     return (
         <StyledControls>
             <StyledPrimary>
-                <Control type={primaryType} onClick={handlePrimaryClick} primary />
+                <PrimaryButton type={primaryType} onClick={handlePrimaryClick} />
             </StyledPrimary>
 
-            <StyledTertiary>
-                <Control type={tertiaryType} disabled={tertiaryDisabled} onClick={handleTertiaryClick} />
-            </StyledTertiary>
+            <li>
+                Secondary
+            </li>
         </StyledControls>
     );
 };
