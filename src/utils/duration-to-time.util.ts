@@ -1,5 +1,5 @@
 import { MS_IN_A_MINUTE, MS_IN_A_SECOND, MS_IN_AN_HOUR } from '../constants/time.constants';
-import { Time } from '../models/time.models';
+import { Time } from '../models/time.model';
 
 export const durationToTime = (durationInMs: number): Time => {
     let msRemaining = durationInMs;
