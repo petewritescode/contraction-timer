@@ -246,6 +246,7 @@ export const BaseCss = createGlobalStyle`
     }
 
     th {
+        font-weight: inherit;
         text-align: left;
     }
 `;
