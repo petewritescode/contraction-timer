@@ -10,8 +10,8 @@ export const History: FunctionComponent = () => {
     const contractions = useSelector(timerSelectors.getCompletedContractionsWithIntervals);
     const displayContractions = [...contractions].reverse();
 
-    const renderContraction = (contraction: ContractionWithInterval) => (
-        <StyledTr key={contraction.start} showDivider={contraction.lastInGroup}>
+    const renderContraction = (contraction: ContractionWithInterval, index: number) => (
+        <StyledTr key={contraction.start} showDivider={index && contraction.lastInGroup}>
             <StyledTd highlight>{formatDuration(contraction.duration)}</StyledTd>
             <StyledTd highlight>{contraction.interval !== undefined && formatDuration(contraction.interval)}</StyledTd>
             <StyledTd>{formatTime(contraction.start)}</StyledTd>

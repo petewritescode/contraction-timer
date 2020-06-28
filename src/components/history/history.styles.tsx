@@ -13,10 +13,12 @@ export const StyledTable = styled.table`
     flex-direction: column;
     width: 100%;
     height: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
 `;
 
 export const StyledTHead = styled.thead`
-    border-bottom: 1px solid white;
+    border-bottom: 2px solid white;
 `;
 
 export const StyledTBody = styled.tbody`
@@ -26,19 +28,26 @@ export const StyledTBody = styled.tbody`
 
 export const StyledTr = styled.tr<TrProps>`
     display: flex;
-    padding: 10px 20px;
+    margin-top: 10px;
 
-    &:not(:first-child) {
-        border-top: 1px solid rgba(255, 255, 255, 0.25);
-
-        ${({ showDivider }) => showDivider && css`
-            border-top-color: white;
-        `}
+    &:first-child {
+        margin-top: 20px;
     }
+
+    &:last-child {
+        margin-bottom: 20px;
+    }
+
+    ${({ showDivider }) => showDivider && css`
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.5);
+    `}
 `;
 
 export const StyledTh = styled.th`
     flex: 1;
+    text-transform: uppercase;
 `;
 
 export const StyledTd = styled.td<TdProps>`
