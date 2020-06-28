@@ -9,7 +9,7 @@ import { rootReducer } from './store/root.reducer';
 import { ThemeProvider } from 'styled-components';
 
 // Type definitions are incorrect, use 'any' to bypass (https://github.com/elgerlambert/redux-localstorage/issues/78)
-const persistStateEnhancer: any = persistState();
+const persistStateEnhancer: any = persistState(['timer'] as any);
 
 const store = configureStore({
     reducer: rootReducer,
