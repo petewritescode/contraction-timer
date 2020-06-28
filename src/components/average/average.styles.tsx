@@ -5,7 +5,7 @@ export const StyledAverage = styled.div`
 `;
 
 export const StyledTime = styled.div`
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 2rem;
 `;
 

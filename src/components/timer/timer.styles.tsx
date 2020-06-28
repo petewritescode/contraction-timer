@@ -6,10 +6,15 @@ export const StyledTimer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     margin-right: auto;
     margin-left: auto;
+
+    @media screen and (min-width: 375px) {
+        width: 220px;
+        height: 220px;
+    }
 `;
 
 export const StyledStatusIndicator = styled.div`
