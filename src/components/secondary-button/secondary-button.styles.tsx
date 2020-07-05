@@ -11,8 +11,9 @@ export const StyledSecondaryButton = styled.button<Props>`
     padding-right: 10px;
     padding-left: 5px;
     transition: opacity 250ms;
-    border: 2px solid #ffffff;
     border-radius: 15px;
+    background-color: #ffffff;
+    color: #666666;
     font-weight: bold;
 
     ${({ disabled }) => disabled && css`

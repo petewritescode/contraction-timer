@@ -23,6 +23,7 @@ export const StyledTHead = styled.thead`
 
 export const StyledTBody = styled.tbody`
     flex-grow: 1;
+    padding-bottom: 80px;
     overflow: auto;
 `;
 
