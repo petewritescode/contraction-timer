@@ -200,6 +200,10 @@ export const BaseCss = createGlobalStyle`
         height: 100%;
     }
 
+    html {
+        line-height: 1.2;
+    }
+
     a {
         color: inherit;
     }
