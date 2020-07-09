@@ -237,6 +237,29 @@ describe('Timer selectors', () => {
         });
     });
 
+    describe('getReversedCompletedContractionsWithIntervals', () => {
+        it('returns an array of completed contractions with interval values', () => {
+            const state = {
+                timer: {
+                    contractions: [
+                        { start: 1000000000000, duration: 1 },
+                        { start: 1000000010000, duration: 1 },
+                        { start: 1000000040000 },
+                    ],
+                } as TimerState,
+            };
+
+            const expected: ContractionWithInterval[] = [
+                { start: 1000000010000, duration: 1, interval: 10000 },
+                { start: 1000000000000, duration: 1 },
+            ];
+
+            const result = timerSelectors.getReversedCompletedContractionsWithIntervals(state);
+
+            expect(result).toEqual(expected);
+        });
+    });
+
     describe('getAverageDurationSince', () => {
         it('returns the average duration of all contractions completed after the specified timestamp', () => {
             const state = {

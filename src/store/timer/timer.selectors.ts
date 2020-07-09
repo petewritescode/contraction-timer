@@ -39,6 +39,11 @@ export const getCompletedContractionsWithIntervals = createSelector(
     (contractionsWithIntervals) => contractionsWithIntervals.filter((contraction) => contraction.duration !== undefined)
 );
 
+export const getReversedCompletedContractionsWithIntervals = createSelector(
+    getCompletedContractionsWithIntervals,
+    (completedContractionsWithIntervals) => [...completedContractionsWithIntervals].reverse()
+);
+
 export const getAverageDurationSince = (timestamp: number) => createSelector(
     getCompletedContractions,
     (completedContractions) => {
