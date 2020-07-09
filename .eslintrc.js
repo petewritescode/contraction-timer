@@ -22,6 +22,7 @@ module.exports = {
         'object-curly-newline': ['error', { consistent: true }],
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
+        'react/jsx-one-expression-per-line': 'off',
         'react/prop-types': 'off',
         'sort-imports': ['error', {
             ignoreCase: true,
