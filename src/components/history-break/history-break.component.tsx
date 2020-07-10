@@ -1,4 +1,4 @@
 import React, { FunctionComponent } from 'react';
 import { StyledHistoryBreak } from './history-break.styles';
 
-export const HistoryBreak: FunctionComponent = () => <StyledHistoryBreak>Break</StyledHistoryBreak>;
+export const HistoryBreak: FunctionComponent = () => <StyledHistoryBreak />;
