@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { StyledBackground, StyledContainer, StyledContent, StyledLayout, StyledNav } from './layout.styles';
+import { StyledBackground, StyledContent, StyledLayout } from './layout.styles';
 import { Background } from '../background/background.component';
+import { Header } from '../header/header.component';
 import { HistoryView } from '../history-view/history-view.component';
 import { Nav } from '../nav/nav.component';
 import { TimerView } from '../timer-view/timer-view.component';
@@ -19,17 +20,17 @@ export const Layout: FunctionComponent = () => {
             </StyledBackground>
 
             <StyledLayout>
+                <div>
+                    <Header />
+                </div>
+
                 <StyledContent>
-                    <StyledContainer>
-                        {content}
-                    </StyledContainer>
+                    {content}
                 </StyledContent>
 
-                <StyledNav>
-                    <StyledContainer>
-                        <Nav />
-                    </StyledContainer>
-                </StyledNav>
+                <div>
+                    <Nav />
+                </div>
             </StyledLayout>
         </>
     );

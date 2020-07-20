@@ -19,14 +19,3 @@ export const StyledContent = styled.main`
     flex-grow: 1;
     overflow: hidden;
 `;
-
-export const StyledNav = styled.section`
-    background-color: rgba(0, 0, 0, 0.25);
-`;
-
-export const StyledContainer = styled.div`
-    max-width: 600px;
-    height: 100%;
-    margin-right: auto;
-    margin-left: auto;
-`;
