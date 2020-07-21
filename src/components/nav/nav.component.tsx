@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { StyledContainer, StyledItem, StyledNav } from './nav.styles';
 import { useDispatch, useSelector } from 'react-redux';
+import { Container } from '../container/container.component';
 import { NavButton } from '../nav-button/nav-button.component';
 import { NavButtonType } from '../../models/nav-button-type.model';
 import { View } from '../../models/view.model';
@@ -21,15 +22,17 @@ export const Nav: FunctionComponent = () => {
 
     return (
         <StyledNav>
-            <StyledContainer>
-                <StyledItem>
-                    {renderButton(NavButtonType.Timer, View.Timer)}
-                </StyledItem>
+            <Container>
+                <StyledContainer>
+                    <StyledItem>
+                        {renderButton(NavButtonType.Timer, View.Timer)}
+                    </StyledItem>
 
-                <StyledItem>
-                    {renderButton(NavButtonType.History, View.History)}
-                </StyledItem>
-            </StyledContainer>
+                    <StyledItem>
+                        {renderButton(NavButtonType.History, View.History)}
+                    </StyledItem>
+                </StyledContainer>
+            </Container>
         </StyledNav>
     );
 };

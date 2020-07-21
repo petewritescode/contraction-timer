@@ -3,10 +3,7 @@ import styled from 'styled-components';
 export const StyledContainer = styled.div`
     display: flex;
     align-items: center;
-    max-width: 600px;
     height: 60px;
-    margin-right: auto;
-    margin-left: auto;
     padding-right: 20px;
     padding-left: 20px;
 `;
