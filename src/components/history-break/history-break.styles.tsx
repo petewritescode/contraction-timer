@@ -12,6 +12,6 @@ export const StyledHistoryBreak = styled.li`
         top: 0;
         bottom: 0;
         left: 8px;
-        border-left: 4px dashed #ffffff;
+        border-left: 4px dashed rgba(255, 255, 255, 0.5);
     }
 `;
