@@ -19,7 +19,7 @@ export const PrimaryButton: FunctionComponent<Props> = ({ type, onClick = noop }
 
     return (
         <StyledPrimaryButton type="button" status={status} onClick={onClick}>
-            <Icon name={iconName} size={IconSize.ExtraLarge} />
+            <Icon name={iconName} size={IconSize.Large} />
         </StyledPrimaryButton>
     );
 };

@@ -14,6 +14,6 @@ export const ICON_NAME_TO_CODE_MAP: Record<IconName, string> = {
 export const ICON_SIZE_TO_PIXELS_MAP: Record<IconSize, number> = {
     [IconSize.Small]: 18,
     [IconSize.Medium]: 24,
-    [IconSize.Large]: 36,
-    [IconSize.ExtraLarge]: 48,
+    [IconSize.Large]: 48,
+    [IconSize.ExtraLarge]: 72,
 };
