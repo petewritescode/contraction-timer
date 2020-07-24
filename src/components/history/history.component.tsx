@@ -1,24 +1,17 @@
-import React, { Fragment, FunctionComponent } from 'react';
-import { HistoryBreak } from '../history-break/history-break.component';
-import { HistoryContraction } from '../history-contraction/history-contraction.component';
-import { HistoryInterval } from '../history-interval/history-interval.component';
+import React, { FunctionComponent } from 'react';
+import { HistoryEmpty } from '../history-empty/history-empty.component';
+import { HistoryList } from '../history-list/history-list.component';
 import { StyledHistory } from './history.styles';
 import { useSelector } from 'react-redux';
 import * as timerSelectors from '../../store/timer/timer.selectors';
 
 export const History: FunctionComponent = () => {
-    const reversedContractions = useSelector(timerSelectors.getReversedCompletedContractionsWithIntervals);
-    const maxIndex = reversedContractions.length - 1;
+    const hasCompletedContractions = useSelector(timerSelectors.hasCompletedContractions);
 
     return (
         <StyledHistory>
-            {reversedContractions.map((contraction, index) => (
-                <Fragment key={contraction.start}>
-                    <HistoryContraction start={contraction.start} duration={contraction.duration} />
-                    {contraction.interval !== undefined && <HistoryInterval duration={contraction.interval} />}
-                    {index < maxIndex && contraction.interval === undefined && <HistoryBreak />}
-                </Fragment>
-            ))}
+            {!hasCompletedContractions && <HistoryEmpty />}
+            {hasCompletedContractions && <HistoryList />}
         </StyledHistory>
     );
 };
