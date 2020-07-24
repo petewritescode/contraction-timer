@@ -5,6 +5,7 @@ export const ICON_NAME_TO_CODE_MAP: Record<IconName, string> = {
     [IconName.Clear]: 'e14c',
     [IconName.History]: 'e889',
     [IconName.Pause]: 'e034',
+    [IconName.Pregnant]: 'e91e',
     [IconName.Start]: 'e037',
     [IconName.Stop]: 'e047',
     [IconName.Timer]: 'e425',
