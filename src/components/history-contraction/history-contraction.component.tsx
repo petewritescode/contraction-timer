@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
+import { StyledDate, StyledDuration, StyledHistoryContraction } from './history-contraction.styles';
 import { formatDuration } from '../../utils/format-duration.util';
-import { StyledHistoryContraction } from './history-contraction.styles';
+import { formatTimeAndDate } from '../../utils/format-time-and-date.util';
 
 interface Props {
     start: number;
@@ -8,5 +9,8 @@ interface Props {
 }
 
 export const HistoryContraction: FunctionComponent<Props> = ({ start, duration }) => (
-    <StyledHistoryContraction>{formatDuration(duration)} / {start}</StyledHistoryContraction>
+    <StyledHistoryContraction>
+        <StyledDuration>{formatDuration(duration)}</StyledDuration>
+        <StyledDate>{formatTimeAndDate(start)}</StyledDate>
+    </StyledHistoryContraction>
 );

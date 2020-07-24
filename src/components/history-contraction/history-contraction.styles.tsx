@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const StyledHistoryContraction = styled.li`
+    display: flex;
     position: relative;
     height: 20px;
     padding-left: 40px;
-    font-weight: bold;
     line-height: 20px;
 
     &::before {
@@ -18,4 +18,14 @@ export const StyledHistoryContraction = styled.li`
         border-radius: 50%;
         background-color: #ffffff;
     }
+`;
+
+export const StyledDuration = styled.div`
+    flex-grow: 1;
+    font-size: 1.3rem;
+    font-weight: bold;
+`;
+
+export const StyledDate = styled.div`
+    font-size: 0.75rem;
 `;
