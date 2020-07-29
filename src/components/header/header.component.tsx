@@ -2,9 +2,10 @@ import React, { FunctionComponent } from 'react';
 import { StyledContainer, StyledHeading } from './header.styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '../container/container.component';
+import { modalActions } from '../../store/modal/modal.slice';
+import { ModalType } from '../../models/modal-type.model';
 import { SecondaryButton } from '../secondary-button/secondary-button.component';
 import { SecondaryButtonType } from '../../models/secondary-button-type.model';
-import { timerActions } from '../../store/timer/timer.slice';
 import { View } from '../../models/view.model';
 import { VIEW_TO_HEADING_MAP } from '../../constants/view.constants';
 import * as timerSelectors from '../../store/timer/timer.selectors';
@@ -18,7 +19,7 @@ export const Header: FunctionComponent = () => {
     const clearButtonDisabled = !useSelector(timerSelectors.hasCompletedContractions);
 
     const handleClearClick = () => {
-        dispatch(timerActions.clearComplete());
+        dispatch(modalActions.open(ModalType.ClearHistory));
     };
 
     return (
