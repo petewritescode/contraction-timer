@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Modal } from '../../models/modal.model';
+import { ModalType } from '../../models/modal-type.model';
 
 export interface ModalState {
-    active?: Modal;
+    active?: ModalType;
 }
 
 const initialState: ModalState = {};
@@ -11,14 +11,14 @@ const modalSlice = createSlice({
     name: 'modal',
     initialState,
     reducers: {
-        hide: (state) => {
+        close: (state) => {
             state.active = undefined;
         },
-        show: {
-            prepare: (modal: Modal) => ({
+        open: {
+            prepare: (modal: ModalType) => ({
                 payload: modal,
             }),
-            reducer: (state, action: PayloadAction<Modal>) => {
+            reducer: (state, action: PayloadAction<ModalType>) => {
                 state.active = action.payload;
             },
         },

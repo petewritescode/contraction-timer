@@ -1,5 +1,5 @@
-import { Modal } from '../../models/modal.model';
 import { ModalState } from './modal.slice';
+import { ModalType } from '../../models/modal-type.model';
 import * as modalSelectors from './modal.selectors';
 
 describe('Modal selectors', () => {
@@ -19,7 +19,7 @@ describe('Modal selectors', () => {
         it('returns the active modal', () => {
             const state = {
                 modal: {
-                    active: Modal.ClearHistory,
+                    active: ModalType.ClearHistory,
                 },
             };
 
@@ -33,7 +33,7 @@ describe('Modal selectors', () => {
         it('returns true if there is an active modal', () => {
             const state = {
                 modal: {
-                    active: Modal.ClearHistory,
+                    active: ModalType.ClearHistory,
                 },
             };
 
