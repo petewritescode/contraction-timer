@@ -7,7 +7,7 @@ export const StyledBackground = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 50px 20px;
+    padding: 40px 20px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
 `;
