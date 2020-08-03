@@ -28,7 +28,7 @@ export const ClearHistoryModal: FunctionComponent = () => {
             secondaryButtonText="Cancel"
             secondaryButtonOnClick={handleCancelClick}
         >
-            <p>Are you sure you want to clear all completed contractions?</p>
+            <p>Are you sure you want to clear your contraction history?</p>
         </Modal>
     );
 };
