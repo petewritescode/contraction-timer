@@ -12,11 +12,11 @@ export const StyledBackground = styled.div<Props>`
     background-color: ${({ status, theme }) => {
         switch (status) {
             case Status.Contraction:
-                return theme.color.status.contraction;
+                return theme.color.contraction;
             case Status.Rest:
-                return theme.color.status.rest;
+                return theme.color.rest;
             default:
-                return theme.color.status.ready;
+                return theme.color.ready;
         }
     }};
 `;

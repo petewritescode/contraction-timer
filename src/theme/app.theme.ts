@@ -2,23 +2,18 @@ import { Theme } from '../models/theme.model';
 
 export const appTheme: Theme = {
     color: {
-        status: {
-            contraction: '#e83887',
-            ready: '#1fb3aa',
-            rest: '#28a5e3',
-        },
-        neutral: {
-            min: '#ffffff',
-            min25: 'rgba(255, 255, 255, 0.25)',
-            min50: 'rgba(255, 255, 255, 0.5)',
-            min75: 'rgba(255, 255, 255, 0.75)',
-            max: '#000000',
-            max25: 'rgba(0, 0, 0, 0.25)',
-            max50: 'rgba(0, 0, 0, 0.5)',
-            max75: 'rgba(0, 0, 0, 0.75)',
-            mid1: '#bfbfbf',
-            mid2: '#808080',
-            mid3: '#404040',
-        },
+        contraction: '#e83887',
+        ready: '#1fb3aa',
+        rest: '#28a5e3',
+        neutralMin: '#ffffff',
+        neutralMin25: 'rgba(255, 255, 255, 0.25)',
+        neutralMin50: 'rgba(255, 255, 255, 0.5)',
+        neutralMin75: 'rgba(255, 255, 255, 0.75)',
+        neutralMax: '#000000',
+        neutralMax25: 'rgba(0, 0, 0, 0.25)',
+        neutralMax50: 'rgba(0, 0, 0, 0.5)',
+        neutralMax75: 'rgba(0, 0, 0, 0.75)',
+        neutralMid1: '#6e6e6e',
+        neutralMid2: '#383838',
     },
 };

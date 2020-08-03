@@ -16,7 +16,7 @@ export const StyledHistoryContraction = styled.li`
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background-color: ${({ theme }) => theme.color.neutral.min};
+        background-color: ${({ theme }) => theme.color.neutralMin};
     }
 `;
 

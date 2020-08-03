@@ -12,6 +12,6 @@ export const StyledHistoryBreak = styled.li`
         top: 0;
         bottom: 0;
         left: 8px;
-        border-left: 4px dashed ${({ theme }) => theme.color.neutral.min50};
+        border-left: 4px dashed ${({ theme }) => theme.color.neutralMin50};
     }
 `;

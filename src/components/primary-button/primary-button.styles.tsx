@@ -13,15 +13,15 @@ export const StyledPrimaryButton = styled.button<Props>`
     height: 70px;
     transition: color 250ms;
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.color.neutral.min};
+    background-color: ${({ theme }) => theme.color.neutralMin};
     color: ${({ status, theme }) => {
         switch (status) {
             case Status.Contraction:
-                return theme.color.status.contraction;
+                return theme.color.contraction;
             case Status.Rest:
-                return theme.color.status.rest;
+                return theme.color.rest;
             default:
-                return theme.color.status.ready;
+                return theme.color.ready;
         }
     }};
 

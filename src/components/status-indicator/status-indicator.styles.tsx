@@ -24,7 +24,7 @@ const rest = keyframes`
 export const StyledStatusIndicator = styled.div<Props>`
     width: 100%;
     height: 100%;
-    border: 4px solid ${({ theme }) => theme.color.neutral.min};
+    border: 4px solid ${({ theme }) => theme.color.neutralMin};
     border-radius: 50%;
 
     ${({ status }) => status === Status.Contraction && css`

@@ -12,6 +12,6 @@ export const StyledHistoryInterval = styled.li`
         top: 0;
         bottom: 0;
         left: 8px;
-        border-left: 4px solid ${({ theme }) => theme.color.neutral.min};
+        border-left: 4px solid ${({ theme }) => theme.color.neutralMin};
     }
 `;
