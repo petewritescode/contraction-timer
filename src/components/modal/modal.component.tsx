@@ -1,5 +1,18 @@
 import React, { FunctionComponent, MouseEvent } from 'react';
-import { StyledBackground, StyledDialog } from './modal.styles';
+import {
+    StyledBackground,
+    StyledClose,
+    StyledCloseButton,
+    StyledDialog,
+    StyledFooter,
+    StyledHeader,
+    StyledHeading,
+    StyledPrimaryButton,
+    StyledSecondaryButton,
+} from './modal.styles';
+import { Icon } from '../icon/icon.component';
+import { IconName } from '../../models/icon-name.model';
+import { IconSize } from '../../models/icon-size.model';
 import { modalActions } from '../../store/modal/modal.slice';
 import { useDispatch } from 'react-redux';
 
@@ -7,10 +20,28 @@ import { useDispatch } from 'react-redux';
 // Alternatively have reusable components like ModalPrimaryButton or whatever, but that still requires you to use it properly, keep them in
 // the correct order, etc.
 
-export const Modal: FunctionComponent = ({ children }) => {
-    const dispatch = useDispatch();
+interface Props {
+    heading: string;
+    primaryButtonText?: string;
+    primaryButtonOnClick?: () => void;
+    secondaryButtonText?: string;
+    secondaryButtonOnClick?: () => void;
+}
 
-    const handleBackgroundClick = () => {
+export const Modal: FunctionComponent<Props> = ({
+    heading,
+    primaryButtonText,
+    primaryButtonOnClick,
+    secondaryButtonText,
+    secondaryButtonOnClick,
+    children,
+}) => {
+    const dispatch = useDispatch();
+    const showPrimaryButton = Boolean(primaryButtonText && primaryButtonOnClick);
+    const showSecondaryButton = Boolean(secondaryButtonText && secondaryButtonOnClick);
+    const showFooter = showPrimaryButton || showSecondaryButton;
+
+    const handleCloseClick = () => {
         dispatch(modalActions.close());
     };
 
@@ -19,9 +50,31 @@ export const Modal: FunctionComponent = ({ children }) => {
     };
 
     return (
-        <StyledBackground onClick={handleBackgroundClick}>
+        <StyledBackground onClick={handleCloseClick}>
             <StyledDialog onClick={handleDialogClick}>
-                {children}
+                <StyledHeader>
+                    <StyledHeading>{heading}</StyledHeading>
+
+                    <StyledClose>
+                        <StyledCloseButton onClick={handleCloseClick}>
+                            <Icon name={IconName.Clear} size={IconSize.Small} />
+                        </StyledCloseButton>
+                    </StyledClose>
+                </StyledHeader>
+
+                <main>{children}</main>
+
+                {showFooter && (
+                    <StyledFooter>
+                        {showPrimaryButton && (
+                            <StyledPrimaryButton onClick={primaryButtonOnClick}>{primaryButtonText}</StyledPrimaryButton>
+                        )}
+
+                        {showSecondaryButton && (
+                            <StyledSecondaryButton onClick={secondaryButtonOnClick}>{secondaryButtonText}</StyledSecondaryButton>
+                        )}
+                    </StyledFooter>
+                )}
             </StyledDialog>
         </StyledBackground>
     );
