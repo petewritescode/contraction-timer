@@ -17,5 +17,5 @@ export const StyledLayout = styled.section`
 
 export const StyledContent = styled.main`
     flex-grow: 1;
-    overflow: hidden;
+    overflow: auto;
 `;
