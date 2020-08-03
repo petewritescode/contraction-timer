@@ -16,9 +16,9 @@ export const appTheme: Theme = {
             max25: 'rgba(0, 0, 0, 0.25)',
             max50: 'rgba(0, 0, 0, 0.5)',
             max75: 'rgba(0, 0, 0, 0.75)',
-            mid1: '#999999',
-            mid2: '#666666',
-            mid3: '#333333',
+            mid1: '#bfbfbf',
+            mid2: '#808080',
+            mid3: '#404040',
         },
     },
 };
