@@ -31,8 +31,6 @@ export const StyledDialog = styled.div`
 export const StyledHeader = styled.header`
     display: flex;
     margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #dddddd;
 `;
 
 export const StyledHeading = styled.h1`
@@ -57,7 +55,7 @@ export const StyledCloseButton = styled.button`
 export const StyledFooter = styled.footer`
     display: flex;
     flex-direction: row-reverse;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 `;
 
 export const StyledPrimaryButton = styled.button`
