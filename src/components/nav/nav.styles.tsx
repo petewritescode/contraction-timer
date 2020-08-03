@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledNav = styled.nav`
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: ${({ theme }) => theme.color.neutral.max25};
 `;
 
 export const StyledContainer = styled.ul`

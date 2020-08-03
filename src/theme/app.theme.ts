@@ -1,20 +1,24 @@
 import { Theme } from '../models/theme.model';
 
-const color = {
-    blue: '#28a5e3',
-    green: '#1fb3aa',
-    pink: '#e83887',
-    white: '#ffffff',
-};
-
 export const appTheme: Theme = {
     color: {
-        background: {
-            stopped: color.green,
-            contraction: color.pink,
-            rest: color.blue,
+        status: {
+            contraction: '#e83887',
+            ready: '#1fb3aa',
+            rest: '#28a5e3',
         },
-        text: color.white,
-        control: color.white,
+        neutral: {
+            min: '#ffffff',
+            min25: 'rgba(255, 255, 255, 0.25)',
+            min50: 'rgba(255, 255, 255, 0.5)',
+            min75: 'rgba(255, 255, 255, 0.75)',
+            max: '#000000',
+            max25: 'rgba(0, 0, 0, 0.25)',
+            max50: 'rgba(0, 0, 0, 0.5)',
+            max75: 'rgba(0, 0, 0, 0.75)',
+            mid1: '#999999',
+            mid2: '#666666',
+            mid3: '#333333',
+        },
     },
 };

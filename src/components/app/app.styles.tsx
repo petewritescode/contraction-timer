@@ -240,7 +240,7 @@ export const BaseCss = createGlobalStyle`
     }
 
     body {
-        color: ${({ theme }) => theme.color.text};
+        color: ${({ theme }) => theme.color.neutral.min};
         font-family: 'Lato', sans-serif;
         font-weight: 300;
     }

@@ -9,7 +9,7 @@ export const StyledBackground = styled.div`
     left: 0;
     padding: 40px 20px;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: ${({ theme }) => theme.color.neutral.max50};
 `;
 
 export const StyledDialog = styled.div`
@@ -20,8 +20,8 @@ export const StyledDialog = styled.div`
     margin-left: auto;
     padding: 20px;
     border-radius: 10px;
-    background-color: #ffffff;
-    color: #333333;
+    background-color: ${({ theme }) => theme.color.neutral.min};
+    color: ${({ theme }) => theme.color.neutral.mid3};
 `;
 
 export const StyledHeader = styled.header`
@@ -57,14 +57,14 @@ export const StyledFooter = styled.footer`
 export const StyledPrimaryButton = styled.button`
     padding: 5px 10px;
     border-radius: 5px;
-    background-color: #28a5e3;
-    color: #ffffff;
+    background-color: ${({ theme }) => theme.color.status.rest};
+    color: ${({ theme }) => theme.color.neutral.min};
 `;
 
 export const StyledSecondaryButton = styled.button`
     margin-right: 5px;
     padding: 5px 10px;
     border-radius: 5px;
-    background-color: #999999;
-    color: #ffffff;
+    background-color: ${({ theme }) => theme.color.neutral.mid1};
+    color: ${({ theme }) => theme.color.neutral.min};
 `;
