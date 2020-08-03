@@ -3,6 +3,7 @@ import { IconSize } from '../models/icon-size.model';
 
 export const ICON_NAME_TO_CODE_MAP: Record<IconName, string> = {
     [IconName.Clear]: 'e14c',
+    [IconName.Close]: 'e14c',
     [IconName.History]: 'e889',
     [IconName.Pause]: 'e034',
     [IconName.Pregnant]: 'e91e',
