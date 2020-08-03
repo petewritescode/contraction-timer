@@ -7,7 +7,7 @@ const color = {
     white: '#ffffff',
 };
 
-export const darkTheme: Theme = {
+export const appTheme: Theme = {
     color: {
         background: {
             stopped: color.green,

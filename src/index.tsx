@@ -1,6 +1,6 @@
 import { App } from './components/app/app.component';
+import { appTheme } from './theme/app.theme';
 import { configureStore } from '@reduxjs/toolkit';
-import { darkTheme } from './theme/dark.theme';
 import persistState from 'redux-localstorage';
 import { Provider } from 'react-redux';
 import React from 'react';
@@ -19,7 +19,7 @@ const store = configureStore({
 ReactDOM.render(
     (
         <Provider store={store}>
-            <ThemeProvider theme={darkTheme}>
+            <ThemeProvider theme={appTheme}>
                 <App />
             </ThemeProvider>
         </Provider>
