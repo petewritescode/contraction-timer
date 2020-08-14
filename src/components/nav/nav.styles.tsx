@@ -1,7 +1,8 @@
+import { color } from '../../theme/helpers/color.helpers';
 import styled from 'styled-components';
 
 export const StyledNav = styled.nav`
-    background-color: ${({ theme }) => theme.color.neutralMax25};
+    background-color: ${color('neutralMax25')};
 `;
 
 export const StyledContainer = styled.ul`

@@ -1,3 +1,4 @@
+import { color } from '../../theme/helpers/color.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryInterval = styled.li`
@@ -12,6 +13,6 @@ export const StyledHistoryInterval = styled.li`
         top: 0;
         bottom: 0;
         left: 8px;
-        border-left: 4px solid ${({ theme }) => theme.color.neutralMin};
+        border-left: 4px solid ${color('neutralMin')};
     }
 `;

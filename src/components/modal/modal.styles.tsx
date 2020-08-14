@@ -1,3 +1,4 @@
+import { color } from '../../theme/helpers/color.helpers';
 import styled from 'styled-components';
 
 export const StyledBackground = styled.div`
@@ -9,7 +10,7 @@ export const StyledBackground = styled.div`
     left: 0;
     padding: 40px 20px;
     overflow: auto;
-    background-color: ${({ theme }) => theme.color.neutralMax50};
+    background-color: ${color('neutralMax50')};
 `;
 
 export const StyledDialog = styled.div`
@@ -20,8 +21,8 @@ export const StyledDialog = styled.div`
     margin-left: auto;
     padding: 20px;
     border-radius: 10px;
-    background-color: ${({ theme }) => theme.color.neutralMin};
-    color: ${({ theme }) => theme.color.neutralMid2};
+    background-color: ${color('neutralMin')};
+    color: ${color('neutralMid2')};
 `;
 
 export const StyledHeader = styled.header`
@@ -57,14 +58,14 @@ export const StyledFooter = styled.footer`
 export const StyledPrimaryButton = styled.button`
     padding: 5px 10px;
     border-radius: 5px;
-    background-color: ${({ theme }) => theme.color.rest};
-    color: ${({ theme }) => theme.color.neutralMin};
+    background-color: ${color('rest')};
+    color: ${color('neutralMin')};
 `;
 
 export const StyledSecondaryButton = styled.button`
     margin-right: 5px;
     padding: 5px 10px;
     border-radius: 5px;
-    background-color: ${({ theme }) => theme.color.neutralMid1};
-    color: ${({ theme }) => theme.color.neutralMin};
+    background-color: ${color('neutralMid1')};
+    color: ${color('neutralMin')};
 `;

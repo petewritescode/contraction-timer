@@ -1,3 +1,4 @@
+import { color } from '../../theme/helpers/color.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryContraction = styled.li`
@@ -16,7 +17,7 @@ export const StyledHistoryContraction = styled.li`
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background-color: ${({ theme }) => theme.color.neutralMin};
+        background-color: ${color('neutralMin')};
     }
 `;
 

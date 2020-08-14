@@ -1,3 +1,4 @@
+import { color } from '../../theme/helpers/color.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryBreak = styled.li`
@@ -12,6 +13,6 @@ export const StyledHistoryBreak = styled.li`
         top: 0;
         bottom: 0;
         left: 8px;
-        border-left: 4px dashed ${({ theme }) => theme.color.neutralMin50};
+        border-left: 4px dashed ${color('neutralMin50')};
     }
 `;

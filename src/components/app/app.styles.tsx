@@ -1,3 +1,4 @@
+import { color } from '../../theme/helpers/color.helpers';
 import { createGlobalStyle } from 'styled-components';
 
 /* Work around https://github.com/styled-components/stylelint-processor-styled-components/issues/215 */
@@ -240,7 +241,7 @@ export const BaseCss = createGlobalStyle`
     }
 
     body {
-        color: ${({ theme }) => theme.color.neutralMin};
+        color: ${color('neutralMin')};
         font-family: 'Lato', sans-serif;
         font-weight: 300;
     }

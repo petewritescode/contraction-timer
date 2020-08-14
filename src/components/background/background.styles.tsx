@@ -1,4 +1,5 @@
 import { Status } from '../../models/status.model';
+import { statusColor } from '../../theme/helpers/color.helpers';
 import styled from 'styled-components';
 
 interface Props {
@@ -9,14 +10,5 @@ export const StyledBackground = styled.div<Props>`
     width: 100%;
     height: 100%;
     transition: background-color 250ms;
-    background-color: ${({ status, theme }) => {
-        switch (status) {
-            case Status.Contraction:
-                return theme.color.contraction;
-            case Status.Rest:
-                return theme.color.rest;
-            default:
-                return theme.color.ready;
-        }
-    }};
+    background-color: ${statusColor};
 `;
