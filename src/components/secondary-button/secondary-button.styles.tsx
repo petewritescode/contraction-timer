@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { color } from '../../theme/helpers/color.helpers';
+import { transitionDuration } from '../../theme/helpers/transition.helpers';
 
 interface Props {
     disabled?: boolean;
@@ -11,7 +12,7 @@ export const StyledSecondaryButton = styled.button<Props>`
     height: 30px;
     padding-right: 10px;
     padding-left: 5px;
-    transition: opacity 250ms;
+    transition: opacity ${transitionDuration};
     border-radius: 15px;
     background-color: ${color('neutralMin')};
     color: ${color('neutralMid2')};

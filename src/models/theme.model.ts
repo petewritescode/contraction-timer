@@ -16,4 +16,7 @@ export interface ThemeColor {
 
 export interface Theme {
     color: ThemeColor;
+    transition: {
+        duration: number;
+    };
 }
