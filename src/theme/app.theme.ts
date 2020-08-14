@@ -3,7 +3,7 @@ import { Theme } from '../models/theme.model';
 export const appTheme: Theme = {
     color: {
         contraction: '#e83887',
-        ready: '#42b169',
+        ready: '#19af75',
         rest: '#28a5e3',
         neutralMin: '#ffffff',
         neutralMin25: 'rgba(255, 255, 255, 0.25)',
