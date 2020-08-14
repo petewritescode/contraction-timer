@@ -1,4 +1,4 @@
-import { color } from '../../theme/helpers/theme.helpers';
+import { color } from '../../theme/helpers/color.helpers';
 import styled from 'styled-components';
 
 export const StyledBackground = styled.div`

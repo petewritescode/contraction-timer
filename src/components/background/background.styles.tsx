@@ -1,5 +1,5 @@
 import { Status } from '../../models/status.model';
-import { statusColor } from '../../theme/helpers/theme.helpers';
+import { statusColor } from '../../theme/helpers/color.helpers';
 import styled from 'styled-components';
 
 interface Props {

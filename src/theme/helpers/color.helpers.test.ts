@@ -1,4 +1,4 @@
-import { color, statusColor } from './theme.helpers';
+import { color, statusColor } from './color.helpers';
 import { Status } from '../../models/status.model';
 import { Theme } from '../../models/theme.model';
 
@@ -10,7 +10,7 @@ const theme = {
     },
 } as Theme;
 
-describe('Theme helpers', () => {
+describe('Color helpers', () => {
     describe('color', () => {
         it('returns the specified color', () => {
             expect(color('contraction')({ theme })).toEqual('#ff0000');
