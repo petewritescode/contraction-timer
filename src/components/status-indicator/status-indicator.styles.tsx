@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { color } from '../../theme/helpers/color.helpers';
+import { color } from '../../theme/helpers/theme.helpers';
 import { Status } from '../../models/status.model';
 
 const SCALE_PERCENT = 5;

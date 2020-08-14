@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { color } from '../../theme/helpers/color.helpers';
+import { color } from '../../theme/helpers/theme.helpers';
 
 interface Props {
     disabled?: boolean;

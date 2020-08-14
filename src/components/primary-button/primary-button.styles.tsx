@@ -1,4 +1,4 @@
-import { color, statusColor } from '../../theme/helpers/color.helpers';
+import { color, statusColor } from '../../theme/helpers/theme.helpers';
 import { Status } from '../../models/status.model';
 import styled from 'styled-components';
 

@@ -1,4 +1,4 @@
-import { color } from '../../theme/helpers/color.helpers';
+import { color } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryContraction = styled.li`
