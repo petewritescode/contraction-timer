@@ -352,7 +352,7 @@ describe('Timer selectors', () => {
     });
 
     describe('getStatus', () => {
-        it('returns Stopped if the timer is not running', () => {
+        it('returns Ready if the timer is not running', () => {
             const state = {
                 timer: {
                     running: false,
@@ -362,7 +362,7 @@ describe('Timer selectors', () => {
 
             const result = timerSelectors.getStatus(state);
 
-            expect(result).toEqual(Status.Stopped);
+            expect(result).toEqual(Status.Ready);
         });
 
         it('returns Rest if the timer is running and there are no contractions', () => {

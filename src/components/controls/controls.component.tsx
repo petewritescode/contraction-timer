@@ -13,7 +13,7 @@ export const Controls: FunctionComponent = () => {
     const dispatch = useDispatch();
     const status = useSelector(timerSelectors.getStatus);
     const primaryType = status === Status.Contraction ? PrimaryButtonType.Stop : PrimaryButtonType.Start;
-    const secondaryDisabled = status === Status.Stopped;
+    const secondaryDisabled = status === Status.Ready;
 
     const handlePrimaryClick = (): void => {
         dispatch(timerActions.toggleContraction());

@@ -76,7 +76,7 @@ export const getStatus = createSelector(
     getLastContraction,
     (running, lastContraction) => {
         if (!running) {
-            return Status.Stopped;
+            return Status.Ready;
         }
 
         return lastContraction && lastContraction.duration === undefined ? Status.Contraction : Status.Rest;
