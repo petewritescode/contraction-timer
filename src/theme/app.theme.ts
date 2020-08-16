@@ -18,13 +18,13 @@ export const appTheme: Theme = {
     },
     font: {
         size: {
-            s: '0.75rem',
+            s: '0.769rem',
             m: '1rem',
-            l: '1.33rem',
-            xl: '1.78rem',
-            xxl: '2.37rem',
-            xxxl: '3.16rem',
-            xxxxl: '4.21rem',
+            l: '1.3rem',
+            xl: '1.69rem',
+            xxl: '2.197rem',
+            xxxl: '2.856rem',
+            xxxxl: '3.713rem',
         },
     },
     transition: {
