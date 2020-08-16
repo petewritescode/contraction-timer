@@ -1,3 +1,4 @@
+import { fontSize } from '../../theme/helpers/font.helpers';
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
@@ -10,6 +11,6 @@ export const StyledContainer = styled.div`
 
 export const StyledHeading = styled.h1`
     flex-grow: 1;
-    font-size: 1.5rem;
+    font-size: ${fontSize('xl')};
     font-weight: bold;
 `;

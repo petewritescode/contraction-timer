@@ -1,4 +1,5 @@
 import { color } from '../../theme/helpers/color.helpers';
+import { fontSize } from '../../theme/helpers/font.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryContraction = styled.li`
@@ -23,10 +24,10 @@ export const StyledHistoryContraction = styled.li`
 
 export const StyledDuration = styled.div`
     flex-grow: 1;
-    font-size: 1.3rem;
+    font-size: ${fontSize('l')};
     font-weight: bold;
 `;
 
 export const StyledDate = styled.div`
-    font-size: 0.75rem;
+    font-size: ${fontSize('s')};
 `;

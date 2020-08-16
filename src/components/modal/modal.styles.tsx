@@ -1,4 +1,5 @@
 import { color } from '../../theme/helpers/color.helpers';
+import { fontSize } from '../../theme/helpers/font.helpers';
 import styled from 'styled-components';
 
 export const StyledBackground = styled.div`
@@ -32,7 +33,7 @@ export const StyledHeader = styled.header`
 
 export const StyledHeading = styled.h1`
     flex-grow: 1;
-    font-size: 1.5rem;
+    font-size: ${fontSize('l')};
     font-weight: bold;
 `;
 
