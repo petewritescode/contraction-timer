@@ -14,6 +14,8 @@ describe('Color helpers', () => {
     describe('color', () => {
         it('returns the specified color', () => {
             expect(color('contraction')({ theme })).toEqual('#ff0000');
+            expect(color('ready')({ theme })).toEqual('#00ff00');
+            expect(color('rest')({ theme })).toEqual('#0000ff');
         });
     });
 
