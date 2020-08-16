@@ -1,7 +1,7 @@
-import { Theme, ThemeColor } from '../../models/theme.model';
 import { Status } from '../../models/status.model';
+import { Theme } from '../../models/theme.model';
 
-export const color = (name: keyof ThemeColor) => ({ theme }: { theme: Theme }) => theme.color[name];
+export const color = (name: keyof Theme['color']) => ({ theme }: { theme: Theme }) => theme.color[name];
 
 export const statusColor = ({ theme, status }: { theme: Theme, status: Status }) => {
     switch (status) {
