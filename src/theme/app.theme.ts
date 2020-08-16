@@ -16,6 +16,17 @@ export const appTheme: Theme = {
         neutralMid1: '#6e6e6e',
         neutralMid2: '#383838',
     },
+    font: {
+        size: {
+            s: '0.75rem',
+            m: '1rem',
+            l: '1.33rem',
+            xl: '1.78rem',
+            xxl: '2.37rem',
+            xxxl: '3.16rem',
+            xxxxl: '4.21rem',
+        },
+    },
     transition: {
         duration: '250ms',
     },

@@ -14,6 +14,17 @@ export interface Theme {
         neutralMid1: string;
         neutralMid2: string;
     };
+    font: {
+        size: {
+            s: string;
+            m: string;
+            l: string;
+            xl: string;
+            xxl: string;
+            xxxl: string;
+            xxxxl: string;
+        };
+    };
     transition: {
         duration: string;
     };
