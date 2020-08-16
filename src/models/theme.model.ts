@@ -15,6 +15,6 @@ export interface Theme {
         neutralMid2: string;
     };
     transition: {
-        duration: number;
+        duration: string;
     };
 }

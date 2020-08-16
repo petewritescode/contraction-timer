@@ -17,6 +17,6 @@ export const appTheme: Theme = {
         neutralMid2: '#383838',
     },
     transition: {
-        duration: 250,
+        duration: '250ms',
     },
 };
