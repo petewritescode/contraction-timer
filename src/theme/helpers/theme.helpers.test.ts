@@ -38,7 +38,7 @@ const theme = {
     },
 } as Theme;
 
-describe('border helpers', () => {
+describe('Theme helpers', () => {
     describe('borderWidth', () => {
         it('returns the border width', () => {
             expect(borderWidth({ theme })).toEqual('0.25rem');
