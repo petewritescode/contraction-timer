@@ -44,6 +44,8 @@ export interface Theme {
         xl: string;
     };
     transition: {
-        m: string;
+        duration: {
+            m: string;
+        };
     };
 }
