@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { spacing } from '../../theme/helpers/spacing.helpers';
 
 interface ButtonProps {
     selected?: boolean;
@@ -18,5 +19,5 @@ export const StyledNavButton = styled.button<ButtonProps>`
 `;
 
 export const StyledIcon = styled.div`
-    margin-right: 5px;
+    margin-right: ${spacing('s')};
 `;

@@ -25,5 +25,5 @@ export const StyledSecondaryButton = styled.button<Props>`
 `;
 
 export const StyledLabel = styled.span`
-    margin-left: 5px;
+    margin-left: ${spacing('s')};
 `;
