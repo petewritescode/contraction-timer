@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const StyledContainer = styled.div`
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 4rem;
     padding-right: ${spacing('l')};
     padding-left: ${spacing('l')};
 `;

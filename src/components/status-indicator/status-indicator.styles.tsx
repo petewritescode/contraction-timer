@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { borderWidth } from '../../theme/helpers/border.helpers';
 import { color } from '../../theme/helpers/color.helpers';
 import { Status } from '../../models/status.model';
 
@@ -25,7 +26,7 @@ const rest = keyframes`
 export const StyledStatusIndicator = styled.div<Props>`
     width: 100%;
     height: 100%;
-    border: 4px solid ${color('neutralMin')};
+    border: ${borderWidth} solid ${color('neutralMin')};
     border-radius: 50%;
 
     ${({ status }) => status === Status.Contraction && css`

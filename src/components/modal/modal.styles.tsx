@@ -1,3 +1,4 @@
+import { borderRadius } from '../../theme/helpers/border.helpers';
 import { color } from '../../theme/helpers/color.helpers';
 import { fontSize } from '../../theme/helpers/font.helpers';
 import { spacing } from '../../theme/helpers/spacing.helpers';
@@ -18,11 +19,11 @@ export const StyledBackground = styled.div`
 export const StyledDialog = styled.div`
     position: relative;
     width: 100%;
-    max-width: 500px;
+    max-width: 40rem;
     margin-right: auto;
     margin-left: auto;
     padding: ${spacing('l')};
-    border-radius: 10px;
+    border-radius: ${borderRadius('m')};
     background-color: ${color('neutralMin')};
     color: ${color('neutralMid2')};
 `;
@@ -59,7 +60,7 @@ export const StyledFooter = styled.footer`
 
 export const StyledPrimaryButton = styled.button`
     padding: ${spacing('s')} ${spacing('m')};
-    border-radius: 5px;
+    border-radius: ${borderRadius('s')};
     background-color: ${color('rest')};
     color: ${color('neutralMin')};
 `;
@@ -67,7 +68,7 @@ export const StyledPrimaryButton = styled.button`
 export const StyledSecondaryButton = styled.button`
     margin-right: ${spacing('s')};
     padding: ${spacing('s')} ${spacing('m')};
-    border-radius: 5px;
+    border-radius: ${borderRadius('s')};
     background-color: ${color('neutralMid1')};
     color: ${color('neutralMin')};
 `;

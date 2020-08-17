@@ -11,15 +11,15 @@ export const StyledPrimaryButton = styled.button<Props>`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70px;
-    height: 70px;
+    width: 5rem;
+    height: 5rem;
     transition: color ${transitionDuration};
     border-radius: 50%;
     background-color: ${color('neutralMin')};
     color: ${statusColor};
 
     @media screen and (min-width: 375px) {
-        width: 100px;
-        height: 100px;
+        width: 6rem;
+        height: 6rem;
     }
 `;

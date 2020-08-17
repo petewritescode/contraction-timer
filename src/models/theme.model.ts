@@ -5,6 +5,7 @@ export interface Theme {
             s: string;
             m: string;
             l: string;
+            xl: string;
         };
     };
     color: {

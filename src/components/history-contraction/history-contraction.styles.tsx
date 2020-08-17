@@ -6,9 +6,9 @@ import styled from 'styled-components';
 export const StyledHistoryContraction = styled.li`
     display: flex;
     position: relative;
-    height: 20px;
+    height: 1.25rem;
     padding-left: ${spacing('xl')};
-    line-height: 20px;
+    line-height: 1.25rem;
 
     &::before {
         content: "";
@@ -16,8 +16,8 @@ export const StyledHistoryContraction = styled.li`
         position: absolute;
         top: 0;
         left: 0;
-        width: 20px;
-        height: 20px;
+        width: 1.25rem;
+        height: 1.25rem;
         border-radius: 50%;
         background-color: ${color('neutralMin')};
     }

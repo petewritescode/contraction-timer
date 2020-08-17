@@ -10,7 +10,7 @@ export const StyledNavButton = styled.button<ButtonProps>`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 45px;
+    height: 3rem;
     font-weight: bold;
 
     ${({ selected }) => !selected && css`
