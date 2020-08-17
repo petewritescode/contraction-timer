@@ -1,6 +1,7 @@
 import { color, statusColor } from '../../theme/helpers/color.helpers';
+import styled, { css } from 'styled-components';
+import { breakpoint } from '../../theme/helpers/breakpoint.helpers';
 import { Status } from '../../models/status.model';
-import styled from 'styled-components';
 import { transitionDuration } from '../../theme/helpers/transition.helpers';
 
 interface Props {
@@ -18,8 +19,8 @@ export const StyledPrimaryButton = styled.button<Props>`
     background-color: ${color('neutralMin')};
     color: ${statusColor};
 
-    @media screen and (min-width: 375px) {
+    ${breakpoint('s', css`
         width: 6rem;
         height: 6rem;
-    }
+    `)}
 `;

@@ -8,6 +8,9 @@ export interface Theme {
             xl: string;
         };
     };
+    breakpoint: {
+        s: string;
+    };
     color: {
         contraction: string;
         ready: string;

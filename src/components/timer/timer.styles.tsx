@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { breakpoint } from '../../theme/helpers/breakpoint.helpers';
 
 export const StyledTimer = styled.div`
     display: flex;
@@ -11,10 +12,10 @@ export const StyledTimer = styled.div`
     margin-right: auto;
     margin-left: auto;
 
-    @media screen and (min-width: 375px) {
+    ${breakpoint('s', css`
         width: 13rem;
         height: 13rem;
-    }
+    `)}
 `;
 
 export const StyledStatusIndicator = styled.div`

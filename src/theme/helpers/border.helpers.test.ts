@@ -18,6 +18,7 @@ describe('border helpers', () => {
             expect(borderWidth({ theme })).toEqual('0.25rem');
         });
     });
+
     describe('borderRadius', () => {
         it('returns the specified border radius', () => {
             expect(borderRadius('s')({ theme })).toEqual('0.25rem');

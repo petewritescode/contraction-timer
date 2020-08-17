@@ -10,6 +10,9 @@ export const appTheme: Theme = {
             xl: '1rem',
         },
     },
+    breakpoint: {
+        s: '360px',
+    },
     color: {
         contraction: '#e83887',
         ready: '#19af75',

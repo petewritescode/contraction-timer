@@ -1,10 +1,11 @@
+import styled, { css } from 'styled-components';
+import { breakpoint } from '../../theme/helpers/breakpoint.helpers';
 import { fontSize } from '../../theme/helpers/font.helpers';
-import styled from 'styled-components';
 
 export const StyledTime = styled.div`
     font-size: ${fontSize('xxxl')};
 
-    @media screen and (min-width: 375px) {
+    ${breakpoint('s', css`
         font-size: ${fontSize('xxxxl')};
-    }
+    `)}
 `;
