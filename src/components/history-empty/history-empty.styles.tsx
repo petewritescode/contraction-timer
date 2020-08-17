@@ -1,4 +1,4 @@
-import { spacing } from '../../theme/helpers/spacing.helpers';
+import { spacing } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryEmpty = styled.div`

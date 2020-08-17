@@ -1,8 +1,6 @@
-import { color, statusColor } from '../../theme/helpers/color.helpers';
+import { breakpoint, color, statusColor, transitionDuration } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
-import { breakpoint } from '../../theme/helpers/breakpoint.helpers';
 import { Status } from '../../models/status.model';
-import { transitionDuration } from '../../theme/helpers/transition.helpers';
 
 interface Props {
     status: Status;

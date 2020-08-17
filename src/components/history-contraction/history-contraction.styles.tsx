@@ -1,6 +1,4 @@
-import { color } from '../../theme/helpers/color.helpers';
-import { fontSize } from '../../theme/helpers/font.helpers';
-import { spacing } from '../../theme/helpers/spacing.helpers';
+import { color, fontSize, spacing } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryContraction = styled.li`

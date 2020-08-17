@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { spacing } from '../../theme/helpers/spacing.helpers';
+import { spacing } from '../../theme/helpers/theme.helpers';
 
 interface ButtonProps {
     selected?: boolean;

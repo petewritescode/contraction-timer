@@ -1,5 +1,4 @@
-import { fontSize } from '../../theme/helpers/font.helpers';
-import { spacing } from '../../theme/helpers/spacing.helpers';
+import { fontSize, spacing } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`

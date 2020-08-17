@@ -1,4 +1,4 @@
-import { color } from '../../theme/helpers/color.helpers';
+import { color } from '../../theme/helpers/theme.helpers';
 import { createGlobalStyle } from 'styled-components';
 
 /* Work around https://github.com/styled-components/stylelint-processor-styled-components/issues/215 */

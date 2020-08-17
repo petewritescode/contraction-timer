@@ -1,7 +1,6 @@
+import { statusColor, transitionDuration } from '../../theme/helpers/theme.helpers';
 import { Status } from '../../models/status.model';
-import { statusColor } from '../../theme/helpers/color.helpers';
 import styled from 'styled-components';
-import { transitionDuration } from '../../theme/helpers/transition.helpers';
 
 interface Props {
     status: Status;

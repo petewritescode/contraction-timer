@@ -1,6 +1,4 @@
-import { borderWidth } from '../../theme/helpers/border.helpers';
-import { color } from '../../theme/helpers/color.helpers';
-import { spacing } from '../../theme/helpers/spacing.helpers';
+import { borderWidth, color, spacing } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryInterval = styled.li`

@@ -1,8 +1,5 @@
+import { borderRadius, color, spacing, transitionDuration } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
-import { borderRadius } from '../../theme/helpers/border.helpers';
-import { color } from '../../theme/helpers/color.helpers';
-import { spacing } from '../../theme/helpers/spacing.helpers';
-import { transitionDuration } from '../../theme/helpers/transition.helpers';
 
 interface Props {
     disabled?: boolean;

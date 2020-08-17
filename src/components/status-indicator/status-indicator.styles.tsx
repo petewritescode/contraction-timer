@@ -1,6 +1,5 @@
+import { borderWidth, color } from '../../theme/helpers/theme.helpers';
 import styled, { css, keyframes } from 'styled-components';
-import { borderWidth } from '../../theme/helpers/border.helpers';
-import { color } from '../../theme/helpers/color.helpers';
 import { Status } from '../../models/status.model';
 
 const SCALE_PERCENT = 5;

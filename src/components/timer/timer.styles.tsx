@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { breakpoint } from '../../theme/helpers/breakpoint.helpers';
+import { breakpoint } from '../../theme/helpers/theme.helpers';
 
 export const StyledTimer = styled.div`
     display: flex;
