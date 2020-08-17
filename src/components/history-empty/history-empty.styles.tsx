@@ -1,12 +1,13 @@
+import { spacing } from '../../theme/helpers/spacing.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryEmpty = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 40px;
+    padding-top: ${spacing('xl')};
 `;
 
 export const StyledIcon = styled.div`
-    margin-bottom: 20px;
+    margin-bottom: ${spacing('l')};
 `;

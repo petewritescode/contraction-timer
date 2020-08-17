@@ -1,5 +1,6 @@
+import { spacing } from '../../theme/helpers/spacing.helpers';
 import styled from 'styled-components';
 
 export const StyledHistory = styled.div`
-    padding: 20px 20px 40px;
+    padding: ${spacing('l')} ${spacing('l')} ${spacing('xl')};
 `;

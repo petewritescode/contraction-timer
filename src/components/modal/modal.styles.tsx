@@ -1,5 +1,6 @@
 import { color } from '../../theme/helpers/color.helpers';
 import { fontSize } from '../../theme/helpers/font.helpers';
+import { spacing } from '../../theme/helpers/spacing.helpers';
 import styled from 'styled-components';
 
 export const StyledBackground = styled.div`
@@ -9,7 +10,7 @@ export const StyledBackground = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 40px 20px;
+    padding: ${spacing('xl')} ${spacing('l')};
     overflow: auto;
     background-color: ${color('neutralMax50')};
 `;
@@ -20,7 +21,7 @@ export const StyledDialog = styled.div`
     max-width: 500px;
     margin-right: auto;
     margin-left: auto;
-    padding: 20px;
+    padding: ${spacing('l')};
     border-radius: 10px;
     background-color: ${color('neutralMin')};
     color: ${color('neutralMid2')};
@@ -28,7 +29,7 @@ export const StyledDialog = styled.div`
 
 export const StyledHeader = styled.header`
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: ${spacing('l')};
 `;
 
 export const StyledHeading = styled.h1`
@@ -38,34 +39,34 @@ export const StyledHeading = styled.h1`
 `;
 
 export const StyledClose = styled.div`
-    margin-top: 0.25rem;
-    margin-left: 1rem;
+    margin-top: ${spacing('s')};
+    margin-left: ${spacing('l')};
 `;
 
 export const StyledCloseButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -1rem;
-    padding: 1rem;
+    margin: -${spacing('l')};
+    padding: ${spacing('l')};
 `;
 
 export const StyledFooter = styled.footer`
     display: flex;
     flex-direction: row-reverse;
-    margin-top: 1.5rem;
+    margin-top: ${spacing('l')};
 `;
 
 export const StyledPrimaryButton = styled.button`
-    padding: 5px 10px;
+    padding: ${spacing('s')} ${spacing('m')};
     border-radius: 5px;
     background-color: ${color('rest')};
     color: ${color('neutralMin')};
 `;
 
 export const StyledSecondaryButton = styled.button`
-    margin-right: 5px;
-    padding: 5px 10px;
+    margin-right: ${spacing('s')};
+    padding: ${spacing('s')} ${spacing('m')};
     border-radius: 5px;
     background-color: ${color('neutralMid1')};
     color: ${color('neutralMin')};

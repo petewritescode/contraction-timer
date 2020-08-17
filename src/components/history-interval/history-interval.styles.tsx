@@ -1,10 +1,11 @@
 import { color } from '../../theme/helpers/color.helpers';
+import { spacing } from '../../theme/helpers/spacing.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryInterval = styled.li`
     position: relative;
     height: 60px;
-    padding-left: 40px;
+    padding-left: ${spacing('xl')};
     line-height: 60px;
 
     &::before {

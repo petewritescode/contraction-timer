@@ -1,3 +1,4 @@
+import { spacing } from '../../theme/helpers/spacing.helpers';
 import styled from 'styled-components';
 
 export const StyledControls = styled.ul`
@@ -7,5 +8,5 @@ export const StyledControls = styled.ul`
 `;
 
 export const StyledPrimary = styled.li`
-    margin-bottom: 20px;
+    margin-bottom: ${spacing('l')};
 `;

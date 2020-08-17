@@ -1,12 +1,13 @@
 import { color } from '../../theme/helpers/color.helpers';
 import { fontSize } from '../../theme/helpers/font.helpers';
+import { spacing } from '../../theme/helpers/spacing.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryContraction = styled.li`
     display: flex;
     position: relative;
     height: 20px;
-    padding-left: 40px;
+    padding-left: ${spacing('xl')};
     line-height: 20px;
 
     &::before {

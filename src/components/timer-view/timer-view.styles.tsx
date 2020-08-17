@@ -1,3 +1,4 @@
+import { spacing } from '../../theme/helpers/spacing.helpers';
 import styled from 'styled-components';
 
 export const StyledTimerView = styled.div`
@@ -5,7 +6,7 @@ export const StyledTimerView = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     min-height: 100%;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
+    padding-right: ${spacing('l')};
+    padding-bottom: ${spacing('l')};
+    padding-left: ${spacing('l')};
 `;

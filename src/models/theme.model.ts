@@ -25,6 +25,12 @@ export interface Theme {
             xxxxl: string;
         };
     };
+    spacing: {
+        s: string;
+        m: string;
+        l: string;
+        xl: string;
+    };
     transition: {
         duration: string;
     };

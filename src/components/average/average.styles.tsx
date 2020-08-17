@@ -1,4 +1,5 @@
 import { fontSize } from '../../theme/helpers/font.helpers';
+import { spacing } from '../../theme/helpers/spacing.helpers';
 import styled from 'styled-components';
 
 export const StyledAverage = styled.div`
@@ -6,7 +7,7 @@ export const StyledAverage = styled.div`
 `;
 
 export const StyledTime = styled.div`
-    margin-bottom: 5px;
+    margin-bottom: ${spacing('s')};
     font-size: ${fontSize('xxl')};
 `;
 

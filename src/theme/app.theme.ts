@@ -27,6 +27,12 @@ export const appTheme: Theme = {
             xxxxl: '3.713rem',
         },
     },
+    spacing: {
+        s: '0.25rem',
+        m: '0.5rem',
+        l: '1rem',
+        xl: '2rem',
+    },
     transition: {
         duration: '250ms',
     },
