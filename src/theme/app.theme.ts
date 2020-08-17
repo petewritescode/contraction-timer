@@ -1,6 +1,14 @@
 import { Theme } from '../models/theme.model';
 
 export const appTheme: Theme = {
+    border: {
+        width: '0.25rem',
+        radius: {
+            s: '0.25rem',
+            m: '0.5rem',
+            l: '0.75rem',
+        },
+    },
     color: {
         contraction: '#e83887',
         ready: '#19af75',

@@ -1,4 +1,12 @@
 export interface Theme {
+    border: {
+        width: string;
+        radius: {
+            s: string;
+            m: string;
+            l: string;
+        };
+    };
     color: {
         contraction: string;
         ready: string;
