@@ -14,8 +14,8 @@ export const HistoryList: FunctionComponent = () => {
             {reversedContractions.map((contraction, index) => (
                 <Fragment key={contraction.start}>
                     <HistoryContraction start={contraction.start} duration={contraction.duration} />
-                    {contraction.interval !== undefined && <HistoryInterval duration={contraction.interval} />}
-                    {index < maxIndex && contraction.interval === undefined && <HistoryBreak />}
+                    {contraction.interval && <HistoryInterval duration={contraction.interval} />}
+                    {index < maxIndex && !contraction.interval && <HistoryBreak />}
                 </Fragment>
             ))}
         </ol>

@@ -10,7 +10,7 @@ export const getLastContraction = createSelector(getContractions, (contractions)
 
 export const getCompletedContractions = createSelector(
     getContractions,
-    (contractions) => contractions.filter((contraction) => contraction.duration !== undefined)
+    (contractions) => contractions.filter((contraction) => contraction.duration)
 );
 
 export const hasCompletedContractions = createSelector(
@@ -36,7 +36,7 @@ export const getContractionsWithIntervals = createSelector(
 
 export const getCompletedContractionsWithIntervals = createSelector(
     getContractionsWithIntervals,
-    (contractionsWithIntervals) => contractionsWithIntervals.filter((contraction) => contraction.duration !== undefined)
+    (contractionsWithIntervals) => contractionsWithIntervals.filter((contraction) => contraction.duration)
 );
 
 export const getReversedCompletedContractionsWithIntervals = createSelector(
@@ -61,7 +61,7 @@ export const getAverageIntervalSince = (timestamp: number) => createSelector(
     getContractionsWithIntervals,
     (contractionsWithIntervals) => {
         const validStartedSince = contractionsWithIntervals
-            .filter((contraction) => contraction.interval !== undefined && contraction.start >= timestamp);
+            .filter((contraction) => contraction.interval && contraction.start >= timestamp);
 
         if (!validStartedSince.length) {
             return undefined;
@@ -79,7 +79,7 @@ export const getStatus = createSelector(
             return Status.Ready;
         }
 
-        return lastContraction && lastContraction.duration === undefined ? Status.Contraction : Status.Rest;
+        return lastContraction && !lastContraction.duration ? Status.Contraction : Status.Rest;
     }
 );
 

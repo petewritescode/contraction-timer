@@ -39,7 +39,7 @@ const timerSlice = createSlice({
                 if (lastContraction) {
                     lastContraction.lastInGroup = true;
 
-                    if (lastContraction.duration === undefined) {
+                    if (!lastContraction.duration) {
                         lastContraction.duration = action.payload - lastContraction.start;
                     }
                 }
@@ -54,7 +54,7 @@ const timerSlice = createSlice({
 
                 const lastContraction = state.contractions[state.contractions.length - 1];
 
-                if (lastContraction && lastContraction.duration === undefined) {
+                if (lastContraction && !lastContraction.duration) {
                     lastContraction.duration = action.payload - lastContraction.start;
                 } else {
                     state.contractions.push({
