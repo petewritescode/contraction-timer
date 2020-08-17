@@ -1,4 +1,4 @@
-import { breakpoint, color, statusColor, transitionDuration } from '../../theme/helpers/theme.helpers';
+import { breakpoint, color, statusColor, transition } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
 import { Status } from '../../models/status.model';
 
@@ -12,7 +12,7 @@ export const StyledPrimaryButton = styled.button<Props>`
     justify-content: center;
     width: 5rem;
     height: 5rem;
-    transition: color ${transitionDuration};
+    transition: color ${transition('m')};
     border-radius: 50%;
     background-color: ${color('neutralMin')};
     color: ${statusColor};

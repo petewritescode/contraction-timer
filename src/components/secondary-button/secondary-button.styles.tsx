@@ -1,4 +1,4 @@
-import { borderRadius, color, spacing, transitionDuration } from '../../theme/helpers/theme.helpers';
+import { borderRadius, color, spacing, transition } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
 
 interface Props {
@@ -11,7 +11,7 @@ export const StyledSecondaryButton = styled.button<Props>`
     height: 2rem;
     padding-right: ${spacing('m')};
     padding-left: ${spacing('s')};
-    transition: opacity ${transitionDuration};
+    transition: opacity ${transition('m')};
     border-radius: ${borderRadius('xl')};
     background-color: ${color('neutralMin')};
     color: ${color('neutralMid2')};

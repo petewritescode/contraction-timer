@@ -1,4 +1,4 @@
-import { borderRadius, borderWidth, breakpoint, color, fontSize, spacing, statusColor, transitionDuration } from './theme.helpers';
+import { borderRadius, borderWidth, breakpoint, color, fontSize, spacing, statusColor, transition } from './theme.helpers';
 import { Status } from '../../models/status.model';
 import { Theme } from '../../models/theme.model';
 
@@ -32,7 +32,7 @@ const theme = {
         l: '1rem',
     },
     transition: {
-        duration: '250ms',
+        m: '250ms',
     },
 } as Theme;
 
@@ -97,9 +97,9 @@ describe('border helpers', () => {
         });
     });
 
-    describe('transitionDuration', () => {
-        it('returns the transition duration', () => {
-            expect(transitionDuration({ theme })).toEqual('250ms');
+    describe('transition', () => {
+        it('returns the specified transition duration', () => {
+            expect(transition('m')({ theme })).toEqual('250ms');
         });
     });
 });

@@ -46,6 +46,6 @@ export const appTheme: Theme = {
         xl: '2rem',
     },
     transition: {
-        duration: '250ms',
+        m: '250ms',
     },
 };

@@ -29,4 +29,4 @@ export const fontSize = (name: keyof Theme['font']['size']) => ({ theme }: { the
 
 export const spacing = (name: keyof Theme['spacing']) => ({ theme }: { theme: Theme }): string => theme.spacing[name];
 
-export const transitionDuration = ({ theme }: { theme: Theme }): string => theme.transition.duration;
+export const transition = (name: keyof Theme['transition']) => ({ theme }: { theme: Theme }): string => theme.transition[name];
