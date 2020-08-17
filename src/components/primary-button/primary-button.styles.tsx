@@ -1,4 +1,4 @@
-import { breakpoint, color, statusColor, transitionDuration } from '../../theme/helpers/theme.helpers';
+import { breakpoint, color, pxToRem, statusColor, transitionDuration } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
 import { Status } from '../../models/status.model';
 
@@ -10,15 +10,15 @@ export const StyledPrimaryButton = styled.button<Props>`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 5rem;
-    height: 5rem;
+    width: ${pxToRem(80)};
+    height: ${pxToRem(80)};
     transition: color ${transitionDuration('m')};
     border-radius: 50%;
     background-color: ${color('neutralMin')};
     color: ${statusColor};
 
     ${breakpoint('s', css`
-        width: 6rem;
-        height: 6rem;
+        width: ${pxToRem(100)};
+        height: ${pxToRem(100)};
     `)}
 `;

@@ -1,5 +1,5 @@
+import { pxToRem, spacing } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
-import { spacing } from '../../theme/helpers/theme.helpers';
 
 interface ButtonProps {
     selected?: boolean;
@@ -10,7 +10,7 @@ export const StyledNavButton = styled.button<ButtonProps>`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 3rem;
+    height: ${pxToRem(45)};
     font-weight: bold;
 
     ${({ selected }) => !selected && css`

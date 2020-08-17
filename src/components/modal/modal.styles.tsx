@@ -1,4 +1,4 @@
-import { borderRadius, color, fontSize, spacing } from '../../theme/helpers/theme.helpers';
+import { borderRadius, color, fontSize, pxToRem, spacing } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledBackground = styled.div`
@@ -16,7 +16,7 @@ export const StyledBackground = styled.div`
 export const StyledDialog = styled.div`
     position: relative;
     width: 100%;
-    max-width: 40rem;
+    max-width: ${pxToRem(500)};
     margin-right: auto;
     margin-left: auto;
     padding: ${spacing('l')};

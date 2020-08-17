@@ -1,4 +1,4 @@
-import { borderRadius, color, spacing, transitionDuration } from '../../theme/helpers/theme.helpers';
+import { borderRadius, color, pxToRem, spacing, transitionDuration } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 export const StyledSecondaryButton = styled.button<Props>`
     display: flex;
     align-items: center;
-    height: 2rem;
+    height: ${pxToRem(30)};
     padding-right: ${spacing('m')};
     padding-left: ${spacing('s')};
     transition: opacity ${transitionDuration('m')};

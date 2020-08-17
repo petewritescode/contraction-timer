@@ -1,5 +1,5 @@
+import { breakpoint, pxToRem } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
-import { breakpoint } from '../../theme/helpers/theme.helpers';
 
 export const StyledTimer = styled.div`
     display: flex;
@@ -7,14 +7,14 @@ export const StyledTimer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 11rem;
-    height: 11rem;
+    width: ${pxToRem(180)};
+    height: ${pxToRem(180)};
     margin-right: auto;
     margin-left: auto;
 
     ${breakpoint('s', css`
-        width: 13rem;
-        height: 13rem;
+        width: ${pxToRem(210)};
+        height: ${pxToRem(210)};
     `)}
 `;
 

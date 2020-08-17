@@ -1,12 +1,12 @@
-import { color, fontSize, spacing } from '../../theme/helpers/theme.helpers';
+import { color, fontSize, pxToRem, spacing } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryContraction = styled.li`
     display: flex;
     position: relative;
-    height: 1.25rem;
+    height: ${pxToRem(20)};
     padding-left: ${spacing('xl')};
-    line-height: 1.25rem;
+    line-height: ${pxToRem(20)};
 
     &::before {
         content: "";
@@ -14,8 +14,8 @@ export const StyledHistoryContraction = styled.li`
         position: absolute;
         top: 0;
         left: 0;
-        width: 1.25rem;
-        height: 1.25rem;
+        width: ${pxToRem(20)};
+        height: ${pxToRem(20)};
         border-radius: 50%;
         background-color: ${color('neutralMin')};
     }

@@ -1,18 +1,18 @@
-import { borderWidth, color, spacing } from '../../theme/helpers/theme.helpers';
+import { borderWidth, color, pxToRem, spacing } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryBreak = styled.li`
     position: relative;
-    height: 4rem;
+    height: ${pxToRem(60)};
     padding-left: ${spacing('xl')};
-    line-height: 4rem;
+    line-height: ${pxToRem(60)};
 
     &::before {
         content: "";
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 0.5rem;
+        left: ${pxToRem(8)};
         border-left: ${borderWidth} dashed ${color('neutralMin50')};
     }
 `;

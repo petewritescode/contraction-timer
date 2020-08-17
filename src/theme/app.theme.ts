@@ -1,13 +1,17 @@
+import { pxToRem } from './helpers/theme.helpers';
 import { Theme } from '../models/theme.model';
+
+const baseFontSize = 16;
+const fontScaleFactor = 1.3;
 
 export const appTheme: Theme = {
     border: {
-        width: '0.25rem',
+        width: pxToRem(4),
         radius: {
-            s: '0.25rem',
-            m: '0.5rem',
-            l: '0.75rem',
-            xl: '1rem',
+            s: pxToRem(5),
+            m: pxToRem(10),
+            l: pxToRem(15),
+            xl: pxToRem(20),
         },
     },
     breakpoint: {
@@ -30,20 +34,20 @@ export const appTheme: Theme = {
     },
     font: {
         size: {
-            s: '0.769rem',
-            m: '1rem',
-            l: '1.3rem',
-            xl: '1.69rem',
-            xxl: '2.197rem',
-            xxxl: '2.856rem',
-            xxxxl: '3.713rem',
+            s: pxToRem(baseFontSize * (fontScaleFactor ** -1)),
+            m: pxToRem(baseFontSize),
+            l: pxToRem(baseFontSize * (fontScaleFactor ** 1)),
+            xl: pxToRem(baseFontSize * (fontScaleFactor ** 2)),
+            xxl: pxToRem(baseFontSize * (fontScaleFactor ** 3)),
+            xxxl: pxToRem(baseFontSize * (fontScaleFactor ** 4)),
+            xxxxl: pxToRem(baseFontSize * (fontScaleFactor ** 5)),
         },
     },
     spacing: {
-        s: '0.25rem',
-        m: '0.5rem',
-        l: '1rem',
-        xl: '2rem',
+        s: pxToRem(5),
+        m: pxToRem(10),
+        l: pxToRem(20),
+        xl: pxToRem(40),
     },
     transition: {
         duration: {

@@ -2,6 +2,8 @@ import { css } from 'styled-components';
 import { Status } from '../../models/status.model';
 import { Theme } from '../../models/theme.model';
 
+export const pxToRem = (pixels: number): string => `${pixels / 16}rem`;
+
 export const borderWidth = ({ theme }: { theme: Theme }): string => theme.border.width;
 
 export const borderRadius = (name: keyof Theme['border']['radius']) => ({ theme }: { theme: Theme }): string => theme.border.radius[name];
