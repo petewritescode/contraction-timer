@@ -18,9 +18,9 @@ export const appTheme: Theme = {
         s: '360px',
     },
     color: {
-        contraction: '#e83887',
-        ready: '#19af75',
-        rest: '#28a5e3',
+        contraction: '#e01a73',
+        ready: '#04865f',
+        rest: '#177db0',
         neutralMin: '#ffffff',
         neutralMin25: 'rgba(255, 255, 255, 0.25)',
         neutralMin50: 'rgba(255, 255, 255, 0.5)',
