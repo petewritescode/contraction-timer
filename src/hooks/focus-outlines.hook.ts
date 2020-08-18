@@ -5,23 +5,27 @@ export const useFocusOutlines = (): void => {
     const { body } = document;
     const className = 'focus-outlines';
 
-    const handleKeyboardEvent = (event: KeyboardEvent) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === KeyboardKey.Tab) {
             body.classList.add(className);
         }
     };
 
-    const handleMouseEvent = () => {
-        body.classList.remove(className);
+    const handleClick = (event: MouseEvent) => {
+        const isTriggeredByMouse = Boolean(event.clientX && event.clientY);
+
+        if (isTriggeredByMouse) {
+            body.classList.remove(className);
+        }
     };
 
     useEffect(() => {
-        body.addEventListener('keydown', handleKeyboardEvent);
-        body.addEventListener('click', handleMouseEvent);
+        body.addEventListener('keydown', handleKeyDown);
+        body.addEventListener('click', handleClick);
 
         return () => {
-            body.removeEventListener('keydown', handleKeyboardEvent);
-            body.removeEventListener('click', handleMouseEvent);
+            body.removeEventListener('keydown', handleKeyDown);
+            body.removeEventListener('click', handleClick);
         };
     });
 };
