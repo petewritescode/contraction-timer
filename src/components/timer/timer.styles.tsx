@@ -1,4 +1,4 @@
-import { breakpoint, pxToRem } from '../../theme/helpers/theme.helpers';
+import { breakpoint, pxToRem, spacing } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
 
 export const StyledTimer = styled.div`
@@ -28,5 +28,6 @@ export const StyledStatusIndicator = styled.div`
 `;
 
 export const StyledLabel = styled.div`
+    margin-top: ${spacing('s')};
     text-transform: uppercase;
 `;
