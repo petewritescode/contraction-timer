@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import { Copy } from '../copy/copy.component';
 import { Modal } from '../modal/modal.component';
 import { modalActions } from '../../store/modal/modal.slice';
 import { timerActions } from '../../store/timer/timer.slice';
@@ -28,7 +29,9 @@ export const ClearHistoryModal: FunctionComponent = () => {
             secondaryButtonText="Cancel"
             secondaryButtonOnClick={handleCancelClick}
         >
-            <p>Are you sure you want to clear your contraction history?</p>
+            <Copy>
+                <p>Are you sure you want to clear your contraction history?</p>
+            </Copy>
         </Modal>
     );
 };

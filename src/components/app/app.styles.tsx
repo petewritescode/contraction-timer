@@ -202,7 +202,7 @@ export const BaseCss = createGlobalStyle`
     }
 
     html {
-        line-height: 1.4;
+        line-height: 1;
     }
 
     a {

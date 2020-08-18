@@ -37,7 +37,6 @@ export const StyledHeading = styled.h1`
 `;
 
 export const StyledClose = styled.div`
-    margin-top: ${spacing('s')};
     margin-left: ${spacing('l')};
 `;
 

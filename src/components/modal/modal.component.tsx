@@ -16,10 +16,6 @@ import { IconSize } from '../../models/icon-size.model';
 import { modalActions } from '../../store/modal/modal.slice';
 import { useDispatch } from 'react-redux';
 
-// Could have standard modal props like primaryButtonText, primaryButtonOnClick, etc to help keep styled centralised in the modal.
-// Alternatively have reusable components like ModalPrimaryButton or whatever, but that still requires you to use it properly, keep them in
-// the correct order, etc.
-
 interface Props {
     heading: string;
     primaryButtonText?: string;
