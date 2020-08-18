@@ -205,6 +205,12 @@ export const BaseCss = createGlobalStyle`
         line-height: 1;
     }
 
+    body:not(.focus-outlines) {
+        *:focus {
+            outline: none;
+        }
+    }
+
     a {
         color: inherit;
     }
