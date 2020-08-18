@@ -44,8 +44,8 @@ export const StyledCloseButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: -${spacing('l')};
-    padding: ${spacing('l')};
+    margin: -${spacing('m')};
+    padding: ${spacing('m')};
 `;
 
 export const StyledFooter = styled.footer`
