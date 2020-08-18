@@ -55,7 +55,7 @@ export const StyledFooter = styled.footer`
 `;
 
 export const StyledPrimaryButton = styled.button`
-    padding: ${spacing('s')} ${spacing('m')};
+    padding: ${spacing('m')};
     border-radius: ${borderRadius('s')};
     background-color: ${color('rest')};
     color: ${color('neutralMin')};
@@ -63,7 +63,7 @@ export const StyledPrimaryButton = styled.button`
 
 export const StyledSecondaryButton = styled.button`
     margin-right: ${spacing('s')};
-    padding: ${spacing('s')} ${spacing('m')};
+    padding: ${spacing('m')};
     border-radius: ${borderRadius('s')};
     background-color: ${color('neutralMid1')};
     color: ${color('neutralMin')};
