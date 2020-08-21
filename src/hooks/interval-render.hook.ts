@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useIntervalRender = (interval: number): void => {
+export const useIntervalRender = (interval: number) => {
     const [renderCount, setRenderCount] = useState(0);
 
     useEffect(() => {

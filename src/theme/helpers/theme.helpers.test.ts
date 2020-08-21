@@ -61,7 +61,7 @@ describe('Theme helpers', () => {
 
     describe('breakpoint', () => {
         it('returns the passed styles wrapped in a media query', () => {
-            const reduceWhitespace = (text: string): string => text.replace(/\s+/g, ' ').trim();
+            const reduceWhitespace = (text: string) => text.replace(/\s+/g, ' ').trim();
 
             const expected = `@media (min-width: breakpointS) {
                 color: red;

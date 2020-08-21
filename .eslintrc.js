@@ -5,6 +5,7 @@ module.exports = {
     },
     rules: {
         '@typescript-eslint/indent': ['error', 4],
+        '@typescript-eslint/no-inferrable-types': ['error'],
         '@typescript-eslint/space-before-function-paren': ['error', 'never'],
         'comma-dangle': ['error',  {
             arrays: 'always-multiline',

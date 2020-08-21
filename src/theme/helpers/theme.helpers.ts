@@ -2,11 +2,11 @@ import { css } from 'styled-components';
 import { Status } from '../../models/status.model';
 import { Theme } from '../../models/theme.model';
 
-export const pxToRem = (pixels: number): string => `${pixels / 16}rem`;
+export const pxToRem = (pixels: number) => `${pixels / 16}rem`;
 
-export const borderWidth = ({ theme }: { theme: Theme }): string => theme.border.width;
+export const borderWidth = ({ theme }: { theme: Theme }) => theme.border.width;
 
-export const borderRadius = (name: keyof Theme['border']['radius']) => ({ theme }: { theme: Theme }): string => theme.border.radius[name];
+export const borderRadius = (name: keyof Theme['border']['radius']) => ({ theme }: { theme: Theme }) => theme.border.radius[name];
 
 export const breakpoint = (name: keyof Theme['breakpoint'], styles: any) => ({ theme }: { theme: Theme }) => css`
     @media (min-width: ${theme.breakpoint[name]}) {
@@ -27,10 +27,10 @@ export const statusColor = ({ theme, status }: { theme: Theme, status: Status })
     }
 };
 
-export const fontSize = (name: keyof Theme['font']['size']) => ({ theme }: { theme: Theme }): string => theme.font.size[name];
+export const fontSize = (name: keyof Theme['font']['size']) => ({ theme }: { theme: Theme }) => theme.font.size[name];
 
-export const spacing = (name: keyof Theme['spacing']) => ({ theme }: { theme: Theme }): string => theme.spacing[name];
+export const spacing = (name: keyof Theme['spacing']) => ({ theme }: { theme: Theme }) => theme.spacing[name];
 
-export const transitionDuration = (name: keyof Theme['transition']['duration']) => ({ theme }: { theme: Theme }): string => (
+export const transitionDuration = (name: keyof Theme['transition']['duration']) => ({ theme }: { theme: Theme }) => (
     theme.transition.duration[name]
 );

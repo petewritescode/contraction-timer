@@ -1,7 +1,7 @@
 import { KeyboardKey } from '../models/keyboard-key.model';
 import { useEffect } from 'react';
 
-export const useFocusOutlines = (): void => {
+export const useFocusOutlines = () => {
     const { body } = document;
     const className = 'focus-outlines';
 

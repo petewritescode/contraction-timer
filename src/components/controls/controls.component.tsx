@@ -15,11 +15,11 @@ export const Controls: FunctionComponent = () => {
     const primaryType = status === Status.Contraction ? PrimaryButtonType.Stop : PrimaryButtonType.Start;
     const secondaryDisabled = status === Status.Ready;
 
-    const handlePrimaryClick = (): void => {
+    const handlePrimaryClick = () => {
         dispatch(timerActions.toggleContraction());
     };
 
-    const handleSecondaryClick = (): void => {
+    const handleSecondaryClick = () => {
         dispatch(timerActions.stop());
     };
 
