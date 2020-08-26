@@ -1,6 +1,6 @@
 import { timerActions, timerReducer, TimerState } from './timer.slice';
 
-const createDateSpy = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnValue(timestamp);
+const createDateSpy = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnValueOnce(timestamp);
 
 describe('Timer reducer', () => {
     describe('clearComplete action', () => {

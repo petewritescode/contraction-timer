@@ -2,7 +2,7 @@ import { now } from './now.util';
 
 describe('now util', () => {
     it('returns the current timestamp', () => {
-        jest.spyOn(Date, 'now').mockReturnValue(1000000000000);
+        jest.spyOn(Date, 'now').mockReturnValueOnce(1000000000000);
 
         const result = now();
 
