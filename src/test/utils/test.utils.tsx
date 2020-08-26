@@ -13,7 +13,7 @@ type Options = RenderParameters[1] & { initialState?: Partial<AppState>; };
 
 const mockStore = configureStore();
 
-export const customRender = (ui: UI, options?: Options) => {
+export const customRender = (ui: UI, options: Options = {}) => {
     const { initialState, ...renderOptions } = options;
     const store = initialState ? mockStore(initialState) : appStore;
 
