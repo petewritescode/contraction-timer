@@ -6,7 +6,7 @@ describe('Averages component', () => {
     it('renders duration and interval averages, with the correct values and in the correct order', () => {
         jest.spyOn(Date, 'now').mockReturnValue(1000000600000);
 
-        const state = {
+        const initialState = {
             timer: {
                 running: true,
                 contractions: [
@@ -17,12 +17,12 @@ describe('Averages component', () => {
             },
         };
 
-        render(<Averages />, { initialState: state });
+        render(<Averages />, { initialState });
 
         const averages = screen.getAllByRole('listitem');
         const [duration, interval] = averages;
 
-        expect(averages.length).toBe(2);
+        expect(averages).toHaveLength(2);
         expect(duration).toHaveTextContent('0:25');
         expect(duration).toHaveTextContent(/duration/i);
         expect(interval).toHaveTextContent('5:00');
