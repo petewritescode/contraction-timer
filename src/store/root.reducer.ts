@@ -8,3 +8,5 @@ export const rootReducer = combineReducers({
     timer: timerReducer,
     view: viewReducer,
 });
+
+export type AppState = ReturnType<typeof rootReducer>;

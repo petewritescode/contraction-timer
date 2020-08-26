@@ -1,6 +1,5 @@
 import { timerActions, timerReducer, TimerState } from './timer.slice';
-
-const createDateSpy = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnValueOnce(timestamp);
+import { dateSpy } from '../../test/utils/test.utils';
 
 describe('Timer reducer', () => {
     describe('clearComplete action', () => {
@@ -97,7 +96,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            createDateSpy(1000000060000);
+            dateSpy(1000000060000);
             const action = timerActions.stop();
             const result = timerReducer(state, action);
 
@@ -115,7 +114,7 @@ describe('Timer reducer', () => {
                 contractions: [],
             };
 
-            createDateSpy(1000000000000);
+            dateSpy(1000000000000);
             const action = timerActions.stop();
             const result = timerReducer(state, action);
 
@@ -137,7 +136,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            createDateSpy(1000000010000);
+            dateSpy(1000000010000);
             const action = timerActions.stop();
             const result = timerReducer(state, action);
 
@@ -159,7 +158,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            createDateSpy(1000000020000);
+            dateSpy(1000000020000);
             const action = timerActions.stop();
             const result = timerReducer(state, action);
 
@@ -181,7 +180,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            createDateSpy(1000000000000);
+            dateSpy(1000000000000);
             const action = timerActions.toggleContraction();
             const result = timerReducer(state, action);
 
@@ -203,7 +202,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            createDateSpy(1000000010000);
+            dateSpy(1000000010000);
             const action = timerActions.toggleContraction();
             const result = timerReducer(state, action);
 
@@ -226,7 +225,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            createDateSpy(1000000020000);
+            dateSpy(1000000020000);
             const action = timerActions.toggleContraction();
             const result = timerReducer(state, action);
 

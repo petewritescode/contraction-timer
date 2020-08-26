@@ -1,8 +1,9 @@
+import { dateSpy } from '../test/utils/test.utils';
 import { now } from './now.util';
 
 describe('now util', () => {
     it('returns the current timestamp', () => {
-        jest.spyOn(Date, 'now').mockReturnValueOnce(1000000000000);
+        dateSpy(1000000000000);
 
         const result = now();
 
