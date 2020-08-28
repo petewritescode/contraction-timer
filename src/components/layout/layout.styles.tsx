@@ -1,18 +1,17 @@
+import { statusColor, transitionDuration } from '../../theme/helpers/theme.helpers';
+import { Status } from '../../models/status.model';
 import styled from 'styled-components';
 
-export const StyledBackground = styled.div`
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-`;
+interface LayoutProps {
+    status: Status;
+}
 
-export const StyledLayout = styled.section`
+export const StyledLayout = styled.div<LayoutProps>`
     display: flex;
     flex-direction: column;
     height: 100%;
+    transition: background-color ${transitionDuration('m')};
+    background-color: ${statusColor};
 `;
 
 export const StyledContent = styled.main`

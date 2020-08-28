@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 export const StyledTimer = styled.div`
     display: flex;
     position: relative;
+    z-index: 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
