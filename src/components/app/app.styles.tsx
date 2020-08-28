@@ -5,7 +5,7 @@ import { createGlobalStyle } from 'styled-components';
 /* stylelint-disable no-descending-specificity */
 export const NormalizeCss = createGlobalStyle`
     /* stylelint-disable */
-    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+    /* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     html {
         line-height: 1.15;
         -webkit-text-size-adjust: 100%;
