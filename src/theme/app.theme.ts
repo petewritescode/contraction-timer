@@ -19,7 +19,7 @@ export const appTheme: Theme = {
     },
     color: {
         contraction: '#e21873',
-        ready: '#008547',
+        ready: '#008571',
         rest: '#107cb1',
         neutralMin: '#ffffff',
         neutralMin25: 'rgba(255, 255, 255, 0.25)',
