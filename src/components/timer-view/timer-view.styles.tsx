@@ -6,5 +6,12 @@ export const StyledTimerView = styled.div`
     flex-direction: column;
     justify-content: space-between;
     min-height: 100%;
-    padding: ${spacing('l')} ${spacing('l')} ${spacing('xl')};
+    padding-top: ${spacing('l')};
+    padding-bottom: ${spacing('xl')};
+`;
+
+export const StyledSectionHeading = styled.h2`
+    margin-bottom: ${spacing('m')};
+    text-align: center;
+    text-transform: uppercase;
 `;

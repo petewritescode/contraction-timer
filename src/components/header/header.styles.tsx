@@ -1,12 +1,10 @@
-import { fontSize, pxToRem, spacing } from '../../theme/helpers/theme.helpers';
+import { fontSize, pxToRem } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div`
+export const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     height: ${pxToRem(60)};
-    padding-right: ${spacing('l')};
-    padding-left: ${spacing('l')};
 `;
 
 export const StyledHeading = styled.h1`

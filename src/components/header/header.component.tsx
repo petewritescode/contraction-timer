@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import { StyledContainer, StyledHeading } from './header.styles';
+import { StyledHeader, StyledHeading } from './header.styles';
 import { useDispatch, useSelector } from 'react-redux';
+import { Button } from '../button/button.component';
 import { Container } from '../container/container.component';
+import { IconName } from '../../models/icon-name.model';
 import { modalActions } from '../../store/modal/modal.slice';
 import { ModalType } from '../../models/modal-type.model';
-import { SecondaryButton } from '../secondary-button/secondary-button.component';
-import { SecondaryButtonType } from '../../models/secondary-button-type.model';
 import { View } from '../../models/view.model';
 import { VIEW_TO_HEADING_MAP } from '../../constants/view.constants';
 import * as timerSelectors from '../../store/timer/timer.selectors';
@@ -23,16 +23,14 @@ export const Header: FunctionComponent = () => {
     };
 
     return (
-        <header>
-            <Container>
-                <StyledContainer>
-                    <StyledHeading>{heading}</StyledHeading>
+        <Container padded>
+            <StyledHeader>
+                <StyledHeading>{heading}</StyledHeading>
 
-                    {showClearButton && (
-                        <SecondaryButton type={SecondaryButtonType.Clear} disabled={clearButtonDisabled} onClick={handleClearClick} />
-                    )}
-                </StyledContainer>
-            </Container>
-        </header>
+                {showClearButton && (
+                    <Button label="Clear" icon={IconName.Clear} disabled={clearButtonDisabled} onClick={handleClearClick} />
+                )}
+            </StyledHeader>
+        </Container>
     );
 };

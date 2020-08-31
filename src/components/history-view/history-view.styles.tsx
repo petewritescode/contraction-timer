@@ -1,6 +1,7 @@
+import { spacing } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledHistoryView = styled.div`
-    height: 100%;
-    overflow: auto;
+    padding-top: ${spacing('l')};
+    padding-bottom: ${spacing('xl')};
 `;

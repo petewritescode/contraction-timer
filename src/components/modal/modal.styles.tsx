@@ -54,17 +54,6 @@ export const StyledFooter = styled.footer`
     margin-top: ${spacing('l')};
 `;
 
-export const StyledPrimaryButton = styled.button`
-    padding: ${spacing('m')};
-    border-radius: ${borderRadius('s')};
-    background-color: ${color('rest')};
-    color: ${color('neutralMin')};
-`;
-
-export const StyledSecondaryButton = styled.button`
+export const StyledSecondaryButton = styled.div`
     margin-right: ${spacing('s')};
-    padding: ${spacing('m')};
-    border-radius: ${borderRadius('s')};
-    background-color: ${color('neutralMid1')};
-    color: ${color('neutralMin')};
 `;

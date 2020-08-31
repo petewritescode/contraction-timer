@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react';
-import { HistoryBreak } from '../history-break/history-break.component';
-import { HistoryContraction } from '../history-contraction/history-contraction.component';
-import { HistoryInterval } from '../history-interval/history-interval.component';
+import { Break } from './break/break.component';
+import { Contraction } from './contraction/contraction.component';
+import { Interval } from './interval/interval.component';
 import { useSelector } from 'react-redux';
 import * as timerSelectors from '../../store/timer/timer.selectors';
 
@@ -13,9 +13,9 @@ export const HistoryList: FunctionComponent = () => {
         <ol>
             {reversedContractions.map((contraction, index) => (
                 <Fragment key={contraction.start}>
-                    <HistoryContraction start={contraction.start} duration={contraction.duration} />
-                    {contraction.interval && <HistoryInterval duration={contraction.interval} />}
-                    {index < maxIndex && !contraction.interval && <HistoryBreak />}
+                    <Contraction start={contraction.start} duration={contraction.duration} />
+                    {contraction.interval && <Interval duration={contraction.interval} />}
+                    {index < maxIndex && !contraction.interval && <Break />}
                 </Fragment>
             ))}
         </ol>

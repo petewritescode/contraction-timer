@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { StyledAverage, StyledAverages } from './averages.styles';
-import { Average } from '../average/average.component';
+import { Average } from './average/average.component';
 import { AverageType } from '../../models/average-type.model';
 import { MS_IN_AN_HOUR } from '../../constants/time.constants';
 import { now } from '../../utils/now.util';

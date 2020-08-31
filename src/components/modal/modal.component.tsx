@@ -7,9 +7,10 @@ import {
     StyledFooter,
     StyledHeader,
     StyledHeading,
-    StyledPrimaryButton,
     StyledSecondaryButton,
 } from './modal.styles';
+import { Button } from '../button/button.component';
+import { ButtonType } from '../../models/button-type.model';
 import { Icon } from '../icon/icon.component';
 import { IconName } from '../../models/icon-name.model';
 import { IconSize } from '../../models/icon-size.model';
@@ -63,11 +64,13 @@ export const Modal: FunctionComponent<Props> = ({
                 {showFooter && (
                     <StyledFooter>
                         {showPrimaryButton && (
-                            <StyledPrimaryButton onClick={primaryButtonOnClick}>{primaryButtonText}</StyledPrimaryButton>
+                            <Button label={primaryButtonText} onClick={primaryButtonOnClick} type={ButtonType.Confirm} />
                         )}
 
                         {showSecondaryButton && (
-                            <StyledSecondaryButton onClick={secondaryButtonOnClick}>{secondaryButtonText}</StyledSecondaryButton>
+                            <StyledSecondaryButton>
+                                <Button label={secondaryButtonText} onClick={secondaryButtonOnClick} type={ButtonType.Cancel} />
+                            </StyledSecondaryButton>
                         )}
                     </StyledFooter>
                 )}

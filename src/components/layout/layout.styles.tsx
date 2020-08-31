@@ -14,7 +14,7 @@ export const StyledLayout = styled.div<LayoutProps>`
     background-color: ${statusColor};
 `;
 
-export const StyledContent = styled.main`
+export const StyledContent = styled.section`
     flex-grow: 1;
     overflow: auto;
 `;

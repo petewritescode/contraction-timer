@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { StyledLabel, StyledStatusIndicator, StyledTimer } from './timer.styles';
 import { STATUS_TO_LABEL_MAP } from '../../constants/status.constants';
-import { StatusIndicator } from '../status-indicator/status-indicator.component';
-import { Time } from '../time/time.component';
+import { StatusIndicator } from './status-indicator/status-indicator.component';
+import { Time } from './time/time.component';
 import { useSelector } from 'react-redux';
 import * as timerSelectors from '../../store/timer/timer.selectors';
 
