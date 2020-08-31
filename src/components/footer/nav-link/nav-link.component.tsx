@@ -1,4 +1,4 @@
-import { NAV_LINK_TYPE_TO_ICON_NAME_MAP, NAV_LINK_TYPE_TO_LABEL_MAP } from '../../../constants/nav.constants';
+import { NAV_LINK_TYPE_TO_ICON_TYPE_MAP, NAV_LINK_TYPE_TO_LABEL_MAP } from '../../../constants/nav.constants';
 import React, { FunctionComponent } from 'react';
 import { StyledIcon, StyledNavLink } from './nav-link.styles';
 import { Icon } from '../../icon/icon.component';
@@ -13,13 +13,13 @@ interface Props {
 }
 
 export const NavLink: FunctionComponent<Props> = ({ type, active, onClick = noop }) => {
-    const iconName = NAV_LINK_TYPE_TO_ICON_NAME_MAP[type];
+    const iconType = NAV_LINK_TYPE_TO_ICON_TYPE_MAP[type];
     const label = NAV_LINK_TYPE_TO_LABEL_MAP[type];
 
     return (
         <StyledNavLink active={active} onClick={onClick}>
             <StyledIcon>
-                <Icon name={iconName} size={IconSize.Medium} />
+                <Icon type={iconType} size={IconSize.Medium} />
             </StyledIcon>
 
             {label}

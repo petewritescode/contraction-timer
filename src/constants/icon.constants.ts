@@ -1,15 +1,15 @@
-import { IconName } from '../models/icon-name.model';
 import { IconSize } from '../models/icon-size.model';
+import { IconType } from '../models/icon-type.model';
 
-export const ICON_NAME_TO_CODE_MAP: Record<IconName, string> = {
-    [IconName.Clear]: 'e14c',
-    [IconName.Close]: 'e14c',
-    [IconName.History]: 'e889',
-    [IconName.Pause]: 'e034',
-    [IconName.Pregnant]: 'e91e',
-    [IconName.Start]: 'e037',
-    [IconName.Stop]: 'e047',
-    [IconName.Timer]: 'e425',
+export const ICON_TYPE_TO_CODE_MAP: Record<IconType, string> = {
+    [IconType.Clear]: 'e14c',
+    [IconType.Close]: 'e14c',
+    [IconType.History]: 'e889',
+    [IconType.Pause]: 'e034',
+    [IconType.Pregnant]: 'e91e',
+    [IconType.Start]: 'e037',
+    [IconType.Stop]: 'e047',
+    [IconType.Timer]: 'e425',
 };
 
 export const ICON_SIZE_TO_PIXELS_MAP: Record<IconSize, number> = {

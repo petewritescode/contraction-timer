@@ -3,7 +3,7 @@ import { StyledHeader, StyledHeading } from './header.styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../button/button.component';
 import { Container } from '../container/container.component';
-import { IconName } from '../../models/icon-name.model';
+import { IconType } from '../../models/icon-type.model';
 import { modalActions } from '../../store/modal/modal.slice';
 import { ModalType } from '../../models/modal-type.model';
 import { View } from '../../models/view.model';
@@ -28,7 +28,7 @@ export const Header: FunctionComponent = () => {
                 <StyledHeading>{heading}</StyledHeading>
 
                 {showClearButton && (
-                    <Button label="Clear" icon={IconName.Clear} disabled={clearButtonDisabled} onClick={handleClearClick} />
+                    <Button label="Clear" icon={IconType.Clear} disabled={clearButtonDisabled} onClick={handleClearClick} />
                 )}
             </StyledHeader>
         </Container>

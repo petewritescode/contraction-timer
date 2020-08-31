@@ -1,16 +1,16 @@
 import React, { FunctionComponent } from 'react';
-import { ICON_NAME_TO_CODE_MAP } from '../../constants/icon.constants';
-import { IconName } from '../../models/icon-name.model';
+import { ICON_TYPE_TO_CODE_MAP } from '../../constants/icon.constants';
 import { IconSize } from '../../models/icon-size.model';
+import { IconType } from '../../models/icon-type.model';
 import { StyledIcon } from './icon.styles';
 
 interface Props {
-    name: IconName;
+    type: IconType;
     size: IconSize;
 }
 
-export const Icon: FunctionComponent<Props> = ({ name, size }) => {
-    const iconCode = `&#x${ICON_NAME_TO_CODE_MAP[name]};`;
+export const Icon: FunctionComponent<Props> = ({ type, size }) => {
+    const iconCode = `&#x${ICON_TYPE_TO_CODE_MAP[type]};`;
 
     return (
         <StyledIcon

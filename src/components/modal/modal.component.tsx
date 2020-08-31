@@ -12,8 +12,8 @@ import {
 import { Button } from '../button/button.component';
 import { ButtonType } from '../../models/button-type.model';
 import { Icon } from '../icon/icon.component';
-import { IconName } from '../../models/icon-name.model';
 import { IconSize } from '../../models/icon-size.model';
+import { IconType } from '../../models/icon-type.model';
 import { modalActions } from '../../store/modal/modal.slice';
 import { useDispatch } from 'react-redux';
 
@@ -54,7 +54,7 @@ export const Modal: FunctionComponent<Props> = ({
 
                     <StyledClose>
                         <StyledCloseButton onClick={handleCloseClick}>
-                            <Icon name={IconName.Clear} size={IconSize.Small} />
+                            <Icon type={IconType.Clear} size={IconSize.Small} />
                         </StyledCloseButton>
                     </StyledClose>
                 </StyledHeader>

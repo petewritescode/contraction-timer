@@ -1,4 +1,4 @@
-export enum IconName {
+export enum IconType {
     Clear = 'Clear',
     Close = 'Close',
     History = 'History',
