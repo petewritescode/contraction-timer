@@ -1,4 +1,4 @@
-import { breakpoint, pxToRem, spacing } from '../../theme/helpers/theme.helpers';
+import { breakpoint, fontSize, pxToRem, spacing } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
 
 export const StyledTimer = styled.div`
@@ -17,6 +17,11 @@ export const StyledTimer = styled.div`
         width: ${pxToRem(210)};
         height: ${pxToRem(210)};
     `)}
+
+    ${breakpoint('m', css`
+        width: ${pxToRem(250)};
+        height: ${pxToRem(250)};
+    `)}
 `;
 
 export const StyledStatusIndicator = styled.div`
@@ -31,4 +36,8 @@ export const StyledStatusIndicator = styled.div`
 export const StyledLabel = styled.div`
     margin-top: ${spacing('s')};
     text-transform: uppercase;
+
+    ${breakpoint('m', css`
+        font-size: ${fontSize('l')};
+    `)}
 `;

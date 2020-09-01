@@ -10,6 +10,7 @@ export interface Theme {
     };
     breakpoint: {
         s: string;
+        m: string;
     };
     color: {
         contraction: string;
@@ -35,6 +36,7 @@ export interface Theme {
             xxl: string;
             xxxl: string;
             xxxxl: string;
+            xxxxxl: string;
         };
     };
     spacing: {

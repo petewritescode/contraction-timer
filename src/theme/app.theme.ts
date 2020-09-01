@@ -16,6 +16,7 @@ export const appTheme: Theme = {
     },
     breakpoint: {
         s: '360px',
+        m: '768px',
     },
     color: {
         contraction: '#e21873',
@@ -41,6 +42,7 @@ export const appTheme: Theme = {
             xxl: pxToRem(baseFontSize * (fontScaleFactor ** 3)),
             xxxl: pxToRem(baseFontSize * (fontScaleFactor ** 4)),
             xxxxl: pxToRem(baseFontSize * (fontScaleFactor ** 5)),
+            xxxxxl: pxToRem(baseFontSize * (fontScaleFactor ** 6)),
         },
     },
     spacing: {
