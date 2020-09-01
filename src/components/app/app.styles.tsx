@@ -213,6 +213,7 @@ export const BaseCss = createGlobalStyle`
 
     a {
         color: inherit;
+        text-decoration: none;
     }
 
     button {
