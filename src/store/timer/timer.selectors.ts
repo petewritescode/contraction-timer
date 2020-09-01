@@ -3,22 +3,22 @@ import { createSelector } from '@reduxjs/toolkit';
 import { Status } from '../../models/status.model';
 import { TimerState } from './timer.slice';
 
-export const getSlice = (state: { timer: TimerState }) => state.timer;
-export const getRunning = createSelector(getSlice, (slice) => slice.running);
-export const getContractions = createSelector(getSlice, (slice) => slice.contractions);
-export const getLastContraction = createSelector(getContractions, (contractions) => contractions[contractions.length - 1]);
+const getSlice = (state: { timer: TimerState }) => state.timer;
+const getRunning = createSelector(getSlice, (slice) => slice.running);
+const getContractions = createSelector(getSlice, (slice) => slice.contractions);
+const getLastContraction = createSelector(getContractions, (contractions) => contractions[contractions.length - 1]);
 
-export const getCompletedContractions = createSelector(
+const getCompletedContractions = createSelector(
     getContractions,
     (contractions) => contractions.filter((contraction) => contraction.duration)
 );
 
-export const hasCompletedContractions = createSelector(
+const hasCompletedContractions = createSelector(
     getCompletedContractions,
     (completedContractions) => Boolean(completedContractions.length)
 );
 
-export const getContractionsWithIntervals = createSelector(
+const getContractionsWithIntervals = createSelector(
     getContractions,
     (contractions) => contractions.map<ContractionWithInterval>((contraction, index) => {
         const previousContraction = contractions[index - 1];
@@ -34,17 +34,17 @@ export const getContractionsWithIntervals = createSelector(
     })
 );
 
-export const getCompletedContractionsWithIntervals = createSelector(
+const getCompletedContractionsWithIntervals = createSelector(
     getContractionsWithIntervals,
     (contractionsWithIntervals) => contractionsWithIntervals.filter((contraction) => contraction.duration)
 );
 
-export const getReversedCompletedContractionsWithIntervals = createSelector(
+const getReversedCompletedContractionsWithIntervals = createSelector(
     getCompletedContractionsWithIntervals,
     (completedContractionsWithIntervals) => [...completedContractionsWithIntervals].reverse()
 );
 
-export const getAverageDurationSince = (timestamp: number) => createSelector(
+const getAverageDurationSince = (timestamp: number) => createSelector(
     getCompletedContractions,
     (completedContractions) => {
         const completedSince = completedContractions.filter((contraction) => (contraction.start + contraction.duration) > timestamp);
@@ -57,7 +57,7 @@ export const getAverageDurationSince = (timestamp: number) => createSelector(
     }
 );
 
-export const getAverageIntervalSince = (timestamp: number) => createSelector(
+const getAverageIntervalSince = (timestamp: number) => createSelector(
     getContractionsWithIntervals,
     (contractionsWithIntervals) => {
         const validStartedSince = contractionsWithIntervals
@@ -71,7 +71,7 @@ export const getAverageIntervalSince = (timestamp: number) => createSelector(
     }
 );
 
-export const getStatus = createSelector(
+const getStatus = createSelector(
     getRunning,
     getLastContraction,
     (running, lastContraction) => {
@@ -83,7 +83,23 @@ export const getStatus = createSelector(
     }
 );
 
-export const getPhaseStartTime = createSelector(
+const getPhaseStartTime = createSelector(
     getLastContraction,
     (lastContraction) => lastContraction && (lastContraction.start + (lastContraction.duration || 0))
 );
+
+export const timerSelectors = {
+    getSlice,
+    getRunning,
+    getContractions,
+    getLastContraction,
+    getCompletedContractions,
+    hasCompletedContractions,
+    getContractionsWithIntervals,
+    getCompletedContractionsWithIntervals,
+    getReversedCompletedContractionsWithIntervals,
+    getAverageDurationSince,
+    getAverageIntervalSince,
+    getStatus,
+    getPhaseStartTime,
+};

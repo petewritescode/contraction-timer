@@ -2,8 +2,8 @@ import React, { Fragment, FunctionComponent } from 'react';
 import { Break } from './break/break.component';
 import { Contraction } from './contraction/contraction.component';
 import { Interval } from './interval/interval.component';
+import { timerSelectors } from '../../store/timer/timer.selectors';
 import { useSelector } from 'react-redux';
-import * as timerSelectors from '../../store/timer/timer.selectors';
 
 export const HistoryList: FunctionComponent = () => {
     const reversedContractions = useSelector(timerSelectors.getReversedCompletedContractionsWithIntervals);

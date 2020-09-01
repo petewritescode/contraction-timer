@@ -3,8 +3,8 @@ import { StyledLabel, StyledStatusIndicator, StyledTimer } from './timer.styles'
 import { STATUS_TO_LABEL_MAP } from '../../constants/status.constants';
 import { StatusIndicator } from './status-indicator/status-indicator.component';
 import { Time } from './time/time.component';
+import { timerSelectors } from '../../store/timer/timer.selectors';
 import { useSelector } from 'react-redux';
-import * as timerSelectors from '../../store/timer/timer.selectors';
 
 export const Timer: FunctionComponent = () => {
     const status = useSelector(timerSelectors.getStatus);

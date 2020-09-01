@@ -1,6 +1,6 @@
 import { View } from '../../models/view.model';
+import { viewSelectors } from './view.selectors';
 import { ViewState } from './view.slice';
-import * as viewSelectors from './view.selectors';
 
 describe('View selectors', () => {
     describe('getSlice', () => {

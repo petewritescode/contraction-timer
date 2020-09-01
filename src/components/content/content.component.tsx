@@ -5,7 +5,7 @@ import { StyledContent } from './content.styles';
 import { TimerView } from '../timer-view/timer-view.component';
 import { useSelector } from 'react-redux';
 import { View } from '../../models/view.model';
-import * as viewSelectors from '../../store/view/view.selectors';
+import { viewSelectors } from '../../store/view/view.selectors';
 
 export const Content: FunctionComponent = () => {
     const view = useSelector(viewSelectors.getView);

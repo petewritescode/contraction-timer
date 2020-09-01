@@ -6,10 +6,10 @@ import { Container } from '../container/container.component';
 import { IconType } from '../../models/icon-type.model';
 import { modalActions } from '../../store/modal/modal.slice';
 import { ModalType } from '../../models/modal-type.model';
+import { timerSelectors } from '../../store/timer/timer.selectors';
 import { View } from '../../models/view.model';
 import { VIEW_TO_HEADING_MAP } from '../../constants/view.constants';
-import * as timerSelectors from '../../store/timer/timer.selectors';
-import * as viewSelectors from '../../store/view/view.selectors';
+import { viewSelectors } from '../../store/view/view.selectors';
 
 export const Header: FunctionComponent = () => {
     const dispatch = useDispatch();

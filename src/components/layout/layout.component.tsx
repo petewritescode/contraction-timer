@@ -3,8 +3,8 @@ import { StyledContent, StyledLayout } from './layout.styles';
 import { Content } from '../content/content.component';
 import { Footer } from '../footer/footer.component';
 import { Header } from '../header/header.component';
+import { timerSelectors } from '../../store/timer/timer.selectors';
 import { useSelector } from 'react-redux';
-import * as timerSelectors from '../../store/timer/timer.selectors';
 
 export const Layout: FunctionComponent = () => {
     const status = useSelector(timerSelectors.getStatus);

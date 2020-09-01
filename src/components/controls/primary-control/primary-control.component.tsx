@@ -5,8 +5,8 @@ import { noop } from '../../../utils/noop.util';
 import { PRIMARY_CONTROL_TYPE_TO_ICON_TYPE_MAP } from '../../../constants/control.constants';
 import { PrimaryControlType } from '../../../models/primary-control-type.model';
 import { StyledPrimaryControl } from './primary-control.styles';
+import { timerSelectors } from '../../../store/timer/timer.selectors';
 import { useSelector } from 'react-redux';
-import * as timerSelectors from '../../../store/timer/timer.selectors';
 
 interface Props {
     type: PrimaryControlType;

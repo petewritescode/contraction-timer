@@ -2,9 +2,9 @@ import React, { FunctionComponent } from 'react';
 import { formatDuration } from '../../../utils/format-duration.util';
 import { now } from '../../../utils/now.util';
 import { StyledTime } from './time.styles';
+import { timerSelectors } from '../../../store/timer/timer.selectors';
 import { useIntervalRender } from '../../../hooks/interval-render.hook';
 import { useSelector } from 'react-redux';
-import * as timerSelectors from '../../../store/timer/timer.selectors';
 
 const RENDER_INTERVAL = 100;
 

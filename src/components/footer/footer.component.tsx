@@ -6,7 +6,7 @@ import { NavLink } from './nav-link/nav-link.component';
 import { NavLinkType } from '../../models/nav-link-type.model';
 import { View } from '../../models/view.model';
 import { viewActions } from '../../store/view/view.slice';
-import * as viewSelectors from '../../store/view/view.selectors';
+import { viewSelectors } from '../../store/view/view.selectors';
 
 export const Footer: FunctionComponent = () => {
     const dispatch = useDispatch();

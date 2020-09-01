@@ -1,6 +1,6 @@
+import { modalSelectors } from './modal.selectors';
 import { ModalState } from './modal.slice';
 import { ModalType } from '../../models/modal-type.model';
-import * as modalSelectors from './modal.selectors';
 
 describe('Modal selectors', () => {
     describe('getSlice', () => {

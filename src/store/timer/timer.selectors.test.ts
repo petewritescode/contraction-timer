@@ -1,8 +1,8 @@
 import { Contraction } from '../../models/contraction.model';
 import { ContractionWithInterval } from '../../models/contraction-with-interval.model';
 import { Status } from '../../models/status.model';
+import { timerSelectors } from './timer.selectors';
 import { TimerState } from './timer.slice';
-import * as timerSelectors from './timer.selectors';
 
 describe('Timer selectors', () => {
     describe('getSlice', () => {

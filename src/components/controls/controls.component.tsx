@@ -7,7 +7,7 @@ import { PrimaryControl } from './primary-control/primary-control.component';
 import { PrimaryControlType } from '../../models/primary-control-type.model';
 import { Status } from '../../models/status.model';
 import { timerActions } from '../../store/timer/timer.slice';
-import * as timerSelectors from '../../store/timer/timer.selectors';
+import { timerSelectors } from '../../store/timer/timer.selectors';
 
 export const Controls: FunctionComponent = () => {
     const dispatch = useDispatch();

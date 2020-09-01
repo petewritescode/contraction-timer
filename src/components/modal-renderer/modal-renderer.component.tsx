@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { MODAL_TYPE_TO_COMPONENT_MAP } from '../../constants/modal.constants';
+import { modalSelectors } from '../../store/modal/modal.selectors';
 import { useSelector } from 'react-redux';
-import * as modalSelectors from '../../store/modal/modal.selectors';
 
 export const ModalRenderer: FunctionComponent = () => {
     const activeModal = useSelector(modalSelectors.getActive);
