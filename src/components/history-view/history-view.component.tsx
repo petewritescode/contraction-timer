@@ -10,8 +10,7 @@ export const HistoryView: FunctionComponent = () => {
 
     return (
         <StyledHistoryView>
-            {!hasCompletedContractions && <HistoryEmpty />}
-            {hasCompletedContractions && <HistoryList />}
+            {hasCompletedContractions ? <HistoryList /> : <HistoryEmpty />}
         </StyledHistoryView>
     );
 };
