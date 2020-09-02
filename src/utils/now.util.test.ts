@@ -1,9 +1,9 @@
-import { dateSpy } from '../test/utils/test.utils';
+import { mockNow } from '../test/utils/test.utils';
 import { now } from './now.util';
 
 describe('now util', () => {
     it('returns the current timestamp', () => {
-        dateSpy(1000000000000);
+        mockNow(1000000000000);
 
         const result = now();
 

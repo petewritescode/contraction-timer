@@ -1,5 +1,5 @@
 import { timerActions, timerReducer, TimerState } from './timer.slice';
-import { dateSpy } from '../../test/utils/test.utils';
+import { mockNow } from '../../test/utils/test.utils';
 
 describe('Timer reducer', () => {
     describe('clearComplete action', () => {
@@ -96,7 +96,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            dateSpy(1000000060000);
+            mockNow(1000000060000);
             const action = timerActions.stop();
             const result = timerReducer(state, action);
 
@@ -114,7 +114,7 @@ describe('Timer reducer', () => {
                 contractions: [],
             };
 
-            dateSpy(1000000000000);
+            mockNow(1000000000000);
             const action = timerActions.stop();
             const result = timerReducer(state, action);
 
@@ -136,7 +136,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            dateSpy(1000000010000);
+            mockNow(1000000010000);
             const action = timerActions.stop();
             const result = timerReducer(state, action);
 
@@ -158,7 +158,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            dateSpy(1000000020000);
+            mockNow(1000000020000);
             const action = timerActions.stop();
             const result = timerReducer(state, action);
 
@@ -180,7 +180,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            dateSpy(1000000000000);
+            mockNow(1000000000000);
             const action = timerActions.toggleContraction();
             const result = timerReducer(state, action);
 
@@ -202,7 +202,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            dateSpy(1000000010000);
+            mockNow(1000000010000);
             const action = timerActions.toggleContraction();
             const result = timerReducer(state, action);
 
@@ -225,7 +225,7 @@ describe('Timer reducer', () => {
                 ],
             };
 
-            dateSpy(1000000020000);
+            mockNow(1000000020000);
             const action = timerActions.toggleContraction();
             const result = timerReducer(state, action);
 

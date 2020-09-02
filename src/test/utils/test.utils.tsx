@@ -1,21 +1,19 @@
+import { act, render } from '@testing-library/react';
 import React, { FunctionComponent } from 'react';
 import { AppState } from '../../store/root.reducer';
-import { appStore } from '../../store/app.store';
 import { appTheme } from '../../theme/app.theme';
 import configureStore from 'redux-mock-store';
+import { createStore } from '../../store/app.store';
 import { Provider } from 'react-redux';
-import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 
 type RenderParameters = Parameters<typeof render>;
 type UI = RenderParameters[0];
 type Options = RenderParameters[1] & { initialState?: Partial<AppState>; };
 
-const mockStore = configureStore();
-
 export const customRender = (ui: UI, options: Options = {}) => {
     const { initialState, ...renderOptions } = options;
-    const store = initialState ? mockStore(initialState) : appStore;
+    const store = initialState ? configureStore()(initialState) : createStore(false);
 
     const Wrapper: FunctionComponent = ({ children }) => (
         <Provider store={store}>
@@ -31,4 +29,18 @@ export const customRender = (ui: UI, options: Options = {}) => {
 export * from '@testing-library/react';
 export { customRender as render };
 
-export const dateSpy = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnValueOnce(timestamp);
+export const mockNow = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnValue(timestamp);
+
+export const startFakeTimer = (startTime = 1000000000000) => {
+    let time = startTime;
+    mockNow(time);
+    jest.useFakeTimers();
+
+    const advanceTime = (duration: number) => act(() => {
+        time += duration;
+        mockNow(time);
+        jest.advanceTimersByTime(duration);
+    });
+
+    return advanceTime;
+};
