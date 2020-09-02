@@ -1,10 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { App } from './components/app/app.component';
-import { appStore } from './store/app.store';
 import { appTheme } from './theme/app.theme';
+import { createStore } from './store/app.store';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
+
+const appStore = createStore();
 
 const Root: FunctionComponent = () => (
     <Provider store={appStore}>

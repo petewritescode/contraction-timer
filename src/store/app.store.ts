@@ -5,7 +5,7 @@ import { rootReducer } from './root.reducer';
 // Type definitions are incorrect, use 'any' to bypass (https://github.com/elgerlambert/redux-localstorage/issues/78)
 const persistStateEnhancer: any = persistState(['timer'] as any);
 
-export const appStore = configureStore({
+export const createStore = (persist = true) => configureStore({
     reducer: rootReducer,
-    enhancers: [persistStateEnhancer],
+    enhancers: persist ? [persistStateEnhancer] : [],
 });
