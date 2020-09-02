@@ -12,11 +12,12 @@ interface Props {
 export const Average: FunctionComponent<Props> = ({ type, duration }) => {
     const formattedDuration = formatDuration(duration);
     const label = AVERAGE_TYPE_TO_LABEL_MAP[type];
+    const id = `average-${type.toLowerCase()}`;
 
     return (
         <StyledAverage>
-            <StyledTime>{formattedDuration}</StyledTime>
-            <StyledLabel>{label}</StyledLabel>
+            <StyledTime aria-labelledby={id}>{formattedDuration}</StyledTime>
+            <StyledLabel id={id}>{label}</StyledLabel>
         </StyledAverage>
     );
 };

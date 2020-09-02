@@ -47,10 +47,10 @@ export const Modal: FunctionComponent<Props> = ({
     };
 
     return (
-        <StyledBackground onClick={handleCloseClick}>
+        <StyledBackground role="dialog" aria-labelledby="modal-heading" onClick={handleCloseClick}>
             <StyledDialog onClick={handleDialogClick}>
                 <StyledHeader>
-                    <StyledHeading>{heading}</StyledHeading>
+                    <StyledHeading id="modal-heading">{heading}</StyledHeading>
 
                     <StyledClose>
                         <StyledCloseButton onClick={handleCloseClick}>

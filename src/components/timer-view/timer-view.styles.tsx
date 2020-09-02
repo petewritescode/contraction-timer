@@ -18,9 +18,3 @@ export const StyledContainer = styled.div`
     height: 100%;
     max-height: 650px;
 `;
-
-export const StyledSectionHeading = styled.h2`
-    margin-bottom: ${spacing('m')};
-    text-align: center;
-    text-transform: uppercase;
-`;

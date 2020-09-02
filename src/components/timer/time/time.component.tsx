@@ -17,5 +17,5 @@ export const Time: FunctionComponent = () => {
     const duration = running && phaseStartTime ? now() - phaseStartTime : undefined;
     const formattedDuration = formatDuration(duration);
 
-    return <StyledTime>{formattedDuration}</StyledTime>;
+    return <StyledTime aria-label="Phase time">{formattedDuration}</StyledTime>;
 };

@@ -10,7 +10,7 @@ export const Layout: FunctionComponent = () => {
     const status = useSelector(timerSelectors.getStatus);
 
     return (
-        <StyledLayout status={status}>
+        <StyledLayout status={status} data-testid="layout">
             <section>
                 <Header />
             </section>

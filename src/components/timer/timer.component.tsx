@@ -17,7 +17,7 @@ export const Timer: FunctionComponent = () => {
             </StyledStatusIndicator>
 
             <Time />
-            <StyledLabel>{label}</StyledLabel>
+            <StyledLabel aria-label="Status">{label}</StyledLabel>
         </StyledTimer>
     );
 };

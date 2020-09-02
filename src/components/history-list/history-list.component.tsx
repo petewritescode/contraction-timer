@@ -10,7 +10,7 @@ export const HistoryList: FunctionComponent = () => {
     const maxIndex = reversedContractions.length - 1;
 
     return (
-        <ol>
+        <ol aria-label="Contraction history">
             {reversedContractions.map((contraction, index) => (
                 <Fragment key={contraction.start}>
                     <Contraction start={contraction.start} duration={contraction.duration} />
