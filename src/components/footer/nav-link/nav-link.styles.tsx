@@ -1,4 +1,4 @@
-import { pxToRem, spacing } from '../../../theme/helpers/theme.helpers';
+import { borderWidth, color, pxToRem, spacing } from '../../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
 
 interface LinkProps {
@@ -10,11 +10,18 @@ export const StyledNavLink = styled.a<LinkProps>`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: ${pxToRem(45)};
+    height: ${pxToRem(50)};
+    border-top: ${borderWidth('m')} solid transparent;
     font-weight: bold;
 
     ${({ active }) => !active && css`
-        opacity: 0.5;
+        &:hover {
+            border-color: ${color('neutralMin50')};
+        }
+    `}
+
+    ${({ active }) => active && css`
+        border-color: ${color('neutralMin')};
     `}
 `;
 
