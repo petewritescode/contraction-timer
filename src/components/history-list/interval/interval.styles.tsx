@@ -13,6 +13,6 @@ export const StyledInterval = styled.li`
         top: 0;
         bottom: 0;
         left: ${pxToRem(8)};
-        border-left: ${borderWidth} solid ${color('neutralMin')};
+        border-left: ${borderWidth('l')} solid ${color('neutralMin')};
     }
 `;

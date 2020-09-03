@@ -4,7 +4,7 @@ import { Theme } from '../../models/theme.model';
 
 export const pxToRem = (pixels: number) => `${pixels / 16}rem`;
 
-export const borderWidth = ({ theme }: { theme: Theme }) => theme.border.width;
+export const borderWidth = (name: keyof Theme['border']['width']) => ({ theme }: { theme: Theme }) => theme.border.width[name];
 
 export const borderRadius = (name: keyof Theme['border']['radius']) => ({ theme }: { theme: Theme }) => theme.border.radius[name];
 

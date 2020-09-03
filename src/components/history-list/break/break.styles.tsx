@@ -13,6 +13,6 @@ export const StyledBreak = styled.li`
         top: 0;
         bottom: 0;
         left: ${pxToRem(8)};
-        border-left: ${borderWidth} dashed ${color('neutralMin50')};
+        border-left: ${borderWidth('l')} dashed ${color('neutralMin50')};
     }
 `;

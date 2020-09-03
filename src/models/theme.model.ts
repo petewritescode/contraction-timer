@@ -1,6 +1,10 @@
 export interface Theme {
     border: {
-        width: string;
+        width: {
+            s: string;
+            m: string;
+            l: string;
+        };
         radius: {
             s: string;
             m: string;

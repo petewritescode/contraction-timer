@@ -25,7 +25,7 @@ const rest = keyframes`
 export const StyledStatusIndicator = styled.div<Props>`
     width: 100%;
     height: 100%;
-    border: ${borderWidth} solid ${color('neutralMin')};
+    border: ${borderWidth('l')} solid ${color('neutralMin')};
     border-radius: 50%;
 
     ${({ status }) => status === Status.Contraction && css`

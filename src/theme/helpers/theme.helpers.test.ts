@@ -4,7 +4,11 @@ import { Theme } from '../../models/theme.model';
 
 const theme = {
     border: {
-        width: 'borderWidth',
+        width: {
+            s: 'borderWidthS',
+            m: 'borderWidthM',
+            l: 'borderWidthL',
+        },
         radius: {
             s: 'borderRadiusS',
             m: 'borderRadiusM',
@@ -46,8 +50,10 @@ describe('Theme helpers', () => {
     });
 
     describe('borderWidth', () => {
-        it('returns the border width', () => {
-            expect(borderWidth({ theme })).toEqual('borderWidth');
+        it('returns the specified border width', () => {
+            expect(borderWidth('s')({ theme })).toEqual('borderWidthS');
+            expect(borderWidth('m')({ theme })).toEqual('borderWidthM');
+            expect(borderWidth('l')({ theme })).toEqual('borderWidthL');
         });
     });
 

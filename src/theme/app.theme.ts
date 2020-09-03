@@ -6,7 +6,11 @@ const fontScaleFactor = 1.3;
 
 export const appTheme: Theme = {
     border: {
-        width: pxToRem(4),
+        width: {
+            s: pxToRem(1),
+            m: pxToRem(2),
+            l: pxToRem(4),
+        },
         radius: {
             s: pxToRem(5),
             m: pxToRem(10),
