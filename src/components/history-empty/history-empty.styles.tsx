@@ -6,6 +6,7 @@ export const StyledHistoryEmpty = styled.div`
     flex-direction: column;
     align-items: center;
     padding-top: ${spacing('xl')};
+    text-align: center;
 `;
 
 export const StyledIcon = styled.div`
