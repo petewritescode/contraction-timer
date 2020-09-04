@@ -7,13 +7,14 @@ import { IconType } from '../../models/icon-type.model';
 import { modalActions } from '../../store/modal/modal.slice';
 import { ModalType } from '../../models/modal-type.model';
 import { timerSelectors } from '../../store/timer/timer.selectors';
+import { useView } from '../../hooks/view.hook';
 import { View } from '../../models/view.model';
 import { VIEW_TO_HEADING_MAP } from '../../constants/view.constants';
-import { viewSelectors } from '../../store/view/view.selectors';
 
 export const Header: FunctionComponent = () => {
     const dispatch = useDispatch();
-    const view = useSelector(viewSelectors.getView);
+    const view = useView();
+
     const heading = VIEW_TO_HEADING_MAP[view];
     const showClearButton = view === View.History;
     const clearButtonDisabled = !useSelector(timerSelectors.hasCompletedContractions);

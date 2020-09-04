@@ -4,6 +4,7 @@ import { AppState } from '../../store/root.reducer';
 import { appTheme } from '../../theme/app.theme';
 import configureStore from 'redux-mock-store';
 import { createStore } from '../../store/app.store';
+import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
@@ -16,11 +17,13 @@ export const customRender = (ui: UI, options: Options = {}) => {
     const store = initialState ? configureStore()(initialState) : createStore(false);
 
     const Wrapper: FunctionComponent = ({ children }) => (
-        <Provider store={store}>
-            <ThemeProvider theme={appTheme}>
-                {children}
-            </ThemeProvider>
-        </Provider>
+        <MemoryRouter>
+            <Provider store={store}>
+                <ThemeProvider theme={appTheme}>
+                    {children}
+                </ThemeProvider>
+            </Provider>
+        </MemoryRouter>
     );
 
     return render(ui, { wrapper: Wrapper, ...renderOptions });
