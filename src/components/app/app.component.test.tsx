@@ -80,7 +80,7 @@ describe('App component', () => {
         expect(phaseTime).toHaveTextContent('0:02');
         expect(status).toHaveTextContent(/rest/i);
 
-        fireEvent.click(screen.getByRole('button', { name: /pause/i }));
+        fireEvent.click(screen.getByRole('button', { name: /take a break/i }));
 
         advanceTime(1000);
 
@@ -120,7 +120,7 @@ describe('App component', () => {
     it('displays controls correctly', () => {
         render(<App />);
 
-        const pause = screen.getByRole('button', { name: /pause/i });
+        const pause = screen.getByRole('button', { name: /take a break/i });
 
         expect(screen.getByRole('button', { name: /start/i })).toBeInTheDocument();
         expect(screen.queryByRole('button', { name: /stop/i })).not.toBeInTheDocument();
@@ -141,7 +141,7 @@ describe('App component', () => {
         expect(pause).toBeInTheDocument();
         expect(pause).not.toHaveAttribute('disabled');
 
-        fireEvent.click(screen.getByRole('button', { name: /pause/i }));
+        fireEvent.click(screen.getByRole('button', { name: /take a break/i }));
 
         expect(screen.getByRole('button', { name: /start/i })).toBeInTheDocument();
         expect(screen.queryByRole('button', { name: /stop/i })).not.toBeInTheDocument();
@@ -173,7 +173,7 @@ describe('App component', () => {
         advanceTime(1000);
         fireEvent.click(screen.getByRole('button', { name: /start/i }));
         advanceTime(3000);
-        fireEvent.click(screen.getByRole('button', { name: /pause/i }));
+        fireEvent.click(screen.getByRole('button', { name: /take a break/i }));
         fireEvent.click(screen.getByRole('link', { name: /history/i }));
 
         const history = screen.getByRole('list', { name: /contraction history/i });

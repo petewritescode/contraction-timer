@@ -30,7 +30,7 @@ export const Controls: FunctionComponent = () => {
             </StyledPrimary>
 
             <li>
-                <Button label="Pause" icon={IconType.Pause} disabled={secondaryDisabled} onClick={handleSecondaryClick} />
+                <Button label="Take a break" icon={IconType.Pause} disabled={secondaryDisabled} onClick={handleSecondaryClick} />
             </li>
         </StyledControls>
     );
