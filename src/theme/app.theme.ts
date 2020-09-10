@@ -23,7 +23,7 @@ export const appTheme: Theme = {
         m: '768px',
     },
     color: {
-        contraction: '#e21873',
+        contraction: '#ab1257',
         ready: '#008571',
         rest: '#107cb1',
         neutralMin: '#ffffff',
