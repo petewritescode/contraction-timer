@@ -6,6 +6,7 @@ import { createStore } from './store/app.store';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
+import * as serviceWorker from './serviceWorker';
 
 const appStore = createStore();
 
@@ -20,3 +21,5 @@ const Root: FunctionComponent = () => (
 );
 
 ReactDOM.render(<Root />, document.getElementById('root'));
+
+serviceWorker.register();
