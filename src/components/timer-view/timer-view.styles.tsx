@@ -13,8 +13,13 @@ export const StyledTimerView = styled.div`
 export const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     height: 100%;
     max-height: 650px;
+`;
+
+export const StyledAverages = styled.section`
+    padding-top: ${spacing('l')};
+    padding-bottom: ${spacing('l')};
 `;

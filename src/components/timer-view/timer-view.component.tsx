@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { StyledContainer, StyledTimerView } from './timer-view.styles';
+import { StyledAverages, StyledContainer, StyledTimerView } from './timer-view.styles';
 import { Averages } from '../averages/averages.component';
 import { Controls } from '../controls/controls.component';
 import { Timer } from '../timer/timer.component';
@@ -11,9 +11,9 @@ export const TimerView: FunctionComponent = () => (
                 <Timer />
             </section>
 
-            <section>
+            <StyledAverages>
                 <Averages />
-            </section>
+            </StyledAverages>
 
             <section>
                 <Controls />
