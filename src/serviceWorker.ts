@@ -12,7 +12,7 @@ const isLocalhost = Boolean(
         || window.location.hostname.match(LOCALHOST_PATTERN_IPV4)
 );
 
-const registerValidServiceWorker = (swUrl: string, config?: Config) => {
+const registerServiceWorker = (swUrl: string, config?: Config) => {
     navigator.serviceWorker
         .register(swUrl)
         .then((registration) => {
@@ -44,8 +44,7 @@ const registerValidServiceWorker = (swUrl: string, config?: Config) => {
         });
 };
 
-// Check if the service worker can be found and reload the page if not
-const checkValidServiceWorker = (swUrl: string, config?: Config) => {
+const checkServiceWorker = (swUrl: string, config?: Config) => {
     fetch(swUrl, { headers: { 'Service-Worker': 'script' } })
         .then((response) => {
             const contentType = response.headers.get('content-type');
@@ -57,12 +56,11 @@ const checkValidServiceWorker = (swUrl: string, config?: Config) => {
                     });
                 });
             } else {
-                registerValidServiceWorker(swUrl, config);
+                registerServiceWorker(swUrl, config);
             }
         })
         .catch(() => {
-            // eslint-disable-next-line no-console
-            console.log('No internet connection found. App is running in offline mode.');
+            // No internet connection, running in offline mode
         });
 };
 
@@ -83,9 +81,9 @@ export const register = (config?: Config) => {
             const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
             if (isLocalhost) {
-                checkValidServiceWorker(swUrl, config);
+                checkServiceWorker(swUrl, config);
             } else {
-                registerValidServiceWorker(swUrl, config);
+                registerServiceWorker(swUrl, config);
             }
         });
     }
@@ -99,7 +97,7 @@ export const unregister = () => {
             })
             .catch((error) => {
                 // eslint-disable-next-line no-console
-                console.error(error.message);
+                console.error('Error during service worker removal:', error);
             });
     }
 };
