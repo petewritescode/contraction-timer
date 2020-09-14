@@ -19,7 +19,7 @@ describe('App component', () => {
         expect(layout).toHaveStyle('background-color: #008571');
 
         fireEvent.click(screen.getByRole('button', { name: /start/i }));
-        expect(layout).toHaveStyle('background-color: #ab1257');
+        expect(layout).toHaveStyle('background-color: #ba125e');
 
         fireEvent.click(screen.getByRole('button', { name: /stop/i }));
         expect(layout).toHaveStyle('background-color: #107cb1');
