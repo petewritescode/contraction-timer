@@ -3,6 +3,10 @@ module.exports = {
     parserOptions: {
         project: './tsconfig.json',
     },
+    env: {
+        browser: true,
+        jest: true,
+    },
     rules: {
         '@typescript-eslint/indent': ['error', 4],
         '@typescript-eslint/no-inferrable-types': ['error'],
