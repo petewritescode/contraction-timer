@@ -1,2 +1,2 @@
 # Contractions timer
-A web app for tracking and timing your contractions during labour.
+A minimalist web app for tracking and timing your contractions during labour.
