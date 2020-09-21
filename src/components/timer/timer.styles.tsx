@@ -14,13 +14,13 @@ export const StyledTimer = styled.div`
     margin-left: auto;
 
     ${breakpoint('s', css`
-        width: ${pxToRem(180)};
-        height: ${pxToRem(180)};
+        width: ${pxToRem(200)};
+        height: ${pxToRem(200)};
     `)}
 
     ${breakpoint('m', css`
-        width: ${pxToRem(220)};
-        height: ${pxToRem(220)};
+        width: ${pxToRem(240)};
+        height: ${pxToRem(240)};
     `)}
 
     ${breakpoint('l', css`
