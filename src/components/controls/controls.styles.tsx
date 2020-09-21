@@ -1,5 +1,5 @@
-import { spacing } from '../../theme/helpers/theme.helpers';
-import styled from 'styled-components';
+import { breakpoint, spacing } from '../../theme/helpers/theme.helpers';
+import styled, { css } from 'styled-components';
 
 export const StyledControls = styled.ul`
     display: flex;
@@ -8,5 +8,9 @@ export const StyledControls = styled.ul`
 `;
 
 export const StyledPrimary = styled.li`
-    margin-bottom: ${spacing('l')};
+    margin-bottom: ${spacing('m')};
+
+    ${breakpoint('s', css`
+        margin-bottom: ${spacing('l')};
+    `)}
 `;

@@ -8,19 +8,24 @@ export const StyledTimer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: ${pxToRem(180)};
-    height: ${pxToRem(180)};
+    width: ${pxToRem(160)};
+    height: ${pxToRem(160)};
     margin-right: auto;
     margin-left: auto;
 
     ${breakpoint('s', css`
-        width: ${pxToRem(210)};
-        height: ${pxToRem(210)};
+        width: ${pxToRem(180)};
+        height: ${pxToRem(180)};
     `)}
 
     ${breakpoint('m', css`
-        width: ${pxToRem(250)};
-        height: ${pxToRem(250)};
+        width: ${pxToRem(220)};
+        height: ${pxToRem(220)};
+    `)}
+
+    ${breakpoint('l', css`
+        width: ${pxToRem(280)};
+        height: ${pxToRem(280)};
     `)}
 `;
 
@@ -35,9 +40,14 @@ export const StyledStatusIndicator = styled.div`
 
 export const StyledLabel = styled.div`
     margin-top: ${spacing('s')};
+    font-size: ${fontSize('s')};
     text-transform: uppercase;
 
-    ${breakpoint('m', css`
+    ${breakpoint('s', css`
+        font-size: ${fontSize('m')};
+    `)}
+
+    ${breakpoint('l', css`
         font-size: ${fontSize('l')};
     `)}
 `;

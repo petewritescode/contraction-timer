@@ -20,7 +20,8 @@ export const appTheme: Theme = {
     },
     breakpoint: {
         s: '360px',
-        m: '768px',
+        m: '400px',
+        l: '768px',
     },
     color: {
         contraction: '#ba125e',

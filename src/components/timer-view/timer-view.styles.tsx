@@ -16,7 +16,7 @@ export const StyledContainer = styled.div`
     justify-content: space-around;
     width: 100%;
     height: 100%;
-    max-height: 650px;
+    max-height: 800px;
 `;
 
 export const StyledAverages = styled.section`

@@ -1,5 +1,5 @@
-import { fontSize, spacing } from '../../../theme/helpers/theme.helpers';
-import styled from 'styled-components';
+import { breakpoint, fontSize, spacing } from '../../../theme/helpers/theme.helpers';
+import styled, { css } from 'styled-components';
 
 export const StyledAverage = styled.div`
     text-align: center;
@@ -7,7 +7,11 @@ export const StyledAverage = styled.div`
 
 export const StyledTime = styled.div`
     margin-bottom: ${spacing('s')};
-    font-size: ${fontSize('xxl')};
+    font-size: ${fontSize('xl')};
+
+    ${breakpoint('s', css`
+        font-size: ${fontSize('xxl')};
+    `)}
 `;
 
 export const StyledLabel = styled.div`

@@ -15,6 +15,7 @@ export interface Theme {
     breakpoint: {
         s: string;
         m: string;
+        l: string;
     };
     color: {
         contraction: string;
