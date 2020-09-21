@@ -8,24 +8,24 @@ export const StyledTimer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: ${pxToRem(160)};
-    height: ${pxToRem(160)};
+    width: ${pxToRem(140)};
+    height: ${pxToRem(140)};
     margin-right: auto;
     margin-left: auto;
 
     ${breakpoint('s', css`
-        width: ${pxToRem(200)};
-        height: ${pxToRem(200)};
+        width: ${pxToRem(180)};
+        height: ${pxToRem(180)};
     `)}
 
     ${breakpoint('m', css`
-        width: ${pxToRem(240)};
-        height: ${pxToRem(240)};
+        width: ${pxToRem(220)};
+        height: ${pxToRem(220)};
     `)}
 
     ${breakpoint('l', css`
-        width: ${pxToRem(280)};
-        height: ${pxToRem(280)};
+        width: ${pxToRem(260)};
+        height: ${pxToRem(260)};
     `)}
 `;
 

@@ -11,8 +11,4 @@ export const StyledTime = styled.div`
     ${breakpoint('m', css`
         font-size: ${fontSize('xxxxl')};
     `)}
-
-    ${breakpoint('l', css`
-        font-size: ${fontSize('xxxxxl')};
-    `)}
 `;

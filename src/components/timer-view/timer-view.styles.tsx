@@ -6,8 +6,8 @@ export const StyledTimerView = styled.div`
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding-top: ${spacing('l')};
-    padding-bottom: ${spacing('xl')};
+    padding-top: ${spacing('m')};
+    padding-bottom: ${spacing('l')};
 `;
 
 export const StyledContainer = styled.div`

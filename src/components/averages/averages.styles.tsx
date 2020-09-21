@@ -1,13 +1,17 @@
-import { breakpoint, spacing } from '../../theme/helpers/theme.helpers';
+import { breakpoint, fontSize, spacing } from '../../theme/helpers/theme.helpers';
 import styled, { css } from 'styled-components';
 
 export const StyledHeading = styled.h2`
-    margin-bottom: ${spacing('s')};
+    margin-bottom: ${spacing('m')};
     text-align: center;
     text-transform: uppercase;
 
     ${breakpoint('s', css`
         margin-bottom: ${spacing('m')};
+    `)}
+
+    ${breakpoint('l', css`
+        font-size: ${fontSize('l')};
     `)}
 `;
 
