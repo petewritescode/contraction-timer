@@ -5,11 +5,11 @@ import { AverageType } from '../../models/average-type.model';
 import { MS_IN_AN_HOUR } from '../../constants/time.constants';
 import { now } from '../../utils/now.util';
 import { timerSelectors } from '../../store/timer/timer.selectors';
-import { useIntervalRender } from '../../hooks/interval-render.hook';
+import { useIntervalUpdate } from '../../hooks/interval-update.hook';
 import { useSelector } from 'react-redux';
 
-const RENDER_INTERVAL_RUNNING = 1000;
-const RENDER_INTERVAL_STOPPED = 10000;
+const UPDATE_INTERVAL_RUNNING = 1000;
+const UPDATE_INTERVAL_STOPPED = 10000;
 
 export const Averages: FunctionComponent = () => {
     const startTimestamp = now() - MS_IN_AN_HOUR;
@@ -18,7 +18,7 @@ export const Averages: FunctionComponent = () => {
     const averageDuration = useSelector(timerSelectors.getAverageDurationSince(startTimestamp));
     const averageInterval = useSelector(timerSelectors.getAverageIntervalSince(startTimestamp));
 
-    useIntervalRender(running ? RENDER_INTERVAL_RUNNING : RENDER_INTERVAL_STOPPED);
+    useIntervalUpdate(running ? UPDATE_INTERVAL_RUNNING : UPDATE_INTERVAL_STOPPED);
 
     return (
         <>
