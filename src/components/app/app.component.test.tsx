@@ -184,10 +184,10 @@ describe('App component', () => {
         expect(history).toBeInTheDocument();
         expect(historyItems).toHaveLength(3);
         expect(historyItems[0]).toHaveTextContent('0:03');
-        expect(historyItems[0]).toHaveTextContent('12:35pm, 01/01/2020');
+        expect(historyItems[0]).toHaveTextContent('12:35pm, today');
         expect(historyItems[1]).toHaveTextContent('0:02');
         expect(historyItems[2]).toHaveTextContent('0:01');
-        expect(historyItems[2]).toHaveTextContent('12:34pm, 01/01/2020');
+        expect(historyItems[2]).toHaveTextContent('12:34pm, today');
         expect(clear).toBeInTheDocument();
         expect(clear).not.toHaveAttribute('disabled');
     });
