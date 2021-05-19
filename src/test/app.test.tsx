@@ -1,9 +1,9 @@
-import { fireEvent, render, screen, startFakeTimer, within } from '../../test/utils/test.utils';
-import { App } from './app.component';
+import { fireEvent, render, screen, startFakeTimer, within } from './utils/test.utils';
+import { App } from '../components/app/app.component';
 import React from 'react';
 
-describe('App component', () => {
-    it('renders the outer app layout', () => {
+describe('App tests', () => {
+    test('renders the outer app layout', () => {
         render(<App />);
 
         expect(screen.getByRole('banner')).toBeInTheDocument();
@@ -11,7 +11,7 @@ describe('App component', () => {
         expect(screen.getByRole('navigation')).toBeInTheDocument();
     });
 
-    it('displays the correct background colour for the current status', () => {
+    test('displays the correct background colour for the current status', () => {
         render(<App />);
 
         const layout = screen.getByTestId('layout');
@@ -25,14 +25,41 @@ describe('App component', () => {
         expect(layout).toHaveStyle('background-color: #107cb1');
     });
 
-    it('displays the timer view by default', () => {
+    test('applies focus styles when hitting tab and removes them when using a mouse', () => {
+        const { baseElement } = render(<App />);
+
+        expect(baseElement).not.toHaveClass('focus-outlines');
+
+        fireEvent.keyDown(baseElement, { key: 'Enter' });
+
+        expect(baseElement).not.toHaveClass('focus-outlines');
+
+        fireEvent.keyDown(baseElement, { key: 'Tab' });
+
+        expect(baseElement).toHaveClass('focus-outlines');
+
+        fireEvent.click(baseElement, { clientX: 123, clientY: 321 });
+
+        expect(baseElement).not.toHaveClass('focus-outlines');
+    });
+
+    test('displays the timer view by default', () => {
         render(<App />);
 
         expect(screen.getByRole('heading', { name: /timer/i })).toBeInTheDocument();
         expect(screen.queryByRole('heading', { name: /history/i })).not.toBeInTheDocument();
+        expect(screen.getByLabelText(/phase time/i)).toBeInTheDocument();
     });
 
-    it('navigates between views', () => {
+    test('displays the timer view for an unrecognised URI', () => {
+        render(<App />, '/foobar');
+
+        expect(screen.getByRole('heading', { name: /timer/i })).toBeInTheDocument();
+        expect(screen.queryByRole('heading', { name: /history/i })).not.toBeInTheDocument();
+        expect(screen.getByLabelText(/phase time/i)).toBeInTheDocument();
+    });
+
+    test('navigates between views', () => {
         render(<App />);
 
         const timerLink = screen.getByRole('link', { name: /timer/i });
@@ -53,7 +80,7 @@ describe('App component', () => {
         expect(historyLink).not.toHaveAttribute('aria-current');
     });
 
-    it('displays the phase time and status', () => {
+    test('displays the phase time and status', () => {
         const advanceTime = startFakeTimer();
 
         render(<App />);
@@ -88,7 +115,7 @@ describe('App component', () => {
         expect(status).toHaveTextContent(/ready/i);
     });
 
-    it('displays the average duration and interval', () => {
+    test('displays the average duration and interval', () => {
         const advanceTime = startFakeTimer();
 
         render(<App />);
@@ -117,7 +144,7 @@ describe('App component', () => {
         expect(interval).toHaveTextContent('0:04');
     });
 
-    it('displays controls correctly', () => {
+    test('displays controls correctly', () => {
         render(<App />);
 
         const pause = screen.getByRole('button', { name: /take a break/i });
@@ -149,7 +176,7 @@ describe('App component', () => {
         expect(pause).toHaveAttribute('disabled');
     });
 
-    it('displays empty history when there are no completed contractions', () => {
+    test('displays empty history when there are no completed contractions', () => {
         render(<App />);
 
         fireEvent.click(screen.getByRole('link', { name: /history/i }));
@@ -162,7 +189,7 @@ describe('App component', () => {
         expect(clear).toHaveAttribute('disabled');
     });
 
-    it('displays contraction history when there are completed contractions', () => {
+    test('displays contraction history when there are completed contractions', () => {
         const advanceTime = startFakeTimer(1577882099000);
 
         render(<App />);
@@ -170,9 +197,13 @@ describe('App component', () => {
         fireEvent.click(screen.getByRole('button', { name: /start/i }));
         advanceTime(1000);
         fireEvent.click(screen.getByRole('button', { name: /stop/i }));
-        advanceTime(1000);
+        advanceTime(2000);
         fireEvent.click(screen.getByRole('button', { name: /start/i }));
         advanceTime(3000);
+        fireEvent.click(screen.getByRole('button', { name: /take a break/i }));
+        advanceTime(4000);
+        fireEvent.click(screen.getByRole('button', { name: /start/i }));
+        advanceTime(5000);
         fireEvent.click(screen.getByRole('button', { name: /take a break/i }));
         fireEvent.click(screen.getByRole('link', { name: /history/i }));
 
@@ -182,17 +213,20 @@ describe('App component', () => {
 
         expect(screen.queryByText(/your completed contractions will appear here/i)).not.toBeInTheDocument();
         expect(history).toBeInTheDocument();
-        expect(historyItems).toHaveLength(3);
-        expect(historyItems[0]).toHaveTextContent('0:03');
+        expect(historyItems).toHaveLength(5);
+        expect(historyItems[0]).toHaveTextContent('0:05');
         expect(historyItems[0]).toHaveTextContent('12:35pm, today');
-        expect(historyItems[1]).toHaveTextContent('0:02');
-        expect(historyItems[2]).toHaveTextContent('0:01');
-        expect(historyItems[2]).toHaveTextContent('12:34pm, today');
+        expect(historyItems[1]).toHaveTextContent('');
+        expect(historyItems[2]).toHaveTextContent('0:03');
+        expect(historyItems[2]).toHaveTextContent('12:35pm, today');
+        expect(historyItems[3]).toHaveTextContent('0:03');
+        expect(historyItems[4]).toHaveTextContent('0:01');
+        expect(historyItems[4]).toHaveTextContent('12:34pm, today');
         expect(clear).toBeInTheDocument();
         expect(clear).not.toHaveAttribute('disabled');
     });
 
-    it('allows contraction history to be cleared', () => {
+    test('allows contraction history to be cleared', () => {
         const advanceTime = startFakeTimer();
 
         render(<App />);
@@ -212,5 +246,36 @@ describe('App component', () => {
 
         expect(screen.queryByRole('dialog', { name: /clear history/i })).not.toBeInTheDocument();
         expect(screen.queryByRole('list', { name: /contraction history/i })).not.toBeInTheDocument();
+    });
+
+    test('allows clear history modal to be closed without action', () => {
+        const advanceTime = startFakeTimer();
+
+        render(<App />);
+
+        fireEvent.click(screen.getByRole('button', { name: /start/i }));
+        advanceTime(1000);
+        fireEvent.click(screen.getByRole('button', { name: /stop/i }));
+        fireEvent.click(screen.getByRole('link', { name: /history/i }));
+
+        expect(screen.getByRole('list', { name: /contraction history/i })).toBeInTheDocument();
+
+        fireEvent.click(screen.getByRole('button', { name: /clear/i }));
+
+        expect(screen.getByRole('dialog', { name: /clear history/i })).toBeInTheDocument();
+
+        fireEvent.click(screen.getByRole('button', { name: /cancel/i }));
+
+        expect(screen.queryByRole('dialog', { name: /clear history/i })).not.toBeInTheDocument();
+        expect(screen.queryByRole('list', { name: /contraction history/i })).toBeInTheDocument();
+
+        fireEvent.click(screen.getByRole('button', { name: /clear/i }));
+
+        expect(screen.getByRole('dialog', { name: /clear history/i })).toBeInTheDocument();
+
+        fireEvent.click(screen.getByRole('button', { name: /close/i }));
+
+        expect(screen.queryByRole('dialog', { name: /clear history/i })).not.toBeInTheDocument();
+        expect(screen.queryByRole('list', { name: /contraction history/i })).toBeInTheDocument();
     });
 });

@@ -1,23 +1,16 @@
 import { act, render } from '@testing-library/react';
 import React, { FunctionComponent } from 'react';
-import { AppState } from '../../store/root.reducer';
 import { appTheme } from '../../theme/app.theme';
-import configureStore from 'redux-mock-store';
 import { createStore } from '../../store/app.store';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
-type RenderParameters = Parameters<typeof render>;
-type UI = RenderParameters[0];
-type Options = RenderParameters[1] & { initialState?: Partial<AppState>; };
-
-export const customRender = (ui: UI, options: Options = {}) => {
-    const { initialState, ...renderOptions } = options;
-    const store = initialState ? configureStore()(initialState) : createStore(false);
+export const customRender = (ui: React.ReactElement, path = '') => {
+    const store = createStore(false);
 
     const Wrapper: FunctionComponent = ({ children }) => (
-        <MemoryRouter>
+        <MemoryRouter initialEntries={[path]}>
             <Provider store={store}>
                 <ThemeProvider theme={appTheme}>
                     {children}
@@ -26,7 +19,7 @@ export const customRender = (ui: UI, options: Options = {}) => {
         </MemoryRouter>
     );
 
-    return render(ui, { wrapper: Wrapper, ...renderOptions });
+    return render(ui, { wrapper: Wrapper });
 };
 
 export * from '@testing-library/react';

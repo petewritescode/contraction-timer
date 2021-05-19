@@ -10,12 +10,12 @@ export const Content: FunctionComponent = () => (
     <StyledContent>
         <Container fullHeight padded>
             <Switch>
-                <Route path={Path.Timer} exact>
-                    <TimerView />
-                </Route>
-
                 <Route path={Path.History} exact>
                     <HistoryView />
+                </Route>
+
+                <Route>
+                    <TimerView />
                 </Route>
             </Switch>
         </Container>

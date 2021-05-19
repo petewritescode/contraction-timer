@@ -53,7 +53,7 @@ export const Modal: FunctionComponent<Props> = ({
                     <StyledHeading id="modal-heading">{heading}</StyledHeading>
 
                     <StyledClose>
-                        <StyledCloseButton onClick={handleCloseClick}>
+                        <StyledCloseButton aria-label="Close" onClick={handleCloseClick}>
                             <Icon type={IconType.Clear} size={IconSize.Small} />
                         </StyledCloseButton>
                     </StyledClose>

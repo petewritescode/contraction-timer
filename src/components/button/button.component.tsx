@@ -4,21 +4,20 @@ import { ButtonType } from '../../models/button-type.model';
 import { Icon } from '../icon/icon.component';
 import { IconSize } from '../../models/icon-size.model';
 import { IconType } from '../../models/icon-type.model';
-import { noop } from '../../utils/noop.util';
 
 interface Props {
     label: string;
+    onClick: () => void;
     disabled?: boolean;
     icon?: IconType;
-    onClick?: () => void;
     type?: ButtonType;
 }
 
 export const Button: FunctionComponent<Props> = ({
     label,
+    onClick,
     disabled = false,
     icon,
-    onClick = noop,
     type: buttonType = ButtonType.Default,
 }) => (
     <StyledButton type="button" disabled={disabled} onClick={onClick} buttonType={buttonType}>
