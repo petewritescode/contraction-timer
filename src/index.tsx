@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 import * as serviceWorker from './serviceWorker';
 
-const appStore = createStore();
+const appStore = createStore(true);
 
 const Root: FunctionComponent = () => (
     <HashRouter>

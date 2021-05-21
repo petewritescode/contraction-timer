@@ -3,11 +3,12 @@ import React, { FunctionComponent } from 'react';
 import { appTheme } from '../../theme/app.theme';
 import { createStore } from '../../store/app.store';
 import { MemoryRouter } from 'react-router-dom';
+import moment from 'moment-mini';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 
-export const customRender = (ui: React.ReactElement, path = '') => {
-    const store = createStore(false);
+export const customRender = (ui: React.ReactElement, path = '', persistState = false) => {
+    const store = createStore(persistState);
 
     const Wrapper: FunctionComponent = ({ children }) => (
         <MemoryRouter initialEntries={[path]}>
@@ -27,8 +28,8 @@ export { customRender as render };
 
 export const mockNow = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnValue(timestamp);
 
-export const startFakeTimer = (startTime = 1000000000000) => {
-    let time = startTime;
+export const startFakeTimer = () => {
+    let time = moment('2020-01-01T12:34:59').valueOf();
     mockNow(time);
     jest.useFakeTimers();
 

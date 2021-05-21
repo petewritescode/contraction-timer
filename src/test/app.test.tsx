@@ -2,6 +2,17 @@ import { fireEvent, render, screen, startFakeTimer, within } from './utils/test.
 import { App } from '../components/app/app.component';
 import React from 'react';
 
+const noop = () => {};
+const localStorageKey = 'redux';
+const localStorageData = JSON.stringify({
+    timer: {
+        running: true,
+        contractions: [
+            { start: 1577882099000, duration: 1000 },
+        ],
+    },
+});
+
 describe('App tests', () => {
     test('renders the outer app layout', () => {
         render(<App />);
@@ -190,7 +201,7 @@ describe('App tests', () => {
     });
 
     test('displays contraction history when there are completed contractions', () => {
-        const advanceTime = startFakeTimer(1577882099000);
+        const advanceTime = startFakeTimer();
 
         render(<App />);
 
@@ -277,5 +288,36 @@ describe('App tests', () => {
 
         expect(screen.queryByRole('dialog', { name: /clear history/i })).not.toBeInTheDocument();
         expect(screen.queryByRole('list', { name: /contraction history/i })).toBeInTheDocument();
+    });
+
+    test('saves state to localStorage', () => {
+        const advanceTime = startFakeTimer();
+        jest.spyOn(Object.getPrototypeOf(localStorage), 'setItem').mockImplementation(noop);
+
+        render(<App />, undefined, true);
+
+        fireEvent.click(screen.getByRole('button', { name: /start/i }));
+        advanceTime(1000);
+        fireEvent.click(screen.getByRole('button', { name: /stop/i }));
+
+        expect(localStorage.setItem).toHaveBeenLastCalledWith(localStorageKey, localStorageData);
+    });
+
+    test('loads state from localStorage', () => {
+        startFakeTimer();
+        jest.spyOn(Object.getPrototypeOf(localStorage), 'getItem').mockReturnValue(localStorageData);
+
+        render(<App />, undefined, true);
+
+        fireEvent.click(screen.getByRole('link', { name: /history/i }));
+
+        const history = screen.getByRole('list', { name: /contraction history/i });
+        const historyItems = within(history).getAllByRole('listitem');
+
+        expect(screen.queryByText(/your completed contractions will appear here/i)).not.toBeInTheDocument();
+        expect(history).toBeInTheDocument();
+        expect(historyItems).toHaveLength(1);
+        expect(historyItems[0]).toHaveTextContent('0:01');
+        expect(historyItems[0]).toHaveTextContent('12:34pm, today');
     });
 });
