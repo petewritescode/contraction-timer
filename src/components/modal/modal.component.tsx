@@ -19,10 +19,10 @@ import { useDispatch } from 'react-redux';
 
 interface Props {
     heading: string;
-    primaryButtonText?: string;
-    primaryButtonOnClick?: () => void;
-    secondaryButtonText?: string;
-    secondaryButtonOnClick?: () => void;
+    primaryButtonText: string;
+    primaryButtonOnClick: () => void;
+    secondaryButtonText: string;
+    secondaryButtonOnClick: () => void;
 }
 
 export const Modal: FunctionComponent<Props> = ({
@@ -34,9 +34,6 @@ export const Modal: FunctionComponent<Props> = ({
     children,
 }) => {
     const dispatch = useDispatch();
-    const showPrimaryButton = Boolean(primaryButtonText && primaryButtonOnClick);
-    const showSecondaryButton = Boolean(secondaryButtonText && secondaryButtonOnClick);
-    const showFooter = showPrimaryButton || showSecondaryButton;
 
     const handleCloseClick = () => {
         dispatch(modalActions.close());
@@ -61,19 +58,13 @@ export const Modal: FunctionComponent<Props> = ({
 
                 <main>{children}</main>
 
-                {showFooter && (
-                    <StyledFooter>
-                        {showPrimaryButton && (
-                            <Button label={primaryButtonText} onClick={primaryButtonOnClick} type={ButtonType.Confirm} />
-                        )}
+                <StyledFooter>
+                    <Button label={primaryButtonText} onClick={primaryButtonOnClick} type={ButtonType.Confirm} />
 
-                        {showSecondaryButton && (
-                            <StyledSecondaryButton>
-                                <Button label={secondaryButtonText} onClick={secondaryButtonOnClick} type={ButtonType.Cancel} />
-                            </StyledSecondaryButton>
-                        )}
-                    </StyledFooter>
-                )}
+                    <StyledSecondaryButton>
+                        <Button label={secondaryButtonText} onClick={secondaryButtonOnClick} type={ButtonType.Cancel} />
+                    </StyledSecondaryButton>
+                </StyledFooter>
             </StyledDialog>
         </StyledBackground>
     );
