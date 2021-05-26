@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
 import { StyledButton, StyledLabel } from './button.styles';
 import { ButtonType } from '../../models/button-type.model';
 import { Icon } from '../icon/icon.component';
 import { IconSize } from '../../models/icon-size.model';
 import { IconType } from '../../models/icon-type.model';
+import React from 'react';
 
 interface Props {
     label: string;
@@ -13,7 +13,7 @@ interface Props {
     type?: ButtonType;
 }
 
-export const Button: FunctionComponent<Props> = ({
+export const Button: React.FC<Props> = ({
     label,
     onClick,
     disabled = false,

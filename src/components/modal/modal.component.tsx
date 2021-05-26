@@ -1,4 +1,3 @@
-import React, { FunctionComponent, MouseEvent } from 'react';
 import {
     StyledBackground,
     StyledClose,
@@ -15,6 +14,7 @@ import { Icon } from '../icon/icon.component';
 import { IconSize } from '../../models/icon-size.model';
 import { IconType } from '../../models/icon-type.model';
 import { modalActions } from '../../store/modal/modal.slice';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 interface Props {
@@ -25,7 +25,7 @@ interface Props {
     secondaryButtonOnClick: () => void;
 }
 
-export const Modal: FunctionComponent<Props> = ({
+export const Modal: React.FC<Props> = ({
     heading,
     primaryButtonText,
     primaryButtonOnClick,
@@ -39,7 +39,7 @@ export const Modal: FunctionComponent<Props> = ({
         dispatch(modalActions.close());
     };
 
-    const handleDialogClick = (event: MouseEvent) => {
+    const handleDialogClick = (event: React.MouseEvent) => {
         event.stopPropagation();
     };
 

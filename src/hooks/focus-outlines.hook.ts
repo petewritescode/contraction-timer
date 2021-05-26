@@ -1,13 +1,14 @@
 import { KeyboardKey } from '../models/keyboard-key.model';
 import { useEffect } from 'react';
 
+const CLASS_NAME = 'focus-outlines';
+
 export const useFocusOutlines = () => {
     const { body } = document;
-    const className = 'focus-outlines';
 
     const handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === KeyboardKey.Tab) {
-            body.classList.add(className);
+            body.classList.add(CLASS_NAME);
         }
     };
 
@@ -15,7 +16,7 @@ export const useFocusOutlines = () => {
         const isTriggeredByMouse = Boolean(event.clientX && event.clientY);
 
         if (isTriggeredByMouse) {
-            body.classList.remove(className);
+            body.classList.remove(CLASS_NAME);
         }
     };
 

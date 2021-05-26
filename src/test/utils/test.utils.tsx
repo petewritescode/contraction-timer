@@ -1,31 +1,13 @@
-import { act, render } from '@testing-library/react';
-import React, { FunctionComponent } from 'react';
+import { act, render as rtlRender } from '@testing-library/react';
 import { appTheme } from '../../theme/app.theme';
 import { createStore } from '../../store/app.store';
 import { MemoryRouter } from 'react-router-dom';
 import moment from 'moment-mini';
 import { Provider } from 'react-redux';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-export const customRender = (ui: React.ReactElement, path = '', persistState = false) => {
-    const store = createStore(persistState);
-
-    const Wrapper: FunctionComponent = ({ children }) => (
-        <MemoryRouter initialEntries={[path]}>
-            <Provider store={store}>
-                <ThemeProvider theme={appTheme}>
-                    {children}
-                </ThemeProvider>
-            </Provider>
-        </MemoryRouter>
-    );
-
-    return render(ui, { wrapper: Wrapper });
-};
-
 export * from '@testing-library/react';
-export { customRender as render };
-
 export const mockNow = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnValue(timestamp);
 
 export const startFakeTimer = () => {
@@ -40,4 +22,20 @@ export const startFakeTimer = () => {
     });
 
     return advanceTime;
+};
+
+export const render = (ui: React.ReactElement, path = '', persistState = false) => {
+    const store = createStore(persistState);
+
+    const Wrapper: React.FC = ({ children }) => (
+        <MemoryRouter initialEntries={[path]}>
+            <Provider store={store}>
+                <ThemeProvider theme={appTheme}>
+                    {children}
+                </ThemeProvider>
+            </Provider>
+        </MemoryRouter>
+    );
+
+    return rtlRender(ui, { wrapper: Wrapper });
 };

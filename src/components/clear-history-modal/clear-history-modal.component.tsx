@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react';
 import { Copy } from '../copy/copy.component';
 import { Modal } from '../modal/modal.component';
 import { modalActions } from '../../store/modal/modal.slice';
+import React from 'react';
 import { timerActions } from '../../store/timer/timer.slice';
 import { useDispatch } from 'react-redux';
 
-export const ClearHistoryModal: FunctionComponent = () => {
+export const ClearHistoryModal: React.FC = () => {
     const dispatch = useDispatch();
 
     const closeModal = () => {

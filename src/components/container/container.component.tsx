@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { StyledContainer } from './container.styles';
 
 interface Props {
@@ -6,6 +6,6 @@ interface Props {
     padded?: boolean;
 }
 
-export const Container: FunctionComponent<Props> = ({ children, fullHeight = false, padded = false }) => (
+export const Container: React.FC<Props> = ({ children, fullHeight = false, padded = false }) => (
     <StyledContainer fullHeight={fullHeight} padded={padded}>{children}</StyledContainer>
 );

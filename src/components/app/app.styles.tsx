@@ -20,8 +20,8 @@ export const NormalizeCss = createGlobalStyle`
     }
 
     h1 {
-        font-size: 2em;
         margin: 0.67em 0;
+        font-size: 2em;
     }
 
     hr {
@@ -63,9 +63,9 @@ export const NormalizeCss = createGlobalStyle`
 
     sub,
     sup {
+        position: relative;
         font-size: 75%;
         line-height: 0;
-        position: relative;
         vertical-align: baseline;
     }
 
@@ -86,10 +86,10 @@ export const NormalizeCss = createGlobalStyle`
     optgroup,
     select,
     textarea {
+        margin: 0;
         font-family: inherit;
         font-size: 100%;
         line-height: 1.15;
-        margin: 0;
     }
 
     button,
@@ -113,8 +113,8 @@ export const NormalizeCss = createGlobalStyle`
     [type="button"]::-moz-focus-inner,
     [type="reset"]::-moz-focus-inner,
     [type="submit"]::-moz-focus-inner {
-        border-style: none;
         padding: 0;
+        border-style: none;
     }
 
     button:-moz-focusring,
@@ -129,11 +129,11 @@ export const NormalizeCss = createGlobalStyle`
     }
 
     legend {
-        box-sizing: border-box;
-        color: inherit;
         display: table;
+        box-sizing: border-box;
         max-width: 100%;
         padding: 0;
+        color: inherit;
         white-space: normal;
     }
 

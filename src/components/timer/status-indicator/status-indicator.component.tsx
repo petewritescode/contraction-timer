@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Status } from '../../../models/status.model';
 import { STATUS_INDICATOR_ANIMATIONS } from '../../../constants/animation.constants';
 import { StyledStatusIndicator } from './status-indicator.styles';
@@ -25,7 +25,7 @@ const getAnimation = (status: Status, previousStatus: Status) => {
     return STATUS_INDICATOR_ANIMATIONS.stopped;
 };
 
-export const StatusIndicator: FunctionComponent = () => {
+export const StatusIndicator: React.FC = () => {
     const status = useSelector(timerSelectors.getStatus);
     const previousStatus = usePrevious(status);
     const forceUpdate = useForceUpdate();

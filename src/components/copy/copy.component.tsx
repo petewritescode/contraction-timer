@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { StyledCopy } from './copy.styles';
 
-export const Copy: FunctionComponent = ({ children }) => <StyledCopy>{children}</StyledCopy>;
+export const Copy: React.FC = ({ children }) => <StyledCopy>{children}</StyledCopy>;
