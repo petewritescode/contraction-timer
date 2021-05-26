@@ -1,7 +1,7 @@
 # Contractions timer
 A minimalist web app for tracking and timing your contractions during labour.
 
-![](docs/preview.png)
+![App screenshots](docs/app.png)
 
 ## Why I built it
 Used contraction timers in wife's first labour and they weren't great, so decided to build my own. Also didn't particularly want to install an app for something I'd only use once, so decided to build a web based one.
