@@ -11,31 +11,31 @@ export * from '@testing-library/react';
 export const mockNow = (timestamp: number) => jest.spyOn(Date, 'now').mockReturnValue(timestamp);
 
 export const startFakeTimer = () => {
-    let time = moment('2020-01-01T12:34:59').valueOf();
+  let time = moment('2020-01-01T12:34:59').valueOf();
+  mockNow(time);
+  jest.useFakeTimers();
+
+  const advanceTime = (duration: number) => act(() => {
+    time += duration;
     mockNow(time);
-    jest.useFakeTimers();
+    jest.advanceTimersByTime(duration);
+  });
 
-    const advanceTime = (duration: number) => act(() => {
-        time += duration;
-        mockNow(time);
-        jest.advanceTimersByTime(duration);
-    });
-
-    return advanceTime;
+  return advanceTime;
 };
 
 export const render = (ui: React.ReactElement, path = '', persistState = false) => {
-    const store = createStore(persistState);
+  const store = createStore(persistState);
 
-    const Wrapper: React.FC = ({ children }) => (
-        <MemoryRouter initialEntries={[path]}>
-            <Provider store={store}>
-                <ThemeProvider theme={appTheme}>
-                    {children}
-                </ThemeProvider>
-            </Provider>
-        </MemoryRouter>
-    );
+  const Wrapper: React.FC = ({ children }) => (
+    <MemoryRouter initialEntries={[path]}>
+      <Provider store={store}>
+        <ThemeProvider theme={appTheme}>
+          {children}
+        </ThemeProvider>
+      </Provider>
+    </MemoryRouter>
+  );
 
-    return rtlRender(ui, { wrapper: Wrapper });
+  return rtlRender(ui, { wrapper: Wrapper });
 };

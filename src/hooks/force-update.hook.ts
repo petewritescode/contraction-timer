@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 export const useForceUpdate = () => {
-    const [, setValue] = useState({});
+  const [, setValue] = useState({});
 
-    return () => {
-        setValue({});
-    };
+  return () => {
+    setValue({});
+  };
 };

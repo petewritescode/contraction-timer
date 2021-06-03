@@ -6,6 +6,6 @@ import { rootReducer } from './root.reducer';
 const persistStateEnhancer: any = persistState(['timer'] as any);
 
 export const createStore = (persist: boolean) => configureStore({
-    reducer: rootReducer,
-    enhancers: persist ? [persistStateEnhancer] : [],
+  reducer: rootReducer,
+  enhancers: persist ? [persistStateEnhancer] : [],
 });

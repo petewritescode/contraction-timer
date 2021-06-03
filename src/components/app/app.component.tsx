@@ -5,15 +5,15 @@ import React from 'react';
 import { useFocusOutlines } from '../../hooks/focus-outlines.hook';
 
 export const App: React.FC = () => {
-    useFocusOutlines();
+  useFocusOutlines();
 
-    return (
-        <>
-            <NormalizeCss />
-            <BaseCss />
+  return (
+    <>
+      <NormalizeCss />
+      <BaseCss />
 
-            <Layout />
-            <ModalRenderer />
-        </>
-    );
+      <Layout />
+      <ModalRenderer />
+    </>
+  );
 };

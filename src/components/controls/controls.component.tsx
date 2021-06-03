@@ -10,28 +10,28 @@ import { timerActions } from '../../store/timer/timer.slice';
 import { timerSelectors } from '../../store/timer/timer.selectors';
 
 export const Controls: React.FC = () => {
-    const dispatch = useDispatch();
-    const status = useSelector(timerSelectors.getStatus);
-    const primaryType = status === Status.Contraction ? PrimaryControlType.Stop : PrimaryControlType.Start;
-    const secondaryDisabled = status === Status.Ready;
+  const dispatch = useDispatch();
+  const status = useSelector(timerSelectors.getStatus);
+  const primaryType = status === Status.Contraction ? PrimaryControlType.Stop : PrimaryControlType.Start;
+  const secondaryDisabled = status === Status.Ready;
 
-    const handlePrimaryClick = () => {
-        dispatch(timerActions.toggleContraction());
-    };
+  const handlePrimaryClick = () => {
+    dispatch(timerActions.toggleContraction());
+  };
 
-    const handleSecondaryClick = () => {
-        dispatch(timerActions.stop());
-    };
+  const handleSecondaryClick = () => {
+    dispatch(timerActions.stop());
+  };
 
-    return (
-        <StyledControls>
-            <StyledPrimary>
-                <PrimaryControl type={primaryType} onClick={handlePrimaryClick} />
-            </StyledPrimary>
+  return (
+    <StyledControls>
+      <StyledPrimary>
+        <PrimaryControl type={primaryType} onClick={handlePrimaryClick} />
+      </StyledPrimary>
 
-            <li>
-                <Button label="Take a break" icon={IconType.Pause} disabled={secondaryDisabled} onClick={handleSecondaryClick} />
-            </li>
-        </StyledControls>
-    );
+      <li>
+        <Button label="Take a break" icon={IconType.Pause} disabled={secondaryDisabled} onClick={handleSecondaryClick} />
+      </li>
+    </StyledControls>
+  );
 };

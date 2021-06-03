@@ -9,13 +9,13 @@ import { useSelector } from 'react-redux';
 const UPDATE_INTERVAL = 100;
 
 export const Time: React.FC = () => {
-    const running = useSelector(timerSelectors.getRunning);
-    const phaseStartTime = useSelector(timerSelectors.getPhaseStartTime);
+  const running = useSelector(timerSelectors.getRunning);
+  const phaseStartTime = useSelector(timerSelectors.getPhaseStartTime);
 
-    useIntervalUpdate(running ? UPDATE_INTERVAL : undefined);
+  useIntervalUpdate(running ? UPDATE_INTERVAL : undefined);
 
-    const duration = running && phaseStartTime ? now() - phaseStartTime : undefined;
-    const formattedDuration = formatDuration(duration);
+  const duration = running && phaseStartTime ? now() - phaseStartTime : undefined;
+  const formattedDuration = formatDuration(duration);
 
-    return <StyledTime aria-label="Phase time">{formattedDuration}</StyledTime>;
+  return <StyledTime aria-label="Phase time">{formattedDuration}</StyledTime>;
 };

@@ -12,26 +12,26 @@ import { View } from '../../models/view.model';
 import { VIEW_TO_HEADING_MAP } from '../../constants/view.constants';
 
 export const Header: React.FC = () => {
-    const dispatch = useDispatch();
-    const view = useView();
+  const dispatch = useDispatch();
+  const view = useView();
 
-    const heading = VIEW_TO_HEADING_MAP[view];
-    const showClearButton = view === View.History;
-    const clearButtonDisabled = !useSelector(timerSelectors.hasCompletedContractions);
+  const heading = VIEW_TO_HEADING_MAP[view];
+  const showClearButton = view === View.History;
+  const clearButtonDisabled = !useSelector(timerSelectors.hasCompletedContractions);
 
-    const handleClearClick = () => {
-        dispatch(modalActions.open(ModalType.ClearHistory));
-    };
+  const handleClearClick = () => {
+    dispatch(modalActions.open(ModalType.ClearHistory));
+  };
 
-    return (
-        <Container padded>
-            <StyledHeader>
-                <StyledHeading>{heading}</StyledHeading>
+  return (
+    <Container padded>
+      <StyledHeader>
+        <StyledHeading>{heading}</StyledHeading>
 
-                {showClearButton && (
-                    <Button label="Clear" icon={IconType.Clear} disabled={clearButtonDisabled} onClick={handleClearClick} />
-                )}
-            </StyledHeader>
-        </Container>
-    );
+        {showClearButton && (
+          <Button label="Clear" icon={IconType.Clear} disabled={clearButtonDisabled} onClick={handleClearClick} />
+        )}
+      </StyledHeader>
+    </Container>
+  );
 };

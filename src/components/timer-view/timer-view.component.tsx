@@ -5,19 +5,19 @@ import React from 'react';
 import { Timer } from '../timer/timer.component';
 
 export const TimerView: React.FC = () => (
-    <StyledTimerView>
-        <StyledContainer>
-            <section>
-                <Timer />
-            </section>
+  <StyledTimerView>
+    <StyledContainer>
+      <section>
+        <Timer />
+      </section>
 
-            <StyledAverages>
-                <Averages />
-            </StyledAverages>
+      <StyledAverages>
+        <Averages />
+      </StyledAverages>
 
-            <section>
-                <Controls />
-            </section>
-        </StyledContainer>
-    </StyledTimerView>
+      <section>
+        <Controls />
+      </section>
+    </StyledContainer>
+  </StyledTimerView>
 );

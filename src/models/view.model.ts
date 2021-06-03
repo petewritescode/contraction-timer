@@ -1,4 +1,4 @@
 export enum View {
-    History = 'History',
-    Timer = 'Timer',
+  History = 'History',
+  Timer = 'Timer',
 }

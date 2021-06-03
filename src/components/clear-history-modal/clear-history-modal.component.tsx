@@ -6,32 +6,32 @@ import { timerActions } from '../../store/timer/timer.slice';
 import { useDispatch } from 'react-redux';
 
 export const ClearHistoryModal: React.FC = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const closeModal = () => {
-        dispatch(modalActions.close());
-    };
+  const closeModal = () => {
+    dispatch(modalActions.close());
+  };
 
-    const handleConfirmClick = () => {
-        dispatch(timerActions.clearComplete());
-        closeModal();
-    };
+  const handleConfirmClick = () => {
+    dispatch(timerActions.clearComplete());
+    closeModal();
+  };
 
-    const handleCancelClick = () => {
-        closeModal();
-    };
+  const handleCancelClick = () => {
+    closeModal();
+  };
 
-    return (
-        <Modal
-            heading="Clear history"
-            primaryButtonText="Confirm"
-            primaryButtonOnClick={handleConfirmClick}
-            secondaryButtonText="Cancel"
-            secondaryButtonOnClick={handleCancelClick}
-        >
-            <Copy>
-                <p>Are you sure you want to clear your contraction history?</p>
-            </Copy>
-        </Modal>
-    );
+  return (
+    <Modal
+      heading="Clear history"
+      primaryButtonText="Confirm"
+      primaryButtonOnClick={handleConfirmClick}
+      secondaryButtonText="Cancel"
+      secondaryButtonOnClick={handleCancelClick}
+    >
+      <Copy>
+        <p>Are you sure you want to clear your contraction history?</p>
+      </Copy>
+    </Modal>
+  );
 };

@@ -6,22 +6,22 @@ import { IconType } from '../../models/icon-type.model';
 import React from 'react';
 
 interface Props {
-    label: string;
-    onClick: () => void;
-    disabled?: boolean;
-    icon?: IconType;
-    type?: ButtonType;
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+  icon?: IconType;
+  type?: ButtonType;
 }
 
 export const Button: React.FC<Props> = ({
-    label,
-    onClick,
-    disabled = false,
-    icon,
-    type: buttonType = ButtonType.Default,
+  label,
+  onClick,
+  disabled = false,
+  icon,
+  type: buttonType = ButtonType.Default,
 }) => (
-    <StyledButton type="button" disabled={disabled} onClick={onClick} buttonType={buttonType}>
-        {icon && <Icon type={icon} size={IconSize.Small} />}
-        <StyledLabel>{label}</StyledLabel>
-    </StyledButton>
+  <StyledButton type="button" disabled={disabled} onClick={onClick} buttonType={buttonType}>
+    {icon && <Icon type={icon} size={IconSize.Small} />}
+    <StyledLabel>{label}</StyledLabel>
+  </StyledButton>
 );

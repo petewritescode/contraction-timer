@@ -1,3 +1,3 @@
 export enum ModalType {
-    ClearHistory = 'ClearHistory',
+  ClearHistory = 'ClearHistory',
 }

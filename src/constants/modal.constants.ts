@@ -3,5 +3,5 @@ import { FunctionComponent } from 'react';
 import { ModalType } from '../models/modal-type.model';
 
 export const MODAL_TYPE_TO_COMPONENT_MAP: Record<ModalType, FunctionComponent> = {
-    [ModalType.ClearHistory]: ClearHistoryModal,
+  [ModalType.ClearHistory]: ClearHistoryModal,
 };

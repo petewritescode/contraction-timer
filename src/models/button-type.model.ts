@@ -1,5 +1,5 @@
 export enum ButtonType {
-    Cancel = 'Cancel',
-    Confirm = 'Confirm',
-    Default = 'Default',
+  Cancel = 'Cancel',
+  Confirm = 'Confirm',
+  Default = 'Default',
 }

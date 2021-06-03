@@ -7,17 +7,17 @@ import { StyledContent } from './content.styles';
 import { TimerView } from '../timer-view/timer-view.component';
 
 export const Content: React.FC = () => (
-    <StyledContent>
-        <Container fullHeight padded>
-            <Switch>
-                <Route path={Path.History} exact>
-                    <HistoryView />
-                </Route>
+  <StyledContent>
+    <Container fullHeight padded>
+      <Switch>
+        <Route path={Path.History} exact>
+          <HistoryView />
+        </Route>
 
-                <Route>
-                    <TimerView />
-                </Route>
-            </Switch>
-        </Container>
-    </StyledContent>
+        <Route>
+          <TimerView />
+        </Route>
+      </Switch>
+    </Container>
+  </StyledContent>
 );

@@ -1,12 +1,12 @@
 import {
-    StyledBackground,
-    StyledClose,
-    StyledCloseButton,
-    StyledDialog,
-    StyledFooter,
-    StyledHeader,
-    StyledHeading,
-    StyledSecondaryButton,
+  StyledBackground,
+  StyledClose,
+  StyledCloseButton,
+  StyledDialog,
+  StyledFooter,
+  StyledHeader,
+  StyledHeading,
+  StyledSecondaryButton,
 } from './modal.styles';
 import { Button } from '../button/button.component';
 import { ButtonType } from '../../models/button-type.model';
@@ -18,54 +18,54 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 interface Props {
-    heading: string;
-    primaryButtonText: string;
-    primaryButtonOnClick: () => void;
-    secondaryButtonText: string;
-    secondaryButtonOnClick: () => void;
+  heading: string;
+  primaryButtonText: string;
+  primaryButtonOnClick: () => void;
+  secondaryButtonText: string;
+  secondaryButtonOnClick: () => void;
 }
 
 export const Modal: React.FC<Props> = ({
-    heading,
-    primaryButtonText,
-    primaryButtonOnClick,
-    secondaryButtonText,
-    secondaryButtonOnClick,
-    children,
+  heading,
+  primaryButtonText,
+  primaryButtonOnClick,
+  secondaryButtonText,
+  secondaryButtonOnClick,
+  children,
 }) => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const handleCloseClick = () => {
-        dispatch(modalActions.close());
-    };
+  const handleCloseClick = () => {
+    dispatch(modalActions.close());
+  };
 
-    const handleDialogClick = (event: React.MouseEvent) => {
-        event.stopPropagation();
-    };
+  const handleDialogClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
 
-    return (
-        <StyledBackground role="dialog" aria-labelledby="modal-heading" onClick={handleCloseClick}>
-            <StyledDialog onClick={handleDialogClick}>
-                <StyledHeader>
-                    <StyledHeading id="modal-heading">{heading}</StyledHeading>
+  return (
+    <StyledBackground role="dialog" aria-labelledby="modal-heading" onClick={handleCloseClick}>
+      <StyledDialog onClick={handleDialogClick}>
+        <StyledHeader>
+          <StyledHeading id="modal-heading">{heading}</StyledHeading>
 
-                    <StyledClose>
-                        <StyledCloseButton aria-label="Close" onClick={handleCloseClick}>
-                            <Icon type={IconType.Clear} size={IconSize.Small} />
-                        </StyledCloseButton>
-                    </StyledClose>
-                </StyledHeader>
+          <StyledClose>
+            <StyledCloseButton aria-label="Close" onClick={handleCloseClick}>
+              <Icon type={IconType.Clear} size={IconSize.Small} />
+            </StyledCloseButton>
+          </StyledClose>
+        </StyledHeader>
 
-                <main>{children}</main>
+        <main>{children}</main>
 
-                <StyledFooter>
-                    <Button label={primaryButtonText} onClick={primaryButtonOnClick} type={ButtonType.Confirm} />
+        <StyledFooter>
+          <Button label={primaryButtonText} onClick={primaryButtonOnClick} type={ButtonType.Confirm} />
 
-                    <StyledSecondaryButton>
-                        <Button label={secondaryButtonText} onClick={secondaryButtonOnClick} type={ButtonType.Cancel} />
-                    </StyledSecondaryButton>
-                </StyledFooter>
-            </StyledDialog>
-        </StyledBackground>
-    );
+          <StyledSecondaryButton>
+            <Button label={secondaryButtonText} onClick={secondaryButtonOnClick} type={ButtonType.Cancel} />
+          </StyledSecondaryButton>
+        </StyledFooter>
+      </StyledDialog>
+    </StyledBackground>
+  );
 };

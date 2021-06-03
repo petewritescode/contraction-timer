@@ -6,11 +6,11 @@ import { timerSelectors } from '../../store/timer/timer.selectors';
 import { useSelector } from 'react-redux';
 
 export const HistoryView: React.FC = () => {
-    const hasCompletedContractions = useSelector(timerSelectors.hasCompletedContractions);
+  const hasCompletedContractions = useSelector(timerSelectors.hasCompletedContractions);
 
-    return (
-        <StyledHistoryView>
-            {hasCompletedContractions ? <HistoryList /> : <HistoryEmpty />}
-        </StyledHistoryView>
-    );
+  return (
+    <StyledHistoryView>
+      {hasCompletedContractions ? <HistoryList /> : <HistoryEmpty />}
+    </StyledHistoryView>
+  );
 };

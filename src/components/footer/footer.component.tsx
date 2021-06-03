@@ -8,19 +8,19 @@ import { View } from '../../models/view.model';
 import { VIEW_TO_HEADING_MAP } from '../../constants/view.constants';
 
 export const Footer: React.FC = () => (
-    <StyledFooter>
-        <nav>
-            <Container>
-                <StyledContainer>
-                    <StyledItem>
-                        <NavLink to={Path.Timer} icon={IconType.Timer} label={VIEW_TO_HEADING_MAP[View.Timer]} />
-                    </StyledItem>
+  <StyledFooter>
+    <nav>
+      <Container>
+        <StyledContainer>
+          <StyledItem>
+            <NavLink to={Path.Timer} icon={IconType.Timer} label={VIEW_TO_HEADING_MAP[View.Timer]} />
+          </StyledItem>
 
-                    <StyledItem>
-                        <NavLink to={Path.History} icon={IconType.History} label={VIEW_TO_HEADING_MAP[View.History]} />
-                    </StyledItem>
-                </StyledContainer>
-            </Container>
-        </nav>
-    </StyledFooter>
+          <StyledItem>
+            <NavLink to={Path.History} icon={IconType.History} label={VIEW_TO_HEADING_MAP[View.History]} />
+          </StyledItem>
+        </StyledContainer>
+      </Container>
+    </nav>
+  </StyledFooter>
 );

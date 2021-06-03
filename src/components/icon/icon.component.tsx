@@ -5,18 +5,18 @@ import React from 'react';
 import { StyledIcon } from './icon.styles';
 
 interface Props {
-    type: IconType;
-    size: IconSize;
+  type: IconType;
+  size: IconSize;
 }
 
 export const Icon: React.FC<Props> = ({ type, size }) => {
-    const iconCode = `&#x${ICON_TYPE_TO_CODE_MAP[type]};`;
+  const iconCode = `&#x${ICON_TYPE_TO_CODE_MAP[type]};`;
 
-    return (
-        <StyledIcon
-            className="material-icons-round"
-            size={size}
-            dangerouslySetInnerHTML={{ __html: iconCode }}
-        />
-    );
+  return (
+    <StyledIcon
+      className="material-icons-round"
+      size={size}
+      dangerouslySetInnerHTML={{ __html: iconCode }}
+    />
+  );
 };

@@ -1,3 +1,3 @@
 export enum KeyboardKey {
-    Tab = 'Tab',
+  Tab = 'Tab',
 }

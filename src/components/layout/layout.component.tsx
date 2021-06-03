@@ -7,21 +7,21 @@ import { timerSelectors } from '../../store/timer/timer.selectors';
 import { useSelector } from 'react-redux';
 
 export const Layout: React.FC = () => {
-    const status = useSelector(timerSelectors.getStatus);
+  const status = useSelector(timerSelectors.getStatus);
 
-    return (
-        <StyledLayout status={status} data-testid="layout">
-            <section>
-                <Header />
-            </section>
+  return (
+    <StyledLayout status={status} data-testid="layout">
+      <section>
+        <Header />
+      </section>
 
-            <StyledContent>
-                <Content />
-            </StyledContent>
+      <StyledContent>
+        <Content />
+      </StyledContent>
 
-            <section>
-                <Footer />
-            </section>
-        </StyledLayout>
-    );
+      <section>
+        <Footer />
+      </section>
+    </StyledLayout>
+  );
 };

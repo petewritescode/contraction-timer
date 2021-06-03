@@ -8,18 +8,18 @@ import { timerSelectors } from '../../../store/timer/timer.selectors';
 import { useSelector } from 'react-redux';
 
 interface Props {
-    type: PrimaryControlType;
-    onClick: () => void;
+  type: PrimaryControlType;
+  onClick: () => void;
 }
 
 export const PrimaryControl: React.FC<Props> = ({ type, onClick }) => {
-    const status = useSelector(timerSelectors.getStatus);
-    const iconType = PRIMARY_CONTROL_TYPE_TO_ICON_TYPE_MAP[type];
-    const label = PRIMARY_CONTROL_TYPE_TO_LABEL_MAP[type];
+  const status = useSelector(timerSelectors.getStatus);
+  const iconType = PRIMARY_CONTROL_TYPE_TO_ICON_TYPE_MAP[type];
+  const label = PRIMARY_CONTROL_TYPE_TO_LABEL_MAP[type];
 
-    return (
-        <StyledPrimaryControl type="button" aria-label={label} status={status} onClick={onClick}>
-            <Icon type={iconType} size={IconSize.Large} />
-        </StyledPrimaryControl>
-    );
+  return (
+    <StyledPrimaryControl type="button" aria-label={label} status={status} onClick={onClick}>
+      <Icon type={iconType} size={IconSize.Large} />
+    </StyledPrimaryControl>
+  );
 };

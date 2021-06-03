@@ -1,14 +1,14 @@
 {
-    "processors": [
-        "stylelint-processor-styled-components"
-    ],
-    "extends": [
-        "stylelint-config-recommended",
-        "stylelint-config-styled-components",
-        "stylelint-config-property-sort-order-smacss"
-    ],
-    "rules": {
-        "indentation": 4,
-        "selector-pseudo-element-colon-notation": "double"
-    }
+  "processors": [
+    "stylelint-processor-styled-components"
+  ],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-styled-components",
+    "stylelint-config-property-sort-order-smacss"
+  ],
+  "rules": {
+    "indentation": 2,
+    "selector-pseudo-element-colon-notation": "double"
+  }
 }

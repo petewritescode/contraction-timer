@@ -1,4 +1,4 @@
 export enum Path {
-    Timer = '/',
-    History = '/history',
+  Timer = '/',
+  History = '/history',
 }

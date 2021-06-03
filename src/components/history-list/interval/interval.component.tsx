@@ -3,9 +3,9 @@ import React from 'react';
 import { StyledInterval } from './interval.styles';
 
 interface Props {
-    duration: number;
+  duration: number;
 }
 
 export const Interval: React.FC<Props> = ({ duration }) => (
-    <StyledInterval>{formatDuration(duration)}</StyledInterval>
+  <StyledInterval>{formatDuration(duration)}</StyledInterval>
 );

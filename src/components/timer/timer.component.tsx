@@ -7,17 +7,17 @@ import { timerSelectors } from '../../store/timer/timer.selectors';
 import { useSelector } from 'react-redux';
 
 export const Timer: React.FC = () => {
-    const status = useSelector(timerSelectors.getStatus);
-    const label = STATUS_TO_LABEL_MAP[status];
+  const status = useSelector(timerSelectors.getStatus);
+  const label = STATUS_TO_LABEL_MAP[status];
 
-    return (
-        <StyledTimer>
-            <StyledStatusIndicator>
-                <StatusIndicator />
-            </StyledStatusIndicator>
+  return (
+    <StyledTimer>
+      <StyledStatusIndicator>
+        <StatusIndicator />
+      </StyledStatusIndicator>
 
-            <Time />
-            <StyledLabel aria-label="Status">{label}</StyledLabel>
-        </StyledTimer>
-    );
+      <Time />
+      <StyledLabel aria-label="Status">{label}</StyledLabel>
+    </StyledTimer>
+  );
 };

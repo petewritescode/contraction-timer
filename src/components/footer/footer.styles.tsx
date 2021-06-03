@@ -2,13 +2,13 @@ import { color } from '../../theme/helpers/theme.helpers';
 import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
-    background-color: ${color('neutralMax25')};
+  background-color: ${color('neutralMax25')};
 `;
 
 export const StyledContainer = styled.ul`
-    display: flex;
+  display: flex;
 `;
 
 export const StyledItem = styled.li`
-    flex: 1;
+  flex: 1;
 `;

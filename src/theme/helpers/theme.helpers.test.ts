@@ -3,117 +3,117 @@ import { Status } from '../../models/status.model';
 import { Theme } from '../../models/theme.model';
 
 const theme = {
-    border: {
-        width: {
-            s: 'borderWidthS',
-            m: 'borderWidthM',
-            l: 'borderWidthL',
-        },
-        radius: {
-            s: 'borderRadiusS',
-            m: 'borderRadiusM',
-            l: 'borderRadiusL',
-        },
+  border: {
+    width: {
+      s: 'borderWidthS',
+      m: 'borderWidthM',
+      l: 'borderWidthL',
     },
-    breakpoint: {
-        s: 'breakpointS',
+    radius: {
+      s: 'borderRadiusS',
+      m: 'borderRadiusM',
+      l: 'borderRadiusL',
     },
-    color: {
-        contraction: 'colorContraction',
-        ready: 'colorReady',
-        rest: 'colorRest',
+  },
+  breakpoint: {
+    s: 'breakpointS',
+  },
+  color: {
+    contraction: 'colorContraction',
+    ready: 'colorReady',
+    rest: 'colorRest',
+  },
+  font: {
+    size: {
+      s: 'fontSizeS',
+      m: 'fontSizeM',
+      l: 'fontSizeL',
     },
-    font: {
-        size: {
-            s: 'fontSizeS',
-            m: 'fontSizeM',
-            l: 'fontSizeL',
-        },
+  },
+  spacing: {
+    s: 'spacingS',
+    m: 'spacingM',
+    l: 'spacingL',
+  },
+  transition: {
+    duration: {
+      m: 'transitionDurationM',
     },
-    spacing: {
-        s: 'spacingS',
-        m: 'spacingM',
-        l: 'spacingL',
-    },
-    transition: {
-        duration: {
-            m: 'transitionDurationM',
-        },
-    },
+  },
 } as Theme;
 
 describe('Theme helpers', () => {
-    describe('rem', () => {
-        it('converts a pixel value to rems, based on a root font size of 16px', () => {
-            expect(pxToRem(32)).toEqual('2rem');
-        });
+  describe('rem', () => {
+    it('converts a pixel value to rems, based on a root font size of 16px', () => {
+      expect(pxToRem(32)).toEqual('2rem');
     });
+  });
 
-    describe('borderWidth', () => {
-        it('returns the specified border width', () => {
-            expect(borderWidth('s')({ theme })).toEqual('borderWidthS');
-            expect(borderWidth('m')({ theme })).toEqual('borderWidthM');
-            expect(borderWidth('l')({ theme })).toEqual('borderWidthL');
-        });
+  describe('borderWidth', () => {
+    it('returns the specified border width', () => {
+      expect(borderWidth('s')({ theme })).toEqual('borderWidthS');
+      expect(borderWidth('m')({ theme })).toEqual('borderWidthM');
+      expect(borderWidth('l')({ theme })).toEqual('borderWidthL');
     });
+  });
 
-    describe('borderRadius', () => {
-        it('returns the specified border radius', () => {
-            expect(borderRadius('s')({ theme })).toEqual('borderRadiusS');
-            expect(borderRadius('m')({ theme })).toEqual('borderRadiusM');
-            expect(borderRadius('l')({ theme })).toEqual('borderRadiusL');
-        });
+  describe('borderRadius', () => {
+    it('returns the specified border radius', () => {
+      expect(borderRadius('s')({ theme })).toEqual('borderRadiusS');
+      expect(borderRadius('m')({ theme })).toEqual('borderRadiusM');
+      expect(borderRadius('l')({ theme })).toEqual('borderRadiusL');
     });
+  });
 
-    describe('breakpoint', () => {
-        it('returns the passed styles wrapped in a media query', () => {
-            const reduceWhitespace = (text: string) => text.replace(/\s+/g, ' ').trim();
+  describe('breakpoint', () => {
+    it('returns the passed styles wrapped in a media query', () => {
+      const reduceWhitespace = (text: string) => text.replace(/\s+/g, ' ').trim();
 
-            const expected = `@media (min-width: breakpointS) {
-                color: red;
-            }`;
+      const expected = `@media (min-width: breakpointS) {
+        color: red;
+      }`;
 
-            const actual = breakpoint('s', 'color: red;')({ theme }).join('');
+      const actual = breakpoint('s', 'color: red;')({ theme }).join('');
 
-            expect(reduceWhitespace(actual)).toEqual(reduceWhitespace(expected));
-        });
+      expect(reduceWhitespace(actual)).toEqual(reduceWhitespace(expected));
     });
+  });
 
-    describe('color', () => {
-        it('returns the specified color', () => {
-            expect(color('contraction')({ theme })).toEqual('colorContraction');
-            expect(color('ready')({ theme })).toEqual('colorReady');
-            expect(color('rest')({ theme })).toEqual('colorRest');
-        });
+  describe('color', () => {
+    it('returns the specified color', () => {
+      expect(color('contraction')({ theme })).toEqual('colorContraction');
+      expect(color('ready')({ theme })).toEqual('colorReady');
+      expect(color('rest')({ theme })).toEqual('colorRest');
     });
+  });
 
-    describe('statusColor', () => {
-        it('returns the correct color for the current status', () => {
-            expect(statusColor({ theme, status: Status.Contraction })).toEqual('colorContraction');
-            expect(statusColor({ theme, status: Status.Ready })).toEqual('colorReady');
-            expect(statusColor({ theme, status: Status.Rest })).toEqual('colorRest');
-        });
+  describe('statusColor', () => {
+    it('returns the correct color for the current status', () => {
+      expect(statusColor({ theme, status: Status.Contraction })).toEqual('colorContraction');
+      expect(statusColor({ theme, status: Status.Ready })).toEqual('colorReady');
+      expect(statusColor({ theme, status: Status.Rest })).toEqual('colorRest');
     });
+  });
 
-    describe('fontSize', () => {
-        it('returns the specified font size', () => {
-            expect(fontSize('s')({ theme })).toEqual('fontSizeS');
-            expect(fontSize('m')({ theme })).toEqual('fontSizeM');
-            expect(fontSize('l')({ theme })).toEqual('fontSizeL');
-        });
+  describe('fontSize', () => {
+    it('returns the specified font size', () => {
+      expect(fontSize('s')({ theme })).toEqual('fontSizeS');
+      expect(fontSize('m')({ theme })).toEqual('fontSizeM');
+      expect(fontSize('l')({ theme })).toEqual('fontSizeL');
     });
+  });
 
-    describe('spacing', () => {
-        it('returns the specified spacing', () => {
-            expect(spacing('s')({ theme })).toEqual('spacingS');
-            expect(spacing('m')({ theme })).toEqual('spacingM');
-            expect(spacing('l')({ theme })).toEqual('spacingL');
-        });
+  describe('spacing', () => {
+    it('returns the specified spacing', () => {
+      expect(spacing('s')({ theme })).toEqual('spacingS');
+      expect(spacing('m')({ theme })).toEqual('spacingM');
+      expect(spacing('l')({ theme })).toEqual('spacingL');
     });
+  });
 
-    describe('transitionDuration', () => {
-        it('returns the specified transition duration', () => {
-            expect(transitionDuration('m')({ theme })).toEqual('transitionDurationM');
-        });
+  describe('transitionDuration', () => {
+    it('returns the specified transition duration', () => {
+      expect(transitionDuration('m')({ theme })).toEqual('transitionDurationM');
     });
+  });
 });

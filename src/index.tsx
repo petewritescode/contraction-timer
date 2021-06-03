@@ -11,13 +11,13 @@ import * as serviceWorker from './serviceWorker';
 const appStore = createStore(true);
 
 const Root: React.FC = () => (
-    <HashRouter>
-        <Provider store={appStore}>
-            <ThemeProvider theme={appTheme}>
-                <App />
-            </ThemeProvider>
-        </Provider>
-    </HashRouter>
+  <HashRouter>
+    <Provider store={appStore}>
+      <ThemeProvider theme={appTheme}>
+        <App />
+      </ThemeProvider>
+    </Provider>
+  </HashRouter>
 );
 
 ReactDOM.render(<Root />, document.getElementById('root'));
