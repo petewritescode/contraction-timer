@@ -1,4 +1,4 @@
-# Contractions timer
+# Contraction timer
 
 A minimalist web app for timing and tracking labour contractions.
 
