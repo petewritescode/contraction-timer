@@ -33,7 +33,7 @@
     "redux": "^4.0.5",
     "redux-localstorage": "^0.4.1",
     "styled-components": "^5.0.1",
-    "stylelint": "^13.7.1",
+    "stylelint": "^15.10.1",
     "stylelint-config-property-sort-order-smacss": "^6.3.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-styled-components": "^0.1.1",
